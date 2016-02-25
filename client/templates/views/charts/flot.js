@@ -20,7 +20,7 @@ Template.flot.onRendered(function(){
             borderColor: '#e4e5e7',
             color: '#6a6c6f'
         },
-        colors: [ "#62cb31", "#efefef"],
+        colors: [ "#0190fe", "#efefef"],
     };
 
     $.plot($("#flot-line-chart"), [data1], chartUsersOptions);
@@ -47,7 +47,7 @@ Template.flot.onRendered(function(){
         xaxis: {
             tickDecimals: 0
         },
-        colors: ["#62cb31"],
+        colors: ["#0190fe"],
         grid: {
             color: "#e4e5e7",
             hoverable: true,
@@ -68,10 +68,10 @@ Template.flot.onRendered(function(){
     $.plot($("#flot-bar-chart"), data2, chartUsersOptions2);
 
     var data3 = [
-        { label: "Data 1", data: 16, color: "#84c465", },
-        { label: "Data 2", data: 6, color: "#8dd76a", },
-        { label: "Data 3", data: 22, color: "#a2c98f", },
-        { label: "Data 4", data: 32, color: "#c7eeb4", }
+        { label: "Data 1", data: 16, color: "#1b9bfe", },
+        { label: "Data 2", data: 6, color: "#57a2db", },
+        { label: "Data 3", data: 22, color: "#67bdfe", },
+        { label: "Data 4", data: 32, color: "#4da6fe", }
     ];
 
     var chartUsersOptions3 = {
@@ -118,7 +118,7 @@ Template.flot.onRendered(function(){
         xaxis: {
             tickDecimals: 0
         },
-        colors: ["#62cb31"],
+        colors: ["#0190fe"],
         grid: {
             tickColor: "#e4e5e7",
             borderWidth: 1,
@@ -168,7 +168,7 @@ Template.flot.onRendered(function(){
                 min: -1.2,
                 max: 1.2
             },
-            colors: [ "#62cb31", "#efefef"],
+            colors: [ "#0190fe", "#efefef"],
         }
         ;
 

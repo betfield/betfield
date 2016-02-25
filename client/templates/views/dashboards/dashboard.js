@@ -20,7 +20,7 @@ Template.dashboard.onRendered(function(){
             borderColor: 'f0f0f0',
             color: '#6a6c6f'
         },
-        colors: [ "#62cb31", "#efefef"]
+        colors: [ "#0190fe", "#efefef"]
     };
 
     $.plot($("#flot-line-chart"), [data1, data2], chartUsersOptions);
@@ -39,11 +39,11 @@ Template.dashboard.onRendered(function(){
                 show: true,
                 lineWidth: 0,
                 fill: true,
-                fillColor: "#64cc34"
+                fillColor: "#0190fe"
 
             }
         },
-        colors: ["#62cb31"],
+        colors: ["#0190fe"],
         grid: {
             show: false
         },
@@ -58,7 +58,7 @@ Template.dashboard.onRendered(function(){
     // Pie charts data and options used in many views
 
     $("span.pie").peity("pie", {
-        fill: ["#62cb31", "#edf0f5"]
+        fill: ["#0190fe", "#edf0f5"]
     });
 
     // Initialize iCheck plugin

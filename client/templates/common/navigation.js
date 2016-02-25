@@ -8,8 +8,8 @@ Template.navigation.onRendered(function() {
         type: 'bar',
         barWidth: 7,
         height: '30px',
-        barColor: '#62cb31',
-        negBarColor: '#53ac2a'
+        barColor: '#0190fe',
+        negBarColor: '#0173cb'
     });
 
 });

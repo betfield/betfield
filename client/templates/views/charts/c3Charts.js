@@ -12,7 +12,7 @@ Template.c3Charts.onRendered(function(){
                     ['data2', 50, 20, 10, 40, 15, 25]
                 ],
                 colors:{
-                    data1: '#62cb31',
+                    data1: '#0190fe',
                     data2: '#BABABA'
                 }
             }
@@ -30,7 +30,7 @@ Template.c3Charts.onRendered(function(){
                     data2: 'area-spline'
                 },
                 colors:{
-                    data1: '#62cb31',
+                    data1: '#0190fe',
                     data2: '#BABABA'
                 }
             }
@@ -50,7 +50,7 @@ Template.c3Charts.onRendered(function(){
                     ["data2", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8]
                 ],
                 colors:{
-                    data1: '#62cb31',
+                    data1: '#0190fe',
                     data2: '#BABABA'
                 },
                 type: 'scatter'
@@ -65,7 +65,7 @@ Template.c3Charts.onRendered(function(){
                     ['data2', 50,20,10,40,15,25]
                 ],
                 colors:{
-                    data1: '#62cb31',
+                    data1: '#0190fe',
                     data2: '#BABABA'
                 },
                 type: 'bar',
@@ -85,7 +85,7 @@ Template.c3Charts.onRendered(function(){
                 type: 'gauge'
             },
             color:{
-                pattern: ['#62cb31', '#BABABA']
+                pattern: ['#0190fe', '#BABABA']
 
             }
         });
@@ -98,7 +98,7 @@ Template.c3Charts.onRendered(function(){
                     ['data2', 120]
                 ],
                 colors:{
-                    data1: '#62cb31',
+                    data1: '#0190fe',
                     data2: '#CFCFCF'
                 },
                 type : 'pie'

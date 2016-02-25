@@ -3,10 +3,10 @@ Template.widgets.onRendered(function(){
 
     // Pie Chart Data
     var pieChartData = [
-        { label: "Data 1", data: 16, color: "#fad57c"},
-        { label: "Data 2", data: 6, color: "#fde5ad"},
-        { label: "Data 3", data: 22, color: "#fcc43c"},
-        { label: "Data 4", data: 32, color: "#ffb606"}
+        { label: "Data 1", data: 16, color: "#1b9bfe", },
+        { label: "Data 2", data: 6, color: "#57a2db", },
+        { label: "Data 3", data: 22, color: "#67bdfe", },
+        { label: "Data 4", data: 32, color: "#4da6fe", }
     ];
 
     // Pie Chart Options
@@ -82,11 +82,11 @@ Template.widgets.onRendered(function(){
                 show: true,
                 lineWidth: 0,
                 fill: true,
-                fillColor: "#64cc34"
+                fillColor: "#1b9bfe"
 
             }
         },
-        colors: ["#62cb31"],
+        colors: ["#1b9bfe"],
         grid: {
             show: false
         },

@@ -15,11 +15,11 @@ Template.tour.onRendered(function(){
                 show: true,
                 lineWidth: 0,
                 fill: true,
-                fillColor: "#64cc34"
+                fillColor: "#0190fe"
 
             }
         },
-        colors: ["#62cb31"],
+        colors: ["#0190fe"],
         grid: {
             show: false
         },

@@ -17,9 +17,9 @@ Template.chartJs.onRendered(function(){
             },
             {
                 label: "Example dataset",
-                fillColor: "rgba(98,203,49,0.5)",
-                strokeColor: "rgba(98,203,49,0.7)",
-                pointColor: "rgba(98,203,49,1)",
+                fillColor: "rgba(1,144,254,0.5)",
+                strokeColor: "rgba(1,144,254,0.7)",
+                pointColor: "rgba(1,144,254,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(26,179,148,1)",
@@ -54,12 +54,12 @@ Template.chartJs.onRendered(function(){
         datasets: [
             {
                 label: "Example dataset",
-                fillColor: "rgba(98,203,49,0.5)",
-                strokeColor: "rgba(98,203,49,0.7)",
-                pointColor: "rgba(98,203,49,1)",
+                fillColor: "rgba(1,144,254,0.5)",
+                strokeColor: "rgba(1,144,254,0.7)",
+                pointColor: "rgba(1,144,254,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(98,203,49,1)",
+                pointHighlightStroke: "rgba(1,144,254,1)",
                 data: [33, 48, 40, 19, 54, 27, 54]
             }
         ]
@@ -111,10 +111,10 @@ Template.chartJs.onRendered(function(){
             },
             {
                 label: "My Second dataset",
-                fillColor: "rgba(98,203,49,0.5)",
-                strokeColor: "rgba(98,203,49,0.8)",
-                highlightFill: "rgba(98,203,49,0.75)",
-                highlightStroke: "rgba(98,203,49,1)",
+                fillColor: "rgba(1,144,254,0.5)",
+                strokeColor: "rgba(1,144,254,0.8)",
+                highlightFill: "rgba(1,144,254,0.75)",
+                highlightStroke: "rgba(1,144,254,1)",
                 data: [28, 48, 40, 19, 86, 27, 90]
             }
         ]
@@ -142,10 +142,10 @@ Template.chartJs.onRendered(function(){
         datasets: [
             {
                 label: "My Second dataset",
-                fillColor: "rgba(98,203,49,0.5)",
-                strokeColor: "rgba(98,203,49,0.8)",
-                highlightFill: "rgba(98,203,49,0.75)",
-                highlightStroke: "rgba(98,203,49,1)",
+                fillColor: "rgba(1,144,254,0.5)",
+                strokeColor: "rgba(1,144,254,0.8)",
+                highlightFill: "rgba(1,144,254,0.75)",
+                highlightStroke: "rgba(1,144,254,1)",
                 data: [10, 20, 30, 40, 30, 50, 60]
             }
         ]
@@ -158,20 +158,20 @@ Template.chartJs.onRendered(function(){
     var polarData = [
         {
             value: 120,
-            color:"#62cb31",
-            highlight: "#57b32c",
+            color:"#0190fe",
+            highlight: "#0182e4",
             label: "Homer"
         },
         {
             value: 140,
-            color: "#80dd55",
-            highlight: "#57b32c",
+            color: "#34a6fe",
+            highlight: "#0182e4",
             label: "Inspinia"
         },
         {
             value: 100,
-            color: "#a3e186",
-            highlight: "#57b32c",
+            color: "#67bdfe",
+            highlight: "#0182e4",
             label: "Luna"
         }
     ];
@@ -201,20 +201,20 @@ Template.chartJs.onRendered(function(){
     var doughnutData = [
         {
             value: 20,
-            color:"#62cb31",
-            highlight: "#57b32c",
+            color:"#0190fe",
+            highlight: "#0182e4",
             label: "App"
         },
         {
             value: 120,
-            color: "#91dc6e",
-            highlight: "#57b32c",
+            color: "#4db2fe",
+            highlight: "#0182e4",
             label: "Software"
         },
         {
             value: 100,
-            color: "#a3e186",
-            highlight: "#57b32c",
+            color: "#67bdfe",
+            highlight: "#0182e4",
             label: "Laptop"
         }
     ];
@@ -240,22 +240,22 @@ Template.chartJs.onRendered(function(){
         datasets: [
             {
                 label: "My First dataset",
-                fillColor: "rgba(98,203,49,0.2)",
-                strokeColor: "rgba(98,203,49,1)",
-                pointColor: "rgba(98,203,49,1)",
+                fillColor: "rgba(1,144,254,0.2)",
+                strokeColor: "rgba(1,144,254,1)",
+                pointColor: "rgba(1,144,254,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "#62cb31",
+                pointHighlightStroke: "#0190fe",
                 data: [65, 59, 66, 45, 56, 55, 40]
             },
             {
                 label: "My Second dataset",
-                fillColor: "rgba(98,203,49,0.4)",
-                strokeColor: "rgba(98,203,49,1)",
-                pointColor: "rgba(98,203,49,1)",
+                fillColor: "rgba(1,144,254,0.4)",
+                strokeColor: "rgba(1,144,254,1)",
+                pointColor: "rgba(1,144,254,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "#62cb31",
+                pointHighlightStroke: "#0190fe",
                 data: [28, 12, 40, 19, 63, 27, 87]
             }
         ]

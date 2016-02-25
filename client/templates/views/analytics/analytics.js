@@ -15,11 +15,11 @@ Template.analytics.onRendered(function(){
                 show: true,
                 lineWidth: 0,
                 fill: true,
-                fillColor: "#64cc34"
+                fillColor: "#0190fe"
 
             }
         },
-        colors: ["#62cb31"],
+        colors: ["#0190fe"],
         grid: {
             show: false
         },
@@ -55,7 +55,7 @@ Template.analytics.onRendered(function(){
         xaxis: {
             tickDecimals: 0
         },
-        colors: ["#62cb31"],
+        colors: ["#0190fe"],
         grid: {
             show: false
         },
@@ -69,10 +69,10 @@ Template.analytics.onRendered(function(){
 
     // Pie Chart Data
     var pieChartData = [
-        { label: "Data 1", data: 16, color: "#62cb31" },
-        { label: "Data 2", data: 6, color: "#A4E585" },
-        { label: "Data 3", data: 22, color: "#368410" },
-        { label: "Data 4", data: 32, color: "#8DE563"}
+		{ label: "Data 1", data: 16, color: "#1b9bfe", },
+        { label: "Data 2", data: 6, color: "#57a2db", },
+        { label: "Data 3", data: 22, color: "#67bdfe", },
+        { label: "Data 4", data: 32, color: "#4da6fe", }
     ];
 
     // Pie Chart Options
@@ -123,7 +123,7 @@ Template.analytics.onRendered(function(){
         xaxis: {
             tickDecimals: 0
         },
-        colors: ["#62cb31"],
+        colors: ["#0190fe"],
         grid: {
             tickColor: "#e4e5e7",
             borderWidth: 1,
