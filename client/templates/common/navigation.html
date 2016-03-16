@@ -11,14 +11,14 @@
 
                     <div class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                            <small class="text-muted">Founder of App <b class="caret"></b></small>
+                            <small class="text-muted">{{_ "user_basic"}}<b class="caret"></b></small>
                         </a>
                         <ul class="dropdown-menu animated flipInX m-t-xs">
-                            <li><a href="{{pathFor route='contacts'}}">Contacts</a></li>
-                            <li><a href="{{pathFor route='profile'}}">Profile</a></li>
-                            <li><a href="{{pathFor route='analytics'}}">Analytics</a></li>
+                            <li><a href="{{pathFor route='register'}}">Registreeri Preemiumiks</a></li>
+                            <li><a href="{{pathFor route='profile'}}">Sinu profiil</a></li>
+                            <li><a href="{{pathFor route='analytics'}}">Statistika</a></li>
                             <li class="divider"></li>
-                            <li><a href="{{pathFor route='login'}}">Logout</a></li>
+                            <li><a href="{{pathFor route='login'}}">Logi välja</a></li>
                         </ul>
                     </div>
 
@@ -26,14 +26,23 @@
                     <div id="sparkline1" class="small-chart m-t-sm"></div>
                     <div>
                         <h4 class="font-extra-bold m-b-xs">
-                            $260 104,200
+                            75 punkti
                         </h4>
-                        <small class="text-muted">Your income from the last year in sales product X.</small>
+                        <small class="text-muted">Sinu viimase 15 ennustuse punktid</small>
                     </div>
                 </div>
             </div>
 
-            <ul class="nav" id="side-menu">
+			<ul class="nav" id="side-menu">
+                <li class="{{isActiveRoute regex='profile'}}"><a href="{{pathFor route='profile'}}">Profiil</a></li>
+				<li class="{{isActiveRoute regex='blog'}}"><a href="{{pathFor route='blog'}}">Blogi</a></li>
+				<li class="{{isActiveRoute regex='calendar'}}"><a href="{{pathFor route='calendar'}}">Kalender</a></li>
+				<li class="{{isActiveRoute regex='chatView'}}"><a href="{{pathFor route='chatView'}}">Vestlused</a></li>
+				<li class="{{isActiveRoute regex='appPlans'}}"><a href="{{pathFor route='appPlans'}}">Hinnakiri</a></li>
+				<li class="{{isActiveRoute regex='faq'}}"><a href="{{pathFor route='faq'}}">KKK</a></li>
+            </ul>
+			
+            <!--ul class="nav" id="side-menu">
                 <li class="{{isActiveRoute regex='dashboard'}}">
                     <a href="{{pathFor route='dashboard'}}"> <span class="nav-label">Dashboard</span> <span class="label label-success pull-right">v.1</span> </a>
                 </li>
@@ -70,7 +79,6 @@
                         <li class="{{isActiveRoute regex='faq'}}"><a href="{{pathFor route='faq'}}">FAQ</a></li>
                         <li class="{{isActiveRoute regex='timeline'}}"><a href="{{pathFor route='timeline'}}">Timeline</a></li>
                         <li class="{{isActiveRoute regex='notes'}}"><a href="{{pathFor route='notes'}}">Notes</a></li>
-                        <li class="{{isActiveRoute regex='profile'}}"><a href="{{pathFor route='profile'}}">Profile</a></li>
                         <li class="{{isActiveRoute regex='mailbox'}}"><a href="{{pathFor route='mailbox'}}">Mailbox</a></li>
                         <li class="{{isActiveRoute regex='emailCompose'}}"><a href="{{pathFor route='emailCompose'}}">Email compose</a></li>
                         <li class="{{isActiveRoute regex='emailView'}}"><a href="{{pathFor route='emailView'}}">Email view</a></li>
@@ -149,7 +157,7 @@
                 <li>
                     <a href="{{pathFor route='landingPage'}}"> <span class="nav-label">Landing page</span></a>
                 </li>
-            </ul>
+            </ul-->
         </div>
     </aside>
 </template>

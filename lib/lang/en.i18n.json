@@ -1,0 +1,8 @@
+// English language file
+
+{
+    "user_basic": "Basic user",
+	"user_register_premium": "Upgrade to Premium",
+	"user_profile": "Your profile",
+	"user_statistics": "Statistics"
+}

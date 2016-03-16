@@ -22,7 +22,7 @@ Template.layout.onRendered(function(){
     // $('body').addClass('fixed-sidebar');
 
     // FIXED NAVBAR
-    // $('body').addClass('fixed-navbar');
+     $('body').addClass('fixed-navbar');
 
     // FIXED FOOTER
     // $('body').addClass('fixed-footer');

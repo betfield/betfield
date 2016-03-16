@@ -4,13 +4,13 @@
         </div>
         <div id="logo" class="light-version">
         <span>
-            Homer Theme
+            bF Admin Panel
         </span>
         </div>
         <nav role="navigation">
             <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
             <div class="small-logo">
-                <span class="text-primary">HOMER APP</span>
+                <span class="text-primary">bf Admin Panel</span>
             </div>
             <form role="search" class="navbar-form-custom" method="post" action="#">
                 <div class="form-group">
@@ -24,13 +24,13 @@
                 <div class="collapse mobile-navbar" id="mobile-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="" href="{{pathFor route='login'}}">Login</a>
+                            <a class="" href="{{pathFor route='login'}}">Logi sisse</a>
                         </li>
                         <li>
-                            <a class="" href="{{pathFor route='login'}}">Logout</a>
+                            <a class="" href="{{pathFor route='login'}}">Logi välja</a>
                         </li>
                         <li>
-                            <a class="" href="{{pathFor route='profile'}}">Profile</a>
+                            <a class="" href="{{pathFor route='profile'}}">Sinu profiil</a>
                         </li>
                     </ul>
                 </div>
@@ -143,7 +143,7 @@
                                     Contrary to popular belief.
                                 </a>
                             </li>
-                            <li class="summary"><a href="#">See All Messages</a></li>
+                            <li class="summary"><a href="{{pathFor route='emailView'}}">Kõik sõnumid</a></li>
                         </ul>
                     </li>
                     <li>
@@ -152,7 +152,7 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a href="{{pathFor route='login'}}">
+                        <a href="{{pathFor route='landingPage'}}">
                             <i class="pe-7s-upload pe-rotate-90"></i>
                         </a>
                     </li>
