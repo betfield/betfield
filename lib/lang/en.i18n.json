@@ -1,8 +1,58 @@
 // English language file
 
 {
-    "user_basic": "Basic user",
+	"calendar": "Calendar",      
+	"calendar_description": "All games and start times here",
+
+	"user_basic": "Basic user",
 	"user_register_premium": "Upgrade to Premium",
 	"user_profile": "Your profile",
-	"user_statistics": "Statistics"
+	"user_statistics": "Statistics",
+
+	"month_jan": "January",
+	"month_feb": "February",
+	"month_mar": "March",
+	"month_apr": "April",
+	"month_may": "May",
+	"month_jun": "June",
+	"month_jul": "July",
+	"month_aug": "August",
+	"month_sep": "September",
+	"month_oct": "October",
+	"month_nov": "November",
+	"month_dec": "December",
+
+	"month_jan_s": "Jan",
+	"month_feb_s": "Feb",
+	"month_mar_s": "Mar",
+	"month_apr_s": "Apr",
+	"month_may_s": "May",
+	"month_jun_s": "Jun",
+	"month_jul_s": "Jul",
+	"month_aug_s": "Aug",
+	"month_sep_s": "Sep",
+	"month_oct_s": "Oct",
+	"month_nov_s": "Nov",
+	"month_dec_s": "Dec",
+
+	"day_mon": "Monday", 
+	"day_tue": "Tuesday", 
+	"day_wed": "Wednesday", 
+	"day_thu": "Thursday", 
+	"day_fri": "Friday", 
+	"day_sat": "Saturday", 
+	"day_sun": "Sunday",
+
+	"day_mon_s": "Mon", 
+	"day_tue_s": "Tue", 
+	"day_wed_s": "Wed", 
+	"day_thu_s": "Thu", 
+	"day_fri_s": "Fri", 
+	"day_sat_s": "Sat", 
+	"day_sun_s": "Sun",
+
+	"today": "today",
+	"month": "month",
+	"week": "week",
+	"day": "day"
 }

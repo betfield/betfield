@@ -3,107 +3,6 @@ Meteor.startup(function () {
 	
 	//TODO: Fill with correct data for teams
 	//TODO: Move data to separate file
-	var teams = [
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"Poland",
-			flag:"pol.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		},
-		{
-			name:"France",
-			flag:"fra.png",
-		}
-	]
-	
-	//TODO: Fill with correct data for teams
-	//TODO: Move data to separate file
 	var players = [
 		{
 			name:"Anthony Martial",
@@ -131,17 +30,6 @@ Meteor.startup(function () {
 		}
 	]
 	
-	if (Teams.find().count() == 0){
-		//TODO: replace with foreach
-		for (var i=0;i<24;i++){
-			Teams.insert({
-				name:teams[i].name,
-				flag:teams[i].flag
-			});
-		} // end of for inserting all Teams
-		console.log("Startup: "+Teams.find().count());
-	} // end of if Teams empty
-
 	if (Players.find().count() == 0){
 		//TODO: replace with foreach
 		for (var i=0;i<4;i++){
@@ -152,7 +40,7 @@ Meteor.startup(function () {
 				national_team:players[i].national_team
 			});
 		} // end of for inserting all Teams
-		console.log("Startup: "+Players.find().count());
+		console.log("Startup Players: "+Players.find().count());
 	} // end of 
 /*	
 	if (Competitions.find().count() == 0){

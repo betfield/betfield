@@ -25,11 +25,28 @@ Template.calendar.onRendered(function(){
 
 
     // Initialize the calendar
+	var tsStart, tsEnd;
+	var fixtures = Fixtures.find().fetch();
+	var calendar_fixtures = [];
 
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
+	fixtures.forEach(function (fixture){
+		
+		tsStart = new Date(fixture.ts);		
+		tsEnd = new Date(fixture.ts);
+		tsEnd.setHours(tsStart.getHours()+2); // set fixture end date 2h later 
+
+		calendar_fixtures.push({
+			id: fixture._id,
+			title: fixture.home_team + " vs " + fixture.away_team,
+			start: tsStart,
+			end: tsEnd,
+			allDay: false,
+			url: "fixtures/" + fixture._id
+		});
+		
+	}); // end of for
+
+	console.log(calendar_fixtures);
 
     $('#calendar').fullCalendar({
         header: {
@@ -37,60 +54,87 @@ Template.calendar.onRendered(function(){
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-        editable: true,
-        droppable: true, // this allows things to be dropped onto the calendar
-        drop: function() {
-            // is the "remove after drop" checkbox checked?
-            if ($('#drop-remove').is(':checked')) {
-                // if so, remove the element from the "Draggable Events" list
-                $(this).remove();
-            }
-        },
-        events: [
-            {
-                title: 'All Day Event',
-                start: new Date(y, m, 1)
-            },
-            {
-                title: 'Long Event',
-                start: new Date(y, m, d-5),
-                end: new Date(y, m, d-2)
-            },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d-3, 16, 0),
-                allDay: false
-            },
-            {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d+4, 16, 0),
-                allDay: false
-            },
-            {
-                title: 'Meeting',
-                start: new Date(y, m, d, 10, 30),
-                allDay: false
-            },
-            {
-                title: 'Lunch',
-                start: new Date(y, m, d, 12, 0),
-                end: new Date(y, m, d, 14, 0),
-                allDay: false
-            },
-            {
-                title: 'Birthday Party',
-                start: new Date(y, m, d+1, 19, 0),
-                end: new Date(y, m, d+1, 22, 30),
-                allDay: false
-            },
-            {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'http://google.com/'
-            }
-        ]
+		allDayDefault: false,
+		views: {
+			agendaWeek: {
+		        allDaySlot: false,
+				slotLabelFormat: 'HH:mm',
+				titleFormat: 'D MMMM YYYY',
+				columnFormat: 'ddd D.MM'
+		    },
+			agendaDay: {
+		        allDaySlot: false,
+				slotLabelFormat: 'HH:mm',
+				titleFormat: 'D MMMM YYYY'
+		    }
+		},
+        editable: false,
+        droppable: false, // this allows things to be dropped onto the calendar
+        events: calendar_fixtures,
+		minTime: '12:00:00',
+		aspectRatio: 'auto', // ratio of width-to-height - larger numbers make smaller heights
+		timeFormat: 'HH:mm', // uppercase H for 24-hour clock
+		timezone: 'local',
+		monthNames: [
+				TAPi18n.__('month_jan'),
+				TAPi18n.__('month_feb'),
+				TAPi18n.__('month_mar'),
+				TAPi18n.__('month_apr'),
+				TAPi18n.__('month_may'),
+				TAPi18n.__('month_jun'),
+				TAPi18n.__('month_jul'),
+				TAPi18n.__('month_aug'),
+				TAPi18n.__('month_sep'),
+				TAPi18n.__('month_oct'),
+				TAPi18n.__('month_nov'),
+				TAPi18n.__('month_dec')
+			], 
+   		monthNamesShort: [
+				TAPi18n.__('month_jan_s'),
+				TAPi18n.__('month_feb_s'),
+				TAPi18n.__('month_mar_s'),
+				TAPi18n.__('month_apr_s'),
+				TAPi18n.__('month_may_s'),
+				TAPi18n.__('month_jun_s'),
+				TAPi18n.__('month_jul_s'),
+				TAPi18n.__('month_aug_s'),
+				TAPi18n.__('month_sep_s'),
+				TAPi18n.__('month_oct_s'),
+				TAPi18n.__('month_nov_s'),
+				TAPi18n.__('month_dec_s')
+			], 
+   		dayNames: [
+				TAPi18n.__('day_mon'),
+				TAPi18n.__('day_tue'),
+				TAPi18n.__('day_wed'),
+				TAPi18n.__('day_thu'),
+				TAPi18n.__('day_fri'),
+				TAPi18n.__('day_sat'),
+				TAPi18n.__('day_sun')
+			], 
+   		dayNamesShort: [
+				TAPi18n.__('day_mon_s'),
+				TAPi18n.__('day_tue_s'),
+				TAPi18n.__('day_wed_s'),
+				TAPi18n.__('day_thu_s'),
+				TAPi18n.__('day_fri_s'),
+				TAPi18n.__('day_sat_s'),
+				TAPi18n.__('day_sun_s')
+			],
+		buttonText: {
+			today: TAPi18n.__('today'),
+			month: TAPi18n.__('month'),
+			week: TAPi18n.__('week'),
+			day: TAPi18n.__('day')
+		   }
     });
+});
+
+Template.calendar.helpers({
+	getTitle: function () {
+		return TAPi18n.__('calendar');
+	},
+	getDescription: function () {
+    	return TAPi18n.__('calendar_description');
+  	}
 });

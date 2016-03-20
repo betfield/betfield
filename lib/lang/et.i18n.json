@@ -1,8 +1,60 @@
-// English language file
+// Estonian language file
 
 {
-    "user_basic": "Tavakasutaja",
+	"calendar": "Kalender",
+	"calendar_description": "Kõik mängud ja nende toimumisajad siit",
+
+	"user_basic": "Tavakasutaja",
 	"user_register_premium": "Registreeri Preemiumiks",
 	"user_profile": "Sinu profiil",
-	"user_statistics": "Statistika"
+	"user_statistics": "Statistika",
+
+	"month_jan": "Jaanuar",
+	"month_feb": "Veebruar",
+	"month_mar": "Märts",
+	"month_apr": "Aprill",
+	"month_may": "Mai",
+	"month_jun": "Juuni",
+	"month_jul": "Juuli",
+	"month_aug": "August",
+	"month_sep": "September",
+	"month_oct": "Oktoober",
+	"month_nov": "November",
+	"month_dec": "Detsember",
+
+	"month_jan_s": "Jaan",
+	"month_feb_s": "Veeb",
+	"month_mar_s": "Mär",
+	"month_apr_s": "Apr",
+	"month_may_s": "Mai",
+	"month_jun_s": "Juun",
+	"month_jul_s": "Juul",
+	"month_aug_s": "Aug",
+	"month_sep_s": "Sept",
+	"month_oct_s": "Okt",
+	"month_nov_s": "Nov",
+	"month_dec_s": "Dets",
+
+	"day_mon": "Esmaspäev", 
+	"day_tue": "Teisipäev", 
+	"day_wed": "Kolmapäev", 
+	"day_thu": "Neljapäev", 
+	"day_fri": "Reede", 
+	"day_sat": "Laupäev", 
+	"day_sun": "Pühapäev",
+
+	"day_mon_s": "E", 
+	"day_tue_s": "T", 
+	"day_wed_s": "K", 
+	"day_thu_s": "N", 
+	"day_fri_s": "R", 
+	"day_sat_s": "L", 
+	"day_sun_s": "P",
+
+	"today": "täna",
+	"month": "kuu",
+	"week": "nädal",
+	"day": "päev"
+
+
 }
