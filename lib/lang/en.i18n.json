@@ -1,6 +1,23 @@
 // English language file
 
 {
+	"dashboard": "Home",
+	
+	"login_back_home": "Back Home",
+	"login_title": "PLEASE LOGIN TO APP",
+	"login_title_small": "This is the best app ever!",
+	"login_username": "Username",
+	"login_email": "example@gmail.com",
+	"login_email_title": "Please enter you username",
+	"login_username_small": "Your unique username to app",
+	"login_password": "Password",
+	"login_password_title": "Please enter your password",
+	"login_password_small": "Yur strong password",
+	"login_password_remember": "Remember login",
+	"login_password_remember_small": "if this is a private computer",
+	"login": "Login",
+	"register": "Register",
+
 	"calendar": "Calendar",      
 	"calendar_description": "All games and start times here",
 
@@ -54,5 +71,7 @@
 	"today": "today",
 	"month": "month",
 	"week": "week",
-	"day": "day"
+	"day": "day",
+
+	"copyright": "2015 Copyright Company Name"
 }

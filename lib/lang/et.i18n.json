@@ -1,6 +1,23 @@
 // Estonian language file
 
 {
+	"dashboard": "Pealeht",
+	
+	"login_back_home": "Avaleht",
+	"login_title": "LOGI SISSE",
+	"login_title_small": "Siia mingi tekst!",
+	"login_username": "Kasutajanimi",
+	"login_email": "naidis@gmail.com",
+	"login_email_title": "Sisesta oma kasutajanimi",
+	"login_username_small": "Sinu kasutajanimi",
+	"login_password": "Parool",
+	"login_password_title": "Sisesta oma parool",
+	"login_password_small": "Sinu parool",
+	"login_password_remember": "Pea mind meeles",
+	"login_password_remember_small": "kui see on isiklik arvuti",
+	"login": "Logi sisse",
+	"register": "Registreeri",
+
 	"calendar": "Kalender",
 	"calendar_description": "Kõik mängud ja nende toimumisajad siit",
 
@@ -54,7 +71,7 @@
 	"today": "täna",
 	"month": "kuu",
 	"week": "nädal",
-	"day": "päev"
+	"day": "päev",
 
-
+	"copyright": "2015 Copyright Company Name"
 }

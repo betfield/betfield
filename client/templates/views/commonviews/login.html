@@ -1,36 +1,36 @@
 <template name="login">
 
     <div class="back-link">
-        <a href="{{pathFor route='dashboard'}}" class="btn btn-primary">Back to Dashboard</a>
+        <a href="{{pathFor route='landingPage'}}" class="btn btn-primary">{{_ "login_back_home"}}</a>
     </div>
 
     <div class="login-container">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center m-b-md">
-                    <h3>PLEASE LOGIN TO APP</h3>
-                    <small>This is the best app ever!</small>
+                    <h3>{{_ "login_title"}}</h3>
+                    <small>{{_ "login_title_small"}}</small>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
                         <form action="#" id="loginForm">
                             <div class="form-group">
-                                <label class="control-label" for="username">Username</label>
-                                <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="username" id="username" class="form-control">
-                                <span class="help-block small">Your unique username to app</span>
+                                <label class="control-label" for="username">{{_ "login_username"}}</label>
+                                <input type="text" placeholder={{_ "login_email"}} title={{_ "login_email_title"}} required="" value="" name="username" id="username" class="form-control">
+                                <span class="help-block small">{{_ "login_username_small"}}</span>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="password">Password</label>
-                                <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
-                                <span class="help-block small">Yur strong password</span>
+                                <label class="control-label" for="password">{{_ "login_password"}}</label>
+                                <input type="password" title={{_ "login_password_title"}} placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                                <span class="help-block small">{{_ "login_password_small"}}</span>
                             </div>
                             <div class="checkbox">
                                 <input type="checkbox" class="i-checks" checked>
-                                Remember login
-                                <p class="help-block small">(if this is a private computer)</p>
+                                {{_ "login_password_remember"}}
+                                <p class="help-block small">({{_ "login_password_remember_small"}})</p>
                             </div>
-                            <button class="btn btn-success btn-block">Login</button>
-                            <a class="btn btn-default btn-block" href="#">Register</a>
+                            <button class="btn btn-success btn-block">{{_ "login"}}</button>
+                            <a class="btn btn-default btn-block" href="#">{{_ "register"}}</a>
                         </form>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <strong>HOMER</strong> - AngularJS Responsive WebApp <br/> 2015 Copyright Company Name
+                {{_ "copyright"}}
             </div>
         </div>
     </div>

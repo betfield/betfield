@@ -13,17 +13,17 @@
 
                 <div id="hbreadcrumb" class="pull-right {{#unless small}} m-t-lg {{/unless}}">
                     <ol class="hbreadcrumb breadcrumb">
-                        <li><a href="{{pathFor route='dashboard'}}">Home</a></li>
-                        <li>
+                        <li><a href="{{pathFor route='dashboard'}}">{{_ "dashboard"}}</a></li>
+                        <!--li>
                             <span>{{category}}</span>
-                        </li>
+                        </li-->
                         <li class="active">
-                            <span>{{_ "calendar"}}</span>
+                            <span>{{title}}</span>
                         </li>
                     </ol>
                 </div>
                 <h2 class="font-light m-b-xs">
-                    {{_ "calendar"}}
+                    {{title}}
                 </h2>
                 <small>{{desc}}</small>
             </div>
