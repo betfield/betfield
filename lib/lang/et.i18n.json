@@ -73,5 +73,32 @@
 	"week": "nädal",
 	"day": "päev",
 
+//Password Recovery
+
+	"PASSWORD RECOVER": "Unustasid salasõna?",
+	"fill_form_password": "Salasõna taastamiseks sisesta oma email",
+	"recovery_email": "Sisesta oma email - salasõna uuendus saadetakse emailile",
+	"Email": "Email",
+	"login_email": "näide@gmail.com",
+	"recovery_email_short":"Sisesta oma email",
+	"recovery_username_name": "Sinu kasutajanimi",
+	"recovery_email_registered": "Sinu registreeritud email",
+	"pw_reset": "SAADA",
+	
+	
+//Register
+
+	"register_back_home": "Avalehele",
+	"register_title": "Registreerimine",
+	"register_info": "Täida allolevad väljad",
+	"register_username": "Kasutajanimi",
+	"register_pw": "Sisesta salasõna",
+	"register_pw_repeat": "Korda Salasõna",
+	"register_email": "Sisesta Email",
+	"register_email_repeat": "Korda Emaili",
+	"register_subscribe": "Liitu uudiskirjaga",
+	"register_button": "Registreeri",
+	"register_cancel": "Tühista",	
+	
 	"copyright": "2015 Copyright Company Name"
 }

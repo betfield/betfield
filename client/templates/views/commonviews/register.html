@@ -1,48 +1,48 @@
 <template name="register">
 
     <div class="back-link">
-        <a href="{{pathFor route='dashboard'}}" class="btn btn-primary">Back to Dashboard</a>
+        <a href="{{pathFor route='dashboard'}}" class="btn btn-primary">{{_ "register_back_home"}}</a>
     </div>
 
     <div class="register-container">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center m-b-md">
-                    <h3>Registration</h3>
-                    <small>Full suported AngularJS WebApp/Admin template with very clean and aesthetic style prepared for your next app. </small>
+                    <h3>{{_ "register_title"}}</h3>
+                    <small>{{_ "register_info"}} </small>
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
                         <form action="#" id="loginForm">
                             <div class="row">
                                 <div class="form-group col-lg-12">
-                                    <label>Username</label>
+                                    <label>{{_ "register_username"}}</label>
                                     <input type="" value="" id="" class="form-control" name="">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label>Password</label>
+                                    <label>{{_ "register_pw"}}</label>
                                     <input type="password" value="" id="" class="form-control" name="">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label>Repeat Password</label>
+                                    <label>{{_ "register_pw_repeat"}}</label>
                                     <input type="password" value="" id="" class="form-control" name="">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label>Email Address</label>
+                                    <label>{{_ "register_email"}}</label>
                                     <input type="" value="" id="" class="form-control" name="">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label>Repeat Email Address</label>
+                                    <label>{{_ "register_email_repeat"}}</label>
                                     <input type="" value="" id="" class="form-control" name="">
                                 </div>
                                 <div class="checkbox col-lg-12">
                                     <input type="checkbox" class="i-checks" checked>
-                                    Sigh up for our newsletter
+                                    {{_ "register_subscribe"}}
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-success">Register</button>
-                                <button class="btn btn-default">Cancel</button>
+                                <button class="btn btn-success">{{_ "register_button"}}</button>
+                                <button class="btn btn-default">{{_ "register_cancel"}}</button>
                             </div>
                         </form>
                     </div>

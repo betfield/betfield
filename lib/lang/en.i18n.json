@@ -73,5 +73,35 @@
 	"week": "week",
 	"day": "day",
 
+	
+//Password Recovery
+
+	"PASSWORD RECOVER": "PASSWORD RECOVER",
+	"fill_form_password": "Please fill the form to recover your password",
+	"recovery_email": "Enter your email address and your password will be reset and emailed to you.",
+	"Email": "Email",
+	"login_email": "example@gmail.com",
+	"recovery_email_short":"Please enter you email adress",
+	"recovery_username_name": "username",
+	"recovery_email_registered": "Your registered email address",
+	"pw_reset": "Reset password",
+	
+//Register
+
+	"register_back_home": "Back to Home",
+	"register_title": "Register your account",
+	"register_info": "Fill in the fields",
+	"register_username": "Username",
+	"register_pw": "Password",
+	"register_pw_repeat": "Repeat Password",
+	"register_email": "Email Address",
+	"register_email_repeat": "Repeat Email Address",
+	"register_subscribe": "Sign up for our newsletter",
+	"register_button": "REGISTER",
+	"register_cancel": "CANCEL",
+	
+	
+	
+	
 	"copyright": "2015 Copyright Company Name"
 }
