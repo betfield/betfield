@@ -34,3 +34,7 @@ emdagon:c3js
 andrasph:clockpicker
 tsega:bootstrap3-datetimepicker
 tap:i18n
+accounts-ui
+accounts-password
+accounts-facebook
+service-configuration

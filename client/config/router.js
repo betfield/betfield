@@ -3,6 +3,24 @@ Router.configure({
     notFoundTemplate: 'notFound'
 });
 
+var OnBeforeActions;
+
+OnBeforeActions = {
+    loginRequired: function(pause) {
+		if (!(Meteor.loggingIn() || Meteor.user())){
+			this.render('login');
+			this.layout('landingLayout');
+		}
+		else {
+			this.next();
+		}
+    }
+};
+
+Router.onBeforeAction(OnBeforeActions.loginRequired, {
+	except: ['login', 'logout', 'landingPage']
+});
+
 //
 // Dashboard route
 //
@@ -11,6 +29,16 @@ Router.route('/', function () {
     //Router.go('landingPage');
 	this.render('landingPage');
     this.layout('landingLayout');
+});
+
+Router.route('/logout', function () {
+	Meteor.logout(function(err){
+        if (err) {
+            throw new Meteor.Error("Logout failed");
+        }
+    });
+	//TODO: Show splash message about user logged out
+	Router.go('landingPage');
 });
 
 Router.route('/dashboard', function () {

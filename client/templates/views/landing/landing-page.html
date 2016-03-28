@@ -9,7 +9,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{{pathFor route='login'}}" class="navbar-brand">LOGI SISSE</a>
+				{{#if currentUser}}
+					{{> user_logged_in}}
+				{{else}}
+					{{> user_logged_out}}
+				{{/if}}
                 <div class="brand-desc">
                     <b><u>Ekslusiivne</u></b> Euro 2016 ennustusmäng
                 </div>

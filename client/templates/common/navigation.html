@@ -3,11 +3,11 @@
         <div id="navigation">
             <div class="profile-picture">
                 <a href="{{pathFor route='dashboard'}}">
-                    <img src="images/profile.jpg" class="img-circle m-b" alt="logo">
+                    <img src="{{currentUser.profile.picture}}" alt="{{currentUser.services.facebook.name}}" class="img-circle m-b">
                 </a>
 
                 <div class="stats-label text-color">
-                    <span class="font-extra-bold font-uppercase">Robert Razer</span>
+                    <span class="font-extra-bold font-uppercase">{{currentUser.services.facebook.name}}</span>
 
                     <div class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
@@ -18,7 +18,7 @@
                             <li><a href="{{pathFor route='profile'}}">Sinu profiil</a></li>
                             <li><a href="{{pathFor route='analytics'}}">Statistika</a></li>
                             <li class="divider"></li>
-                            <li><a href="{{pathFor route='login'}}">Logi välja</a></li>
+                            <li><a href="{{pathFor route='logout'}}">Logi välja</a></li>
                         </ul>
                     </div>
 

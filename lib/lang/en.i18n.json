@@ -16,6 +16,8 @@
 	"login_password_remember": "Remember login",
 	"login_password_remember_small": "if this is a private computer",
 	"login": "Login",
+	"loging_in": "Loging in",
+	"logout": "Logout",
 	"register": "Register",
 
 	"calendar": "Calendar",      
