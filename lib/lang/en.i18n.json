@@ -12,7 +12,7 @@
 	"login_username_small": "Your unique username to app",
 	"login_password": "Password",
 	"login_password_title": "Please enter your password",
-	"login_password_small": "Yur strong password",
+	"login_password_small": "Your strong password",
 	"login_password_remember": "Remember login",
 	"login_password_remember_small": "if this is a private computer",
 	"login": "Login",
@@ -103,6 +103,21 @@
 	"register_cancel": "CANCEL",
 	
 	
+//ErrorOne
+
+	"error_back_home": "Back to Home",
+	"error_404": "404",
+	"error_pnf": "Page Not Found",
+	"error_pnf_info": "Sorry, but the page you are looking for has not been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app.",
+	"error_back_home_bot": "Back to Home",
+
+//ErrorTwo
+
+	"error_back_home": "Back to Home",
+	"error_500": "500",
+	"error_ise": "Internal Server Error",
+	"error_ise_info": "The server encountered something unexpected that didn't allow it to complete the request. We apologize.",
+	"error_back_home_bot": "Back to Home",
 	
 	
 	"copyright": "2015 Copyright Company Name"

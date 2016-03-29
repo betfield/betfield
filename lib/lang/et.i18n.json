@@ -102,5 +102,22 @@
 	"register_button": "Registreeri",
 	"register_cancel": "Tühista",	
 	
+	
+//ErrorOne
+
+	"error_back_home": "Avalehele",
+	"error_404": "VIGA 404",
+	"error_pnf": "Lehekülge ei leitud.",
+	"error_pnf_info": "Vabandame, aga lehekülge ei leitud. Võimalik, et aadress on sisestatud valesti",
+	"error_back_home_bot": "Tagasi avalehele",
+	
+//ErrorTwo
+
+	"error_back_home": "Avalehele",
+	"error_500": "Viga 500",
+	"error_ise": "Serveri Sisemine Viga",
+	"error_ise_info": "Midagi läks valesti. Meie serverid ei vasta hetkel. Vabandame ebamugavuste pärast. Proovige lehte uuendada või võtke ühendust example@gmail.com",
+	"error_back_home_bot": "Tagasi avalehele",
+	
 	"copyright": "2015 Copyright Company Name"
 }
