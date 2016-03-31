@@ -8,8 +8,7 @@ var OnBeforeActions;
 OnBeforeActions = {
     loginRequired: function(pause) {
 		if (!(Meteor.loggingIn() || Meteor.user())){
-			this.render('login');
-			this.layout('landingLayout');
+			Router.go('login');
 		}
 		else {
 			this.next();
@@ -29,6 +28,10 @@ Router.route('/', function () {
     //Router.go('landingPage');
 	this.render('landingPage');
     this.layout('landingLayout');
+});
+
+Router.route('/leagues', function () {
+    this.render('leagues');
 });
 
 Router.route('/logout', function () {

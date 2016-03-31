@@ -24,4 +24,6 @@ Template.panelTools.events({
         hpanel.remove();
     }
 
+
+
 });

@@ -46,8 +46,6 @@ Template.calendar.onRendered(function(){
 		
 	}); // end of for
 
-	console.log(calendar_fixtures);
-
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
@@ -128,6 +126,7 @@ Template.calendar.onRendered(function(){
 			day: TAPi18n.__('day')
 		   }
     });
+
 });
 
 Template.calendar.helpers({
