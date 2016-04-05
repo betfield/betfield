@@ -162,11 +162,26 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                {{#panel title="Liigade nimekiri"}}
+                {{#panel}}
                             
                         <div class="panel-body">
-                            <input type="text" class="form-control input-sm m-b-md" id="filter"
-                                   placeholder="Search in table">
+							<div id="calendar" class="fc fc-ltr fc-unthemed">
+								<div class="fc-toolbar">
+									<div class="fc-left">
+										<input type="text" class="form-control input-sm m-b-md" id="filter" placeholder="Search in table">
+									</div>
+									<div class="fc-center">
+										<h2>Liigade nimekiri</h2>
+									</div>
+									<div class="fc-right">
+										<div class="fc-button-group">
+											<button type="button" class="fc-button fc-state-default fc-corner-left fc-state-active">My</button>
+											<button type="button" class="fc-button fc-state-default">Else</button>
+											<button type="button" class="fc-button fc-state-default fc-corner-right">All</button>
+										</div>
+									</div>
+								</div>
+							</div>
                             <table id="example1" class="footable table table-bordered toggle-arrow"
                                    data-page-size="10" data-filter=#filter>
                                 <thead>

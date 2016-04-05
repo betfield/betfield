@@ -46,6 +46,8 @@ Template.calendar.onRendered(function(){
 		
 	}); // end of for
 
+	console.log("First fixture date: " + calendar_fixtures[0].start);
+
     $('#calendar').fullCalendar({
         header: {
             left: 'prev,next today',
@@ -73,6 +75,7 @@ Template.calendar.onRendered(function(){
 		aspectRatio: 'auto', // ratio of width-to-height - larger numbers make smaller heights
 		timeFormat: 'HH:mm', // uppercase H for 24-hour clock
 		timezone: 'local',
+ 		defaultDate: calendar_fixtures[0].start,
 		monthNames: [
 				TAPi18n.__('month_jan'),
 				TAPi18n.__('month_feb'),

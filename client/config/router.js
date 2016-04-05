@@ -34,6 +34,10 @@ Router.route('/leagues', function () {
     this.render('leagues');
 });
 
+Router.route('/predictions', function () {
+    this.render('predictions');
+});
+
 Router.route('/logout', function () {
 	Meteor.logout(function(err){
         if (err) {
