@@ -38,6 +38,11 @@ Router.route('/predictions', function () {
     this.render('predictions');
 });
 
+Router.route('/payments', function () {
+    this.render('payments');
+    this.layout('landingLayout');
+});
+
 Router.route('/logout', function () {
 	Meteor.logout(function(err){
         if (err) {
