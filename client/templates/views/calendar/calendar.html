@@ -1,6 +1,7 @@
 <template name="calendar">
 
     {{> pageHeader title=getTitle desc=getDescription}}
+	{{#staggering}}
 
     <div class="content">
 
@@ -13,5 +14,5 @@
         </div>
 
     </div>
-
+	{{/staggering}}
 </template>
