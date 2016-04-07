@@ -17,17 +17,20 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-	except: ['login', 'logout', 'landingPage']
+	except: ['root', 'login', 'logout', 'landingPage']
 });
 
 //
 // Dashboard route
 //
 
-Router.route('/', function () {
-    //Router.go('landingPage');
-	this.render('landingPage');
-    this.layout('landingLayout');
+Router.route('/', {
+	name: 'root',
+	template: 'landingPage',
+    layoutTemplate: 'landingLayout',
+	action: function() {
+		this.render();
+	}
 });
 
 Router.route('/leagues', function () {
@@ -41,6 +44,12 @@ Router.route('/predictions', function () {
 Router.route('/payments', function () {
     this.render('payments');
     this.layout('landingLayout');
+});
+
+Router.route('/downgrade', function () {
+	Meteor.call('downgradeToRegular', Meteor.user()._id);	
+	alert('User downgraded to Regular!');
+	Router.go('dashboard');
 });
 
 Router.route('/logout', function () {

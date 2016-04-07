@@ -1,0 +1,10 @@
+{
+	"public" : {
+		"env": "Sandbox",
+		"BT_MERCHANT_ID": "cbx56n2hw7x4rgvx",
+		"BT_PUBLIC_KEY": "5k6v5p5kgz5bcb77"
+	},
+		"private": {
+		"BT_PRIVATE_KEY": "ba4a41de09880c12728f5e6a10df45af"
+	}
+}
