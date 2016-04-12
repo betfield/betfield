@@ -17,7 +17,7 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-	except: ['root', 'login', 'logout', 'landingPage']
+	except: ['root', 'login', 'logout', 'landingPage','register']
 });
 
 //
