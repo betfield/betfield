@@ -2,11 +2,11 @@
 Meteor.startup(function () {
 
 	Logger = new Loggly({
-        token: "c9b2a00e-c830-403b-b1b6-260c4c3c9c0d",
-        subdomain: "betfield.loggly.com",
+        token: Meteor.settings.private.LOGGLEY_TOKEN,
+        subdomain: Meteor.settings.public.LOGGLEY_SERVER,
         auth: {
-          username: "betfield",
-          password: "B3tfield"
+          username: Meteor.settings.private.LOGGLEY_USER,
+          password: Meteor.settings.private.LOGGLEY_PASS
         },
         //
         // Optional: Tag to send with EVERY log message
@@ -16,11 +16,29 @@ Meteor.startup(function () {
         json: true
       });
 
-	Logger.log("first log from meteor");
-	Logger.info("it will store this message with info tag");
-	Logger.info("all", "arguments", "will be stored");
-	Logger.info("my fancy object", {fancy: true});
-	
+	//just checking to see if the object exists-    
+	if (Logger !== null && typeof Logger !== 'undefined') { 
+		var message = _.values(arguments);
+		message = message.toString().replace(/,/g, ' '); //useful if you hijack console.log 
+
+		Meteor.methods({
+			clientLog: function(user, message, type, err) {
+				if (user == null || typeof user == 'undefined') {
+					user = 'anonymous';
+				}
+
+				if (type == null || typeof type == 'undefined') {
+					type = 'info';
+				}
+
+				Logger.log(user, message, type, err);
+			}
+		});
+
+	} else {
+		console.error('SB.logger is not set - client is unable to send logs to server');
+	};
+
 	//TODO: Fill with correct data for teams
 	//TODO: Move data to separate file
 	var players = [
