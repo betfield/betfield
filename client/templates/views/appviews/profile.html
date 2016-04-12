@@ -72,16 +72,28 @@
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
                                 <div class="panel-body">
-                                    <strong>Lorem ipsum dolor sit amet, consectetuer adipiscing</strong>
-
-                                    <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
-                                        existence in this spot, which was created for the bliss of souls like mine.</p>
-
+								<div class="fc-toolbar">
+									<div class="fc-left">
+										<input type="text" class="form-control input-sm m-b-md" id="filter" placeholder="Search...">
+									</div>
+                                    <div class="fc-right">
+										<div class="fc-button-group">
+											<button type="button" class="fc-button fc-state-default fc-corner-left fc-state-active">Group A</button>
+											<button type="button" class="fc-button fc-state-default">Group B</button>
+											<button type="button" class="fc-button fc-state-default">Group C</button>
+											<button type="button" class="fc-button fc-state-default">Group D</button>
+											<button type="button" class="fc-button fc-state-default">Group E</button>
+											<button type="button" class="fc-button fc-state-default">Group F</button>
+											<button type="button" class="fc-button fc-state-default fc-corner-right">All Matches</button>
+										</div>
+									</div>
+								</div>
+								
+									<table id="example1" class="footable table" data-page-size="100" data-filter=#filter>
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <thead>
                                             <tr>
-
                                                 <th>#</th>
                                                 <th>Date </th>
                                                 <th>Home </th>
@@ -166,7 +178,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </table>
+								</div>
                             </div>
                             <div id="tab-2" class="tab-pane">
                                 <div class="panel-body no-padding">
