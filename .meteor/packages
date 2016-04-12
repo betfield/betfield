@@ -41,8 +41,5 @@ standard-minifier-css
 standard-minifier-js
 alanning:roles
 patrickml:braintree
-<<<<<<< HEAD
 miktam:loggly
-=======
 accounts-google
->>>>>>> origin/master
