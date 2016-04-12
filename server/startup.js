@@ -1,5 +1,25 @@
 // Run this when the meteor app is started
 Meteor.startup(function () {
+
+	Logger = new Loggly({
+        token: "c9b2a00e-c830-403b-b1b6-260c4c3c9c0d",
+        subdomain: "betfield.loggly.com",
+        auth: {
+          username: "betfield",
+          password: "B3tfield"
+        },
+        //
+        // Optional: Tag to send with EVERY log message
+        //
+        tags: ['betfield'],
+        // Optional: logs will be stored in JSON format
+        json: true
+      });
+
+	Logger.log("first log from meteor");
+	Logger.info("it will store this message with info tag");
+	Logger.info("all", "arguments", "will be stored");
+	Logger.info("my fancy object", {fancy: true});
 	
 	//TODO: Fill with correct data for teams
 	//TODO: Move data to separate file
