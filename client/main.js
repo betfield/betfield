@@ -1,6 +1,14 @@
 Meteor.startup(function () {
-	logger = function (user, msg, type, err) {	
-		return Meteor.call('clientLog', user, msg, type, err);
+	
+	// Define global object with methods for logging 
+	// info and error messages to Loggly
+	logger = {
+		log: function (msg) {	
+			return Meteor.call('clientLog', msg);
+		},
+		error: function (msg, err) {	
+			return Meteor.call('clientError', msg, err);
+		}
 	}
 });
 
@@ -13,12 +21,13 @@ Template.login.events({
 	'click #fb-login':function(event){
 		Meteor.loginWithFacebook({}, function(err){
             if (err) {
-				logger(Meteor.userId(),"Facebook login failed", "error", err);
+				logger.error("Facebook login failed", err);
                 throw new Meteor.Error("Facebook login failed");
-            }
+            } else {
+				logger.log("Facebook login succeeded");
+				Router.go('dashboard');
+			}
         });
-		logger(Meteor.userId(),"Facebook login succeeded", "info");
-		Router.go('dashboard');
 	}
 });
 
@@ -26,11 +35,11 @@ Template.user_logged_out.events({
 	'click #logout': function(event) {
         Meteor.logout(function(err){
             if (err) {
-				logger(Meteor.userId(),"Logout failed", "error", err);
+				logger.error("Logout failed", err);
                 throw new Meteor.Error("Logout failed");
             }
         });
-	logger(Meteor.userId(),"User logged out", "info");
+	logger.log("User logged out");
 	}
 });
 

@@ -18,20 +18,28 @@ Meteor.startup(function () {
 
 	//just checking to see if the object exists-    
 	if (Logger !== null && typeof Logger !== 'undefined') { 
-		var message = _.values(arguments);
+		/*var message = _.values(arguments);
 		message = message.toString().replace(/,/g, ' '); //useful if you hijack console.log 
-
+		*/
+		
 		Meteor.methods({
-			clientLog: function(user, message, type, err) {
+			clientLog: function(message, type, err) {
+				var user = Meteor.userId();
+				
 				if (user == null || typeof user == 'undefined') {
 					user = 'anonymous';
 				}
 
-				if (type == null || typeof type == 'undefined') {
-					type = 'info';
+				Logger.info(message, {user: user});
+			},
+			clientError: function(message, err) {
+				var user = Meteor.userId();
+				
+				if (user == null || typeof user == 'undefined') {
+					user = 'anonymous';
 				}
 
-				Logger.log(user, message, type, err);
+				Logger.error(message, {user: user, err: err});
 			}
 		});
 

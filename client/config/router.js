@@ -8,6 +8,7 @@ var OnBeforeActions;
 OnBeforeActions = {
     loginRequired: function(pause) {
 		if (!(Meteor.loggingIn() || Meteor.user())){
+			Bert.alert( 'Please log in to access the page', 'danger' );
 			Router.go('login');
 		}
 		else {
@@ -49,6 +50,7 @@ Router.route('/payments', function () {
 Router.route('/downgrade', function () {
 	Meteor.call('downgradeToRegular', Meteor.user()._id);	
 	alert('User downgraded to Regular!');
+	
 	Router.go('dashboard');
 });
 
