@@ -61,7 +61,8 @@ Meteor.methods({
 	},
 
 	createTransaction: function(nonceFromTheClient) {
-
+		check(nonceFromTheClient, String);
+		
 		var user = Meteor.user();
 
 		// Let's create transaction.
@@ -86,7 +87,8 @@ Meteor.methods({
 	},
 
 	downgradeToRegular: function(userId) {
-		Meteor.users.update( {_id: Meteor.user()._id} , {$unset: { roles : "" } } );
+		check(userId, String);
+		Meteor.users.update( {_id: userId} , {$unset: { roles : "" } } );
 		console.log("User with id " + userId + " downgraded to regular");
 	}
 });

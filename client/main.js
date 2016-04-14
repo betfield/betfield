@@ -4,12 +4,25 @@ Meteor.startup(function () {
 	// info and error messages to Loggly
 	logger = {
 		log: function (msg) {	
-			return Meteor.call('clientLog', msg);
+			return Meteor.call('clientLog', msg, function(){});
 		},
 		error: function (msg, err) {	
-			return Meteor.call('clientError', msg, err);
+			return Meteor.call('clientError', msg, err, function(){});
 		}
 	}
+
+/*	console.log = function() {
+		return logger.log(arguments);
+	};
+
+	var proxyOnError;
+
+	console.error = function() {
+  		return logger.error(arguments);
+	};
+	
+	proxyOnError = window.onerror;
+*/
 });
 
 // accounts config

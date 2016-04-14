@@ -2,50 +2,60 @@
 Meteor.startup(function () {
 
 	Logger = new Loggly({
-        token: Meteor.settings.private.LOGGLEY_TOKEN,
-        subdomain: Meteor.settings.public.LOGGLEY_SERVER,
-        auth: {
-          username: Meteor.settings.private.LOGGLEY_USER,
-          password: Meteor.settings.private.LOGGLEY_PASS
-        },
-        //
-        // Optional: Tag to send with EVERY log message
-        //
-        tags: ['betfield'],
-        // Optional: logs will be stored in JSON format
-        json: true
-      });
+		token: Meteor.settings.private.LOGGLEY_TOKEN,
+		subdomain: Meteor.settings.public.LOGGLEY_SERVER,
+		auth: {
+			username: Meteor.settings.private.LOGGLEY_USER,
+			password: Meteor.settings.private.LOGGLEY_PASS
+		},
 
+		// Optional: Tag to send with EVERY log message
+		tags: ['betfield'],
+
+		// Optional: logs will be stored in JSON format
+		json: true
+	});
+	
+
+	function getUserId() {
+		var user = Meteor.userId();
+				
+		if (user == null || typeof user == 'undefined') {
+			user = 'anonymous';
+		}
+		
+		return user;
+	}
+	
+	function convertMessage(message) {
+		return message.toString().replace(/,/g, ' '); //useful if you hijack console.log
+	}
+	
 	//just checking to see if the object exists-    
 	if (Logger !== null && typeof Logger !== 'undefined') { 
-		/*var message = _.values(arguments);
-		message = message.toString().replace(/,/g, ' '); //useful if you hijack console.log 
-		*/
 		
 		Meteor.methods({
-			clientLog: function(message, type, err) {
-				var user = Meteor.userId();
-				
-				if (user == null || typeof user == 'undefined') {
-					user = 'anonymous';
-				}
-
-				Logger.info(message, {user: user});
+			clientLog: function(message) {
+				message = convertMessage(message);
+				check(message, String);
+				Logger.info(message, {user: getUserId()});
 			},
 			clientError: function(message, err) {
-				var user = Meteor.userId();
-				
-				if (user == null || typeof user == 'undefined') {
-					user = 'anonymous';
-				}
-
-				Logger.error(message, {user: user, err: err});
+				message = convertMessage(message);
+				err = convertMessage(err);
+				check(message, String);
+				Logger.error(message, {user: getUserId(), error: err});
 			}
 		});
 
 	} else {
 		console.error('SB.logger is not set - client is unable to send logs to server');
 	};
+	
+
+	
+
+
 
 	//TODO: Fill with correct data for teams
 	//TODO: Move data to separate file
