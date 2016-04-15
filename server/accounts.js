@@ -9,7 +9,7 @@ UserGroups = {
 	regular: 'regular-user',
 	premium: 'premium-user'
 };
-
+/*
 Accounts.onCreateUser(function (options,user) {
 	console.log("Entered onCreateUser function");
 	var userId = user.services.facebook.id;
@@ -35,3 +35,4 @@ Accounts.onCreateUser(function (options,user) {
 	
 	return user;
 });
+*/
