@@ -44,6 +44,22 @@ Template.login.events({
 	}
 });
 
+Template.login.events({
+	  'click #google-login': function(event){
+    	console.log('clicked google login')
+    	Meteor.loginWithGoogle ({}, function (err){
+      		if (err){
+				logger.error("Google login failed", err);
+        		throw new (Meteor.Error)("Google login failed");
+	  		}else{
+    			logger.log("Google login succeeded");
+				Router.go('dashboard');
+	  		}
+		});
+	}
+});
+ 
+
 Template.user_logged_out.events({
 	'click #logout': function(event) {
         Meteor.logout(function(err){
