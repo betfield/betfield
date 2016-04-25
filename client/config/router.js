@@ -1,6 +1,8 @@
 Router.configure({
     layoutTemplate: 'layout',
     notFoundTemplate: 'notFound'
+    // TODO: create proper loading template
+    // loadingTemplate: 'layout'
 });
 
 var OnBeforeActions;
@@ -21,6 +23,18 @@ Router.onBeforeAction(OnBeforeActions.loginRequired, {
 	except: ['root', 'login', 'logout', 'landingPage','register']
 });
 
+Router.route('/football-data.events', { where: 'server' })
+    .post(function() {
+        var body = this.request.body; // get the body out of the response
+        var url = body.url; // based on the JSON you showed
+        
+        console.log(body.Updates);
+        
+        this.response.statusCode = 200; // set the status code to be returned
+        this.response.end(); // send response
+    }
+);
+
 //
 // Dashboard route
 //
@@ -32,6 +46,14 @@ Router.route('/', {
 	action: function() {
 		this.render();
 	}
+});
+
+Router.route('/calendar', {
+	name: 'calendar',
+    waitOn: function() {
+        // Wait until all data is retreived from the DB before rendering the page
+        return Meteor.subscribe('allFixtures');
+    }
 });
 
 Router.route('/leagues', function () {
@@ -171,9 +193,6 @@ Router.route('/forumDetails', function () {
 });
 Router.route('/gallery', function () {
     this.render('gallery');
-});
-Router.route('/calendar', function () {
-    this.render('calendar');
 });
 Router.route('/fileManager', function () {
     this.render('fileManager');
