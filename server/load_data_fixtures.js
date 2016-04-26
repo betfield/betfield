@@ -75,7 +75,7 @@ var fixtures = [{"competition":"EURO 2016","day":"Friday","date":"June 10","time
 	Meteor.setInterval(function() {
     
 		HTTP.call( 'GET', // Meteor.settings.public.RESULTS_FEED_API + //Meteor.settings.public.RESULTS_FEED_ACTIVE_LEAGUE + 
-					"http://api.football-data.org/v1/fixtures/146772", {
+					"http://api.football-data.org/v1/fixtures/149434", {
 			headers: {
 				"X-Auth-Token": Meteor.settings.private.RESULTS_FEED_KEY
 			},
