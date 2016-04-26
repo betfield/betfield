@@ -20,20 +20,9 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-	except: ['root', 'login', 'logout', 'landingPage','register']
+	except: ['root', 'login', 'logout', 'landingPage', 'register', 'football-data.events']
 });
 
-Router.route('/football-data.events', { where: 'client' })
-    .post(function() {
-        var body = this.request.body; // get the body out of the response
-        var url = body.url; // based on the JSON you showed
-        
-        console.log(body.Updates);
-        
-        this.response.statusCode = 200; // set the status code to be returned
-        this.response.end(); // send response
-    }
-);
 
 //
 // Dashboard route
@@ -57,6 +46,23 @@ Router.route('/calendar', {
 });
 
 Router.route('/leagues', function () {
+    // Testing the api - remove the code after
+    /*HTTP.post( "http://localhost:3000/football-data.events", { 
+        data: { 
+            "Timestamp": "2015-02-12T14:00:00", 
+            "Resource": "Fixture",
+            "Id": 147211,
+            "URI": "http://api.football-data.org/v1/fixtures/147211", 
+            "Updates": "Score|1:0 -> 1:1;STATUS|OLD_VALUE -> NEW_VALUE"
+        } 
+    }, function( error, response ) {
+        if ( error ) {
+            console.log( error );
+        } else {
+            console.log( response );
+        }
+    });
+    */
     this.render('leagues');
 });
 
