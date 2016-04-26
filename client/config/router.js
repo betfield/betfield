@@ -23,7 +23,7 @@ Router.onBeforeAction(OnBeforeActions.loginRequired, {
 	except: ['root', 'login', 'logout', 'landingPage','register']
 });
 
-Router.route('/football-data.events', { where: 'server' })
+Router.route('/football-data.events', { where: 'client' })
     .post(function() {
         var body = this.request.body; // get the body out of the response
         var url = body.url; // based on the JSON you showed
