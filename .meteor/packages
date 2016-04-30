@@ -46,3 +46,8 @@ themeteorchef:bert
 audit-argument-checks
 browser-policy
 http
+meteorhacks:npm
+
+
+npm-container
+meteorhacks:fast-render

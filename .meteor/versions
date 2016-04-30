@@ -29,6 +29,7 @@ callback-hook@1.0.8
 cfs:http-methods@0.0.32
 check@1.2.1
 chrismbeckett:toastr@2.1.2_1
+chuangbo:cookie@1.1.0
 coffeescript@1.0.17
 d3js:d3@3.5.8
 ddp@1.2.5
@@ -73,6 +74,12 @@ logging@1.0.12
 mdg:validation-error@0.2.0
 meteor@1.1.14
 meteor-base@1.0.4
+meteorhacks:async@1.0.0
+meteorhacks:fast-render@2.14.0
+meteorhacks:inject-data@2.0.0
+meteorhacks:meteorx@1.4.1
+meteorhacks:npm@1.5.0
+meteorhacks:picker@1.0.3
 meteorspark:util@0.2.0
 miktam:loggly@1.1.0
 minifier-css@1.1.11
@@ -87,6 +94,7 @@ mongo@1.1.7
 mongo-id@1.0.4
 natestrauser:animate-css@3.5.1
 npm-bcrypt@0.8.5
+npm-container@1.2.0
 npm-mongo@1.4.43
 oauth@1.1.10
 oauth2@1.1.9

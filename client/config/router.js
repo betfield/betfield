@@ -41,7 +41,7 @@ Router.route('/calendar', {
 	name: 'calendar',
     waitOn: function() {
         // Wait until all data is retreived from the DB before rendering the page
-        return Meteor.subscribe('allFixtures');
+        return Meteor.subscribe('fixtures');
     }
 });
 
@@ -66,8 +66,13 @@ Router.route('/leagues', function () {
     this.render('leagues');
 });
 
-Router.route('/predictions', function () {
-    this.render('predictions');
+Router.route('/predictions', {
+    name: 'predictions',
+    waitOn: function() {
+        // Wait until all data is retreived from the DB before rendering the page
+        return Meteor.subscribe('fixtures');
+    }
+    //this.render('predictions');
 });
 
 Router.route('/payments', function () {

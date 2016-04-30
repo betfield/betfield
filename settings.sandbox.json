@@ -5,7 +5,9 @@
 		"BT_PUBLIC_KEY": "5k6v5p5kgz5bcb77",
 		"LOGGLEY_SERVER": "betfield.loggly.com",
 		"RESULTS_FEED_API": "http://api.football-data.org/v1",
-		"RESULTS_FEED_ACTIVE_LEAGUE": "/soccerseasons/424"
+		"RESULTS_FEED_ACTIVE_LEAGUE": "/soccerseasons/424",
+		
+		"FOLDER_FLAGS": "/teams/flags/"
 	},
 		"private": {
 		"BT_PRIVATE_KEY": "ba4a41de09880c12728f5e6a10df45af",

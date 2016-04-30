@@ -1,21 +1,19 @@
 <template name="predictions">
 
-    {{> pageHeader title="Ennustused" desc="blaa" }}
-
     {{#staggering}}
 
         <div class="content">
 
             <div class="row">
                 <div class="col-lg-12">
-                {{#panel title="Minu ennustused"}}
-                            
-                        <div class="panel-body">
-							<div id="calendar" class="fc fc-ltr fc-unthemed">
+                {{#panel}}
+                         
+                        <div class="bf-table">
+							<div id="selector" class="fc fc-ltr fc-unthemed bf-table-selector">
 								<div class="fc-toolbar">
 									<div class="fc-left">
-										<input type="text" class="form-control input-sm m-b-md" id="filter" placeholder="Search...">
-									</div>
+										<h1>Ennustused</h1>
+									</div>   
 									<div class="fc-right">
 										<div class="fc-button-group">
 											<button type="button" class="fc-button fc-state-default fc-corner-left fc-state-active">Group A</button>
@@ -29,103 +27,17 @@
 									</div>
 								</div>
 							</div>
-                            <table id="example1" class="footable table" data-page-size="100" data-filter=#filter>
+                            <table id="predictions" class="footable table" data-page-size="100" data-filter=#filter>
                                 <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Home</th>
-                                    <th>Away</th>
-                                    <th>Group</th>
-                                    <th>Score</th>
+                                    <th data-class="bf-table-date" class="bf-center">Date</th>
+                                    <th data-class="bf-table-home" class="bf-right">Home</th>
+									<th data-class="bf-table-vs" data-sort-ignore="true"></th>
+                                    <th data-class="bf-table-away" class="bf-left">Away</th>
+                                    <th data-class="bf-table-group" class="bf-center">Group</th>
+                                    <th data-class="bf-table-score" data-sort-ignore="true" class="bf-center">Score</th>
                                 </tr>
                                 </thead>
-                                <tbody>
-		                            <tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp A</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 20:00</td>
-		                                <td>Prantsusmaa</td>
-		                                <td>Taani</td>
-		                                <td>Grupp B</td>
-		                                <td></td>
-		                            </tr>
-									<tr>
-		                                <td>12.06.2016 18:00</td>
-		                                <td>Inglismaa</td>
-		                                <td>Wales</td>
-		                                <td>Grupp C</td>
-		                                <td>0:0</td>
-		                            </tr>
-									<tr>
-		                                <td>12.06.2016 22:00</td>
-		                                <td>Hispaania</td>
-		                                <td>Venemaa</td>
-		                                <td>Grupp D</td>
-		                                <td>1:2</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp E</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp F</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp A</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp A</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp A</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp A</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp A</td>
-		                                <td>2:0</td>
-		                            </tr>
-									<tr>
-		                                <td>11.06.2016 18:00</td>
-		                                <td>Saksamaa</td>
-		                                <td>Poola</td>
-		                                <td>Grupp A</td>
-		                                <td>2:0</td>
-		                            </tr>
-
-                                </tbody>
                             </table>
 
                         </div>

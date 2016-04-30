@@ -1,5 +1,6 @@
+// Publish all fixtures from the local DB
 if (Meteor.isServer) {
-	Meteor.publish('allFixtures', function(filter) {
+	Meteor.publish('fixtures', function(filter) {
 		var self = this;
 		
 		var subHandle = Fixtures.find(filter || {}).observeChanges({
@@ -22,13 +23,3 @@ if (Meteor.isServer) {
 	});
 	
 }
-/*
-Meteor.methods({
-	getAllFixtures: function () {
-		var someParam = Fixtures.findOne();
-		console.log(someParam);
-		return someParam;
-	}
-
-});
-*/
