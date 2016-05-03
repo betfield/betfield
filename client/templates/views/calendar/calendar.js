@@ -41,7 +41,7 @@ Template.calendar.onRendered(function(){
 
 			calendar_fixtures.push({
 				id: fixture._id,
-				title: fixture.home_team + " vs " + fixture.away_team,
+				title: fixture.home_team.name + " vs " + fixture.away_team.name,
 				start: tsStart,
 				end: tsEnd,
 				allDay: false,

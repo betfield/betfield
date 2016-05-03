@@ -1,5 +1,7 @@
 Template.predictions.onCreated(function(){
    // Meteor.subscribe('fixtures'); 
+   this.pred = new ReactiveDict();
+   this.pred.set('groupSelected',"A");
 });
 
 Template.predictions.onRendered(function(){
@@ -8,13 +10,42 @@ Template.predictions.onRendered(function(){
     $('#predictions').footable();
     
     // Get data for Predictions table
-	var fixtures = Fixtures.find({"group": {$in: ["A","B","C","D","E","F"]}});
-    console.log(fixtures.count());
+	// var fixtures = Fixtures.find({"group": });
+    initTable(Template.instance());
+
+});
+
+Template.predictions.helpers({
+    getGroupSelected: function() {
+        return Template.instance().fixtures.get('groupSelected');
+    },
+});
+
+Template.predictions.events({
+    'click .group-select > button' : function(event, template) {
+        var id = event.target.id;
+        if (id === "ALL") {
+            template.pred.set('groupSelected', {$in: ["A","B","C","D","E","F"]});
+        } else {
+            template.pred.set('groupSelected', id); 
+        }
+        
+        $("#" + event.target.id).addClass("fc-state-active").siblings().removeClass("fc-state-active");
+        return initTable();
+    }
+});
+
+function initTable() {
+    var fixtures = Fixtures.find({"group": Template.instance().pred.get('groupSelected')});
     
-	if (fixtures.count() !== 0) {
+    if (fixtures.count() !== 0) {
         var table = document.getElementById("predictions");
+        // clear existing values from table
+        
         var tbody = document.createElement('tbody');
-		var date, home, vs, away, group, score;
+        tbody.setAttribute("id","pred-body");
+        
+        var date, home, vs, away, group, score;
         var imgHome, imgAway;
         var tr;
         
@@ -58,12 +89,10 @@ Template.predictions.onRendered(function(){
             
             tbody.appendChild(tr);
             
-		}); // end of for
+        }); // end of for
+        table.replaceChild(tbody,document.getElementById("pred-body"));
         
-        table.appendChild(tbody);
-		
-	} else {
-		// TODO: Handle empty table
-	};
-
-});
+    } else {
+        // TODO: Handle empty table
+    };
+}
