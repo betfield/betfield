@@ -1,17 +1,24 @@
 Template.predictions.onCreated(function(){
-   // Meteor.subscribe('fixtures'); 
    this.pred = new ReactiveDict();
    this.pred.set('groupSelected',"A");
 });
 
 Template.predictions.onRendered(function(){
 
+    var userId = Meteor.userId();
+    var predictions = Predictions.find();
+    
+    console.log(userId + ": " + predictions.count());
+    
     // Initialize Predictions table
     $('#predictions').footable();
     
+    if (userId && (predictions.count() < 1)) {
+        initUserPredictions(userId);
+    }
+    
     // Get data for Predictions table
-	// var fixtures = Fixtures.find({"group": });
-    initTable(Template.instance());
+    initTable(userId);
 
 });
 
@@ -31,14 +38,13 @@ Template.predictions.events({
         }
         
         $("#" + event.target.id).addClass("fc-state-active").siblings().removeClass("fc-state-active");
-        return initTable();
+        return initTable(this.userId);
     }
 });
 
-function initTable() {
-    var fixtures = Fixtures.find({"group": Template.instance().pred.get('groupSelected')});
-    
-    if (fixtures.count() !== 0) {
+function initTable(userId) {
+    var fixtures = Predictions.find({"fixture.group": Template.instance().pred.get('groupSelected')}).fetch();
+    if (fixtures && fixtures.length) {
         var table = document.getElementById("predictions");
         // clear existing values from table
         
@@ -49,7 +55,7 @@ function initTable() {
         var imgHome, imgAway;
         var tr;
         
-        fixtures.forEach(function (fixture){
+        fixtures.forEach(function (f){
             tr = document.createElement('tr');
             
             date = document.createElement('td');
@@ -59,8 +65,10 @@ function initTable() {
             group = document.createElement('td');
             score = document.createElement('td');
             
-            imgHome = document.createElement("IMG");
-            imgAway = document.createElement("IMG");
+            imgHome = document.createElement("img");
+            imgAway = document.createElement("img");
+            scoreHome = document.createElement("input");
+            scoreAway = document.createElement("input");
             
             date.setAttribute("class", "bf-table-date");
             home.setAttribute("class", "bf-table-home");
@@ -69,14 +77,17 @@ function initTable() {
             group.setAttribute("class", "bf-table-group");
             score.setAttribute("class", "bf-table-score");
             
-            date.innerHTML = fixture.date + " @ " + fixture.time;
-            home.innerHTML = fixture.home_team.name;
-            away.innerHTML = fixture.away_team.name;
-            group.innerHTML = fixture.group;
-            score.innerHTML = "99:99";
+            setAttributes(scoreHome, {"value": f.fixture.result.homeGoals, "maxlength": 2, "type": "number", "min": 0, "max": 99, "class": "input-no-spinner"});
+            setAttributes(scoreAway, {"value": f.fixture.result.awayGoals, "maxlength": 2, "type": "number", "min": 0, "max": 99, "class": "input-no-spinner"});
             
-            imgHome.src = Meteor.settings.public.FOLDER_FLAGS + String(fixture.home_team.code).toLowerCase() + ".png";
-            imgAway.src = Meteor.settings.public.FOLDER_FLAGS + String(fixture.away_team.code).toLowerCase() + ".png";
+            date.innerHTML = f.fixture.date + " @ " + f.fixture.time;
+            home.innerHTML = f.fixture.home_team.name;
+            away.innerHTML = f.fixture.away_team.name;
+            group.innerHTML = f.fixture.group;
+            score.innerHTML = scoreHome.outerHTML + " : " + scoreAway.outerHTML;
+            
+            imgHome.src = Meteor.settings.public.FOLDER_FLAGS + String(f.fixture.home_team.code).toLowerCase() + ".png";
+            imgAway.src = Meteor.settings.public.FOLDER_FLAGS + String(f.fixture.away_team.code).toLowerCase() + ".png";
             
             vs.innerHTML = imgHome.outerHTML + "vs" + imgAway.outerHTML;
             
@@ -95,4 +106,22 @@ function initTable() {
     } else {
         // TODO: Handle empty table
     };
+}
+
+// Set multiple attributes for HTML element
+function setAttributes(el, attrs) {
+    for(var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+    }
+}
+
+// Create empty prediction set for logged in user
+function initUserPredictions(userId) {
+    Meteor.call( "createPrediction", userId, function( error, response ) {
+        if ( error ) {
+            Bert.alert( error.reason, "danger" );
+        } else {
+            Bert.alert( "Prediction created!", "success" );
+        }
+    });
 }
