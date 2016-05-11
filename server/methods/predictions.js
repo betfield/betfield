@@ -47,7 +47,18 @@ Meteor.publish('predictions', function(filter) {
 });
 
 Meteor.methods({
-	createPrediction: function( userId ) {
+	createUserPredictions: function( userId ) {
+		check( userId, String );
+		
+		var fixtures = Fixtures.find().fetch();
+		
+		return fixtures.forEach(function(fixture) {
+			fixture["result"] = {"homeGoals": "", "awayGoals": ""};
+			var prediction = {"userId": userId, "fixture": fixture};
+			Predictions.insert( prediction );
+		});
+      },
+	  updateUserPredictions: function( userId ) {
 		check( userId, String );
 		
 		var fixtures = Fixtures.find().fetch();

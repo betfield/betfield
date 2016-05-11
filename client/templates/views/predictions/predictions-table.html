@@ -1,0 +1,30 @@
+<template name="predictionsTable">    
+      
+    <table id="predictions" class="footable table" data-page-size="100" data-filter=#filter>
+        <thead>
+            <tr>
+                <th data-class="bf-table-date" class="bf-center">Date</th>
+                <th data-class="bf-table-home" class="bf-right">Home</th>
+                <th data-class="bf-table-vs" data-sort-ignore="true"></th>
+                <th data-class="bf-table-away" class="bf-left">Away</th>
+                <th data-class="bf-table-group" class="bf-center">Group</th>
+                <th data-class="bf-table-score" data-sort-ignore="true" class="bf-center">Score</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="middle">
+                    <button id="pred-submit" type="button" class="btn btn-success bf-table-submit">Submit</button>
+                </td>
+            </tr>
+        </tfoot>
+        <tbody id="pred-body">
+              
+        </tbody>	
+    </table>
+</template>

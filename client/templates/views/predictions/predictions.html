@@ -16,44 +16,20 @@
 									</div>   
 									<div class="fc-right">
 										<div class="group-select fc-button-group">
-											<button id="A" type="button" class="fc-button fc-state-default fc-corner-left fc-state-active">Group A</button>
-											<button id="B" type="button" class="fc-button fc-state-default">Group B</button>
-											<button id="C" type="button" class="fc-button fc-state-default">Group C</button>
-											<button id="D" type="button" class="fc-button fc-state-default">Group D</button>
-											<button id="E" type="button" class="fc-button fc-state-default">Group E</button>
-											<button id="F" type="button" class="fc-button fc-state-default">Group F</button>
-											<button id="ALL" type="button" class="fc-button fc-state-default fc-corner-right">All Matches</button>
+											<button id="A" type="button" data-template="A" class="fc-button fc-state-default fc-corner-left fc-state-active">Group A</button>
+											<button id="B" type="button" data-template="B" class="fc-button fc-state-default">Group B</button>
+											<button id="C" type="button" data-template="C" class="fc-button fc-state-default">Group C</button>
+											<button id="D" type="button" data-template="D" class="fc-button fc-state-default">Group D</button>
+											<button id="E" type="button" data-template="E" class="fc-button fc-state-default">Group E</button>
+											<button id="F" type="button" data-template="F" class="fc-button fc-state-default">Group F</button>
+											<button id="ALL" type="button" data-template="ALL" class="fc-button fc-state-default fc-corner-right">All Matches</button>
 										</div>
 									</div>
 								</div>
 							</div>
-                            <table id="predictions" class="footable table" data-page-size="100" data-filter=#filter>
-                                <thead>
-									<tr>
-										<th data-class="bf-table-date" class="bf-center">Date</th>
-										<th data-class="bf-table-home" class="bf-right">Home</th>
-										<th data-class="bf-table-vs" data-sort-ignore="true"></th>
-										<th data-class="bf-table-away" class="bf-left">Away</th>
-										<th data-class="bf-table-group" class="bf-center">Group</th>
-										<th data-class="bf-table-score" data-sort-ignore="true" class="bf-center">Score</th>
-									</tr>
-                                </thead>
-								<tfoot>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td align="middle">
-											<button id="pred-submit" type="button" class="btn btn-success bf-table-submit">Submit</button>
-										</td>
-									</tr>
-								</tfoot>
-								<tbody id="pred-body">
-								</tbody>	
-                            </table>
-
+                            
+							{{> Template.dynamic template="predictionsTable" data=predictionsData}}
+							
                         </div>
                     
 				{{/panel}}
