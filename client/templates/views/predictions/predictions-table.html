@@ -24,7 +24,24 @@
             </tr>
         </tfoot>
         <tbody id="pred-body">
-              
+            {{#each this}}
+            <tr>
+                <td class="bf-table-date">{{fixture.date}} @ {{fixture.time}}</td>
+                <td class="bf-table-home">{{fixture.home_team.name}}</td>
+                <td class="bf-table-vs">
+					<img src={{fixture.home_team.imgSrc}} />
+					<span> vs </span>
+					<img src={{fixture.home_team.imgSrc}} />
+				</td>
+                <td class="bf-table-away">{{fixture.away_team.name}}</td>
+                <td class="bf-table-group">{{fixture.group}}</td>
+                <td class="bf-table-score">
+					<input maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.homeGoals}}>
+					<span> : </span>
+					<input maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.awayGoals}}>
+				</td>
+            </tr>
+            {{/each}}
         </tbody>	
     </table>
 </template>
