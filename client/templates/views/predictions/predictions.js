@@ -3,10 +3,6 @@ Template.predictions.onCreated(function(){
     this.pred.set('groupSelected',"A");
 });
 
-Template.predictions.onRendered(function(){
-
-});
-
 Template.predictions.events({
     'click .group-select > button' : function(event, template) {
         var id = event.target.id;
@@ -18,17 +14,14 @@ Template.predictions.events({
             template.pred.set('groupSelected', id); 
         }
         
-        $("#" + event.target.id).addClass("fc-state-active").siblings().removeClass("fc-state-active");
-        console.log( "eventclick: ", template.pred.get("groupSelected") );
-        
-        return template.pred.get("groupSelected");
+        $("#" + id).addClass("fc-state-active").siblings().removeClass("fc-state-active");
+        Tracker.afterFlush(function() {
+            return $('#predictions').trigger('footable_redraw');    
+        })
     }
 });
 
 Template.predictions.helpers({
-    tab: function() {
-        return Template.instance().pred.get("groupSelected");
-    },
     predictionsData: function() {
         var fixtures = Predictions.find({"fixture.group": Template.instance().pred.get("groupSelected")}).fetch();
 		var i = 0;
@@ -47,4 +40,6 @@ Template.predictions.helpers({
         return fixtures;
     }
 });
+
+$('#predictions').trigger('footable_redraw');
 

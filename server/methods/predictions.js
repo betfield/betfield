@@ -57,16 +57,13 @@ Meteor.methods({
 			var prediction = {"userId": userId, "fixture": fixture};
 			Predictions.insert( prediction );
 		});
-      },
-	  updateUserPredictions: function( userId ) {
+	},
+	updateUserPredictions: function(fixture,homeScore,awayScore,userId) {
+		check( fixture, String );
+		check( homeScore, String );
+		check( awayScore, String );
 		check( userId, String );
 		
-		var fixtures = Fixtures.find().fetch();
-		
-		return fixtures.forEach(function(fixture) {
-			fixture["result"] = {"homeGoals": "", "awayGoals": ""};
-			var prediction = {"userId": userId, "fixture": fixture};
-			Predictions.insert( prediction );
-		});
-      }
+		return Predictions.update({"userId": userId, "fixture._id": fixture}, {$set: {"fixture.result.homeGoals": homeScore, "fixture.result.awayGoals": awayScore}});
+	}
 });	

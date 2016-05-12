@@ -1,47 +1,49 @@
 <template name="predictionsTable">    
-      
-    <table id="predictions" class="footable table" data-page-size="100" data-filter=#filter>
-        <thead>
-            <tr>
-                <th data-class="bf-table-date" class="bf-center">Date</th>
-                <th data-class="bf-table-home" class="bf-right">Home</th>
-                <th data-class="bf-table-vs" data-sort-ignore="true"></th>
-                <th data-class="bf-table-away" class="bf-left">Away</th>
-                <th data-class="bf-table-group" class="bf-center">Group</th>
-                <th data-class="bf-table-score" data-sort-ignore="true" class="bf-center">Score</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td align="middle">
-                    <button id="pred-submit" type="button" class="btn btn-success bf-table-submit">Submit</button>
-                </td>
-            </tr>
-        </tfoot>
-        <tbody id="pred-body">
-            {{#each this}}
-            <tr>
-                <td class="bf-table-date">{{fixture.date}} @ {{fixture.time}}</td>
-                <td class="bf-table-home">{{fixture.home_team.name}}</td>
-                <td class="bf-table-vs">
-					<img src={{fixture.home_team.imgSrc}} />
-					<span> vs </span>
-					<img src={{fixture.home_team.imgSrc}} />
-				</td>
-                <td class="bf-table-away">{{fixture.away_team.name}}</td>
-                <td class="bf-table-group">{{fixture.group}}</td>
-                <td class="bf-table-score">
-					<input maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.homeGoals}}>
-					<span> : </span>
-					<input maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.awayGoals}}>
-				</td>
-            </tr>
-            {{/each}}
-        </tbody>	
-    </table>
+    <form id="predictions-form">  
+        <table id="predictions" class="footable table table-stripped" data-page-size="100" data-filter=#filter>
+            <thead>
+                <tr>
+                    <th data-class="bf-table-date" data-hide="phone" class="bf-center">Date</th>
+                    <th data-class="bf-table-home" data-hide="phone,tablet" class="bf-right">Home</th>
+                    <th data-class="bf-table-vs" data-sort-ignore="true"></th>
+                    <th data-class="bf-table-away" data-hide="phone,tablet" class="bf-left">Away</th>
+                    <th data-class="bf-table-group" data-hide="phone,tablet" class="bf-center">Group</th>
+                    <th data-class="bf-table-score" data-sort-ignore="true" class="bf-center">Score</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="middle">
+                        <button id="pred-submit" type="submit" class="btn btn-success bf-table-submit">Submit</button>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody id="pred-body">
+                {{#each this}}
+                <tr>
+                    <td class="bf-table-date">{{fixture.date}} @ {{fixture.time}}</td>
+                    <td class="bf-table-home">{{fixture.home_team.name}}</td>
+                    <td class="bf-table-vs">
+                        <img src={{fixture.home_team.imgSrc}} />
+                        <span> vs </span>
+                        <img src={{fixture.away_team.imgSrc}} />
+                    </td>
+                    <td class="bf-table-away">{{fixture.away_team.name}}</td>
+                    <td class="bf-table-group">{{fixture.group}}</td>
+                    <td class="bf-table-score">
+                        <input id="fixture-id" type="hidden" value={{fixture._id}}>
+                        <input id="home-score" maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.homeGoals}}>
+                        <span> : </span>
+                        <input id="away-score" maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.awayGoals}}>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>	
+        </table>
+    </form>
 </template>

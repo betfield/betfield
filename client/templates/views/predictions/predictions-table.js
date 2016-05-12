@@ -1,15 +1,6 @@
-Template.predictionsTable.onCreated(function(){
-   
-    console.log("onCreated: ", this.data);
-});
-
 Template.predictionsTable.onRendered(function(){
-    console.log( "onRendered: ", this.data );
-    
     var userId = Meteor.userId();
     var predictions = Predictions.find();
-    
-    console.log(userId + ": " + predictions.count());
     
     // Initialize Predictions table
     $('#predictions').footable();
@@ -17,10 +8,33 @@ Template.predictionsTable.onRendered(function(){
     if (userId && (predictions.count() < 1)) {
         initUserPredictions(userId);
     }
-    
-    // Get data for Predictions table
-    //initTable(userId);
+});
 
+Template.predictionsTable.events({
+    'submit #predictions-form' : function(event, template) {
+        // Prevent default browser form submit
+        event.preventDefault();
+    
+        // Get value from form element
+        var scores = [].slice.call(event.target.getElementsByClassName("bf-table-score"));
+        var userId = Meteor.userId();
+        
+        scores.forEach(function(score){
+            var result = score.getElementsByTagName("input");
+            
+            var fixture = result[0].value;
+            var homeScore = result[1].value;
+            var awayScore = result[2].value;
+            
+            Meteor.call( "updateUserPredictions", fixture, homeScore, awayScore, userId, function( error, response ) {
+                if ( error ) {
+                    console.log( error.reason, "danger" );
+                } else {
+                    console.log( "Prediction created!", "success" );
+                }
+            });
+        });
+    },
 });
 
 // Create empty prediction set for logged in user
