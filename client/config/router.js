@@ -20,7 +20,7 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-	except: ['root', 'login', 'logout', 'landingPage', 'register', 'football-data.events']
+	except: ['root', 'login', 'login-fb', 'logout', 'landingPage', 'register', 'football-data.events']
 });
 
 
