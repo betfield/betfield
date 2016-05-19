@@ -41,5 +41,3 @@ Template.predictions.helpers({
     }
 });
 
-$('#predictions').trigger('footable_redraw');
-

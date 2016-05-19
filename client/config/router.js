@@ -37,6 +37,22 @@ Router.route('/', {
 	}
 });
 
+Router.route('/login-fb', {
+	action: function() {
+        Meteor.loginWithFacebook({}, function(err){
+            if (err) {
+				logger.error("Facebook login failed", err);
+                throw new Meteor.Error("Facebook login failed");
+            } else {
+				logger.log("Facebook login succeeded");
+				Router.go('dashboard');
+			}
+        });
+        
+		this.render('dashboard');
+	}
+});
+
 Router.route('/calendar', {
 	name: 'calendar',
     waitOn: function() {
