@@ -1,8 +1,6 @@
 Router.configure({
     layoutTemplate: 'layout',
     notFoundTemplate: 'notFound'
-    // TODO: create proper loading template
-    // loadingTemplate: 'layout'
 });
 
 var OnBeforeActions;
@@ -10,7 +8,7 @@ var OnBeforeActions;
 OnBeforeActions = {
     loginRequired: function(pause) {
 		if (!(Meteor.loggingIn() || Meteor.user())){
-			Bert.alert( 'Please log in to access the page', 'danger' );
+			Bert.alert( 'Palun logi sisse', 'danger' );
 			Router.go('login');
 		}
 		else {
@@ -20,9 +18,8 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-	except: ['root', 'login', 'login-fb', 'logout', 'landingPage', 'register', 'football-data.events']
+	except: ['root', 'login', 'logout', 'register', 'football-data.events', 'predictions']
 });
-
 
 //
 // Dashboard route
@@ -30,26 +27,9 @@ Router.onBeforeAction(OnBeforeActions.loginRequired, {
 
 Router.route('/', {
 	name: 'root',
-	template: 'landingPage',
-    layoutTemplate: 'landingLayout',
+	template: 'dashboard',
 	action: function() {
 		this.render();
-	}
-});
-
-Router.route('/login-fb', {
-	action: function() {
-        Meteor.loginWithFacebook({}, function(err){
-            if (err) {
-				logger.error("Facebook login failed", err);
-                throw new Meteor.Error("Facebook login failed");
-            } else {
-				logger.log("Facebook login succeeded");
-				Router.go('dashboard');
-			}
-        });
-        
-		this.render('dashboard');
 	}
 });
 
@@ -61,36 +41,41 @@ Router.route('/calendar', {
     }
 });
 
-Router.route('/leagues', function () {
-    // Testing the api - remove the code after
-    /*HTTP.post( "http://localhost:3000/football-data.events", { 
-        data: { 
-            "Timestamp": "2015-02-12T14:00:00", 
-            "Resource": "Fixture",
-            "Id": 147211,
-            "URI": "http://api.football-data.org/v1/fixtures/147211", 
-            "Updates": "Score|1:0 -> 1:1;STATUS|OLD_VALUE -> NEW_VALUE"
-        } 
-    }, function( error, response ) {
-        if ( error ) {
-            console.log( error );
-        } else {
-            console.log( response );
-        }
-    });
-    */
-    this.render('leagues');
-});
-
 Router.route('/predictions', {
     name: 'predictions',
     waitOn: function() {
         // Wait until all data is retreived from the DB before rendering the page
         return Meteor.subscribe('predictions');
     }
-    //this.render('predictions');
 });
 
+Router.route('/fixtures/:_id', {
+    template: 'fixtures',
+    waitOn: function() {
+        // Wait until all data is retreived from the DB before rendering the page
+        return Meteor.subscribe('predictions');
+    },
+    data: function () {
+        //if (this.ready()) {
+            return this.params._id;
+        //}
+    }
+});
+/*
+Router.route('/predictions/:_id', function () {
+    this.render('predictions', {
+        waitOn: function() {
+            // Wait until all data is retreived from the DB before rendering the page
+            return Meteor.subscribe('predictions');
+        },
+        data: function () {
+            if (this.ready()) {
+                return this.params._id;
+            }
+        }
+    });
+});
+*/
 Router.route('/payments', function () {
     this.render('payments');
     this.layout('landingLayout');
@@ -98,24 +83,63 @@ Router.route('/payments', function () {
 
 Router.route('/downgrade', function () {
 	Meteor.call('downgradeToRegular', Meteor.user()._id);	
-	alert('User downgraded to Regular!');
-	
-	Router.go('dashboard');
+	Bert.alert( 'Konto algseadistatud', 'success' );
+	Router.go('root');
 });
 
 Router.route('/logout', function () {
 	Meteor.logout(function(err){
         if (err) {
+            Bert.alert( 'Väljalogimine ebaõnnestus', 'danger' );
             throw new Meteor.Error("Logout failed");
         }
     });
-	//TODO: Show splash message about user logged out
-	Router.go('landingPage');
+    Bert.alert('Oled välja logitud', 'success');
+	Router.go('root');
 });
 
 Router.route('/dashboard', function () {
     this.render('dashboard');
 });
+
+Router.route('/rules', function () {
+    this.render('rules');
+});
+
+Router.route('/table', function () {
+    this.render('table');
+});
+
+//
+// Common views route
+//
+
+Router.route('/login', function () {
+    this.render('login');
+    this.layout('blankLayout');
+});
+Router.route('/register', function () {
+    this.render('register');
+    this.layout('blankLayout');
+});
+Router.route('/errorOne', function () {
+    this.render('errorOne');
+    this.layout('blankLayout');
+});
+Router.route('/errorTwo', function () {
+    this.render('errorTwo');
+    this.layout('blankLayout');
+});
+Router.route('/lock', function () {
+    this.render('lock');
+    this.layout('blankLayout');
+});
+Router.route('/passwordRecovery', function () {
+    this.render('passwordRecovery');
+    this.layout('blankLayout');
+});
+
+/********************************************************************************************************/
 
 //
 // Analytics route
@@ -280,35 +304,6 @@ Router.route('/transitionFive', function () {
 });
 
 //
-// Common views route
-//
-
-Router.route('/login', function () {
-    this.render('login');
-    this.layout('blankLayout');
-});
-Router.route('/register', function () {
-    this.render('register');
-    this.layout('blankLayout');
-});
-Router.route('/errorOne', function () {
-    this.render('errorOne');
-    this.layout('blankLayout');
-});
-Router.route('/errorTwo', function () {
-    this.render('errorTwo');
-    this.layout('blankLayout');
-});
-Router.route('/lock', function () {
-    this.render('lock');
-    this.layout('blankLayout');
-});
-Router.route('/passwordRecovery', function () {
-    this.render('passwordRecovery');
-    this.layout('blankLayout');
-});
-
-//
 // Tables route
 //
 
@@ -367,15 +362,6 @@ Router.route('/gridSystem', function () {
 Router.route('/options', function () {
     this.render('options');
     this.layout('boxedLayout');
-});
-
-//
-// Landing page route
-//
-
-Router.route('/landingPage', function () {
-    this.render('landingPage');
-    this.layout('landingLayout');
 });
 
 //

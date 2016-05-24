@@ -23,19 +23,27 @@ Template.predictions.events({
 
 Template.predictions.helpers({
     predictionsData: function() {
-        var fixtures = Predictions.find({"fixture.group": Template.instance().pred.get("groupSelected")}).fetch();
-		var i = 0;
-		
-		fixtures.forEach(function(f) {
-			
-			var homeTeamCode = String(f.fixture.home_team.code).toLowerCase();
-			var awayTeamCode = String(f.fixture.away_team.code).toLowerCase();
+        var fixtures;
+        var fixtureSelected = Template.instance().data;
+        
+        if (fixtureSelected) {
+            fixtures = Predictions.find({"fixture._id": fixtureSelected}).fetch();
+        } else {
+            fixtures = Predictions.find({"fixture.group": Template.instance().pred.get("groupSelected")}).fetch();
+        }    
+      
+        var i = 0;
+        
+        fixtures.forEach(function(f) {
+            
+            var homeTeamCode = String(f.fixture.home_team.code).toLowerCase();
+            var awayTeamCode = String(f.fixture.away_team.code).toLowerCase();
 
-			fixtures[i].fixture.home_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + homeTeamCode + ".png";
-			fixtures[i].fixture.away_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + awayTeamCode + ".png";
+            fixtures[i].fixture.home_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + homeTeamCode + ".png";
+            fixtures[i].fixture.away_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + awayTeamCode + ".png";
 
-			i++;
-		});
+            i++;
+        });
 
         return fixtures;
     }
