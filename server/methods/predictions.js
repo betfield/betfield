@@ -25,8 +25,9 @@ Meteor.publish('predictions', function(filter) {
 	var self = this;
 	var userId = this.userId;
 	
-	if (userId) {
-		var subHandle = Predictions.find(filter || {"userId": userId}).observeChanges({
+//	if (userId) {
+		//var subHandle = Predictions.find(filter || {"userId": userId}).observeChanges({
+		var subHandle = Predictions.find(filter || {}).observeChanges({
 			added: function(id, fields) {
 				self.added("predictions", id, fields);
 			},
@@ -43,7 +44,7 @@ Meteor.publish('predictions', function(filter) {
 		self.onStop(function () {
 			subHandle.stop();
 		});
-	} 
+//	} 
 });
 
 Meteor.methods({
