@@ -18,11 +18,7 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-<<<<<<< HEAD
-	except: ['root', 'login', 'login-fb', 'logout', 'landingPage', 'register', 'football-data.events', 'predictions', 'profile']
-=======
 	except: ['root', 'login', 'logout', 'register', 'football-data.events', 'predictions']
->>>>>>> origin/master
 });
 
 //

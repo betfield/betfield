@@ -55,6 +55,7 @@ Meteor.methods({
 		
 		return fixtures.forEach(function(fixture) {
 			fixture["result"] = {"homeGoals": "", "awayGoals": ""};
+			fixture["userPoints"] = 0;
 			var prediction = {"userId": userId, "fixture": fixture};
 			Predictions.insert( prediction );
 		});

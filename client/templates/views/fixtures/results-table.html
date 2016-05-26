@@ -1,0 +1,34 @@
+<template name="resultsTable">    
+        <table id="results" class="footable table table-stripped" data-page-size="100" data-filter=#filter>
+            <thead>
+                <tr>
+                    <th data-class="bf-table-date" data-hide="phone, tablet" class="bf-center">Date</th>
+                    <th data-class="bf-table-home" data-hide="phone, tablet" class="bf-center">Home</th>
+                    <th data-class="bf-table-vs" data-sort-ignore="true" class="bf-center"></th>
+                    <th data-class="bf-table-away" data-hide="phone, tablet" class="bf-center">Away</th>
+                    <th data-class="bf-table-group" data-hide="phone, tablet" class="bf-center">Group</th>
+                    <th data-class="bf-table-user" data-sort-ignore="true" class="bf-center">User</th>
+                    <th data-class="bf-table-score" data-sort-ignore="true" class="bf-center">Score</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">Points</th>
+                </tr>
+            </thead>
+            <tbody id="pred-body">
+                {{#each this}}
+                <tr>
+                    <td class="bf-table-date">{{fixture.date}} @ {{fixture.time}}</td>
+                    <td class="bf-table-home">{{fixture.home_team.name}}</td>
+                    <td class="bf-table-vs">
+                        <img src={{fixture.home_team.imgSrc}} />
+                        <span> vs </span>
+                        <img src={{fixture.away_team.imgSrc}} />
+                    </td>
+                    <td class="bf-table-away">{{fixture.away_team.name}}</td>
+                    <td class="bf-table-group">{{fixture.group}}</td>
+                    <td class="bf-table-points">{{userId}}</td>
+                    <td class="bf-table-score">{{fixture.result.homeGoals}} : {{fixture.result.awayGoals}}</td>
+                    <td class="bf-table-points">{{fixture.userPoints}}</td>
+                </tr>
+                {{/each}}
+            </tbody>	
+        </table>
+</template>
