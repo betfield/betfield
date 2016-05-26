@@ -1,0 +1,32 @@
+<template name="userPointsTable">    
+        <table id="userPoints" class="footable table table-stripped" data-page-size="100" data-filter=#filter>
+            <thead>
+                <tr>
+                    <th data-class="bf-table-user" data-sort-ignore="true" class="bf-center">User</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">I round</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">II round</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">III round</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">IV round</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">V round</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">VI round</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">VII round</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">Total</th>
+                </tr>
+            </thead>
+            <tbody id="pred-body">
+                {{#each this}}
+                <tr>
+                    <td class="bf-table-user">{{userId}}</td>
+                    <td class="bf-table-points">{{round1}}</td>
+                    <td class="bf-table-points">{{round2}}</td>
+                    <td class="bf-table-points">{{round3}}</td>
+                    <td class="bf-table-points">{{round4}}</td>
+                    <td class="bf-table-points">{{round5}}</td>
+                    <td class="bf-table-points">{{round6}}</td>
+                    <td class="bf-table-points">{{round7}}</td>
+                    <td class="bf-table-points">{{total}}</td>
+                </tr>
+                {{/each}}
+            </tbody>	
+        </table>
+</template>

@@ -1,6 +1,7 @@
 Router.configure({
     layoutTemplate: 'layout',
-    notFoundTemplate: 'notFound'
+    notFoundTemplate: 'notFound',
+    loadingTemplate: 'splash'
 });
 
 var OnBeforeActions;
@@ -106,8 +107,12 @@ Router.route('/rules', function () {
     this.render('rules');
 });
 
-Router.route('/table', function () {
-    this.render('table');
+Router.route('/table', {
+    name: 'table',
+    waitOn: function() {
+        // Wait until all data is retreived from the DB before rendering the page
+        return Meteor.subscribe('points');
+    }
 });
 
 //
@@ -372,6 +377,6 @@ Router.onAfterAction(function()
 {
     setTimeout(function()
     {
-        $('.splash').css('display', 'none')
+       $('.splash').css('display', 'none')
     })
 });

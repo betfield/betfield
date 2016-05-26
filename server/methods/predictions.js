@@ -47,6 +47,28 @@ Meteor.publish('predictions', function(filter) {
 //	} 
 });
 
+Meteor.publish('points', function(filter) {
+	var self = this;
+	
+	var subHandle = Points.find(filter || {}).observeChanges({
+		added: function(id, fields) {
+			self.added("points", id, fields);
+		},
+		changed: function(id, fields) {
+			self.changed("points", id, fields);
+		},
+		removed: function(id) {
+			self.removed("points", id);
+		}
+	});
+		
+	self.ready();
+	
+	self.onStop(function () {
+		subHandle.stop();
+	});
+});
+
 Meteor.methods({
 	createUserPredictions: function( userId ) {
 		check( userId, String );

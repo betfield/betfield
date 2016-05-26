@@ -1,2 +1,28 @@
 <template name="table">
+	{{#staggering}}
+
+    <div class="content">
+
+        <div class="row">
+            <div class="col-lg-12">
+                {{#panel}}
+                
+                    <div class="bf-table">
+                        <div id="selector" class="fc fc-ltr fc-unthemed bf-table-selector">
+                            <div class="fc-toolbar">
+                                <div class="fc-left">
+                                    <h1>Edetabel</h1>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+            
+                    {{> Template.dynamic template="userPointsTable" data=userPointsData}}
+                    
+                {{/panel}}
+            </div>
+        </div>
+
+    </div>
+	{{/staggering}}
 </template>

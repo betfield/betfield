@@ -59,7 +59,7 @@ Template.login.events({
 	}
 });
  
-
+/*
 Template.user_logged_out.events({
 	'click #logout': function(event) {
         Meteor.logout(function(err){
@@ -72,3 +72,4 @@ Template.user_logged_out.events({
 	}
 });
 
+*/

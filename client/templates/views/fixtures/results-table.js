@@ -1,8 +1,5 @@
-Template.predictionsTable.onRendered(function(){
-    var userId = Meteor.userId();
-    var predictions = Predictions.find();
-    
+Template.resultsTable.onRendered(function(){
     // Initialize Predictions table
-    $('#predictions').footable();
+    $('#results').footable();
     
 });

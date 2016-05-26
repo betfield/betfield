@@ -3,7 +3,7 @@ Template.calendar.onCreated(function(){
 });
 
 Template.calendar.onRendered(function(){
-
+	 $('.splash').css('display', 'none');
 	// Initialize i-check plugin
     $('.i-checks').iCheck({
         checkboxClass: 'icheckbox_square-green',
@@ -84,7 +84,7 @@ Template.calendar.onRendered(function(){
 		editable: false,
 		droppable: false, // this allows things to be dropped onto the calendar
 		events: calendar_fixtures,
-		minTime: '12:00:00',
+		minTime: '16:00:00',
 		aspectRatio: 'auto', // ratio of width-to-height - larger numbers make smaller heights
 		timeFormat: 'HH:mm', // uppercase H for 24-hour clock
 		timezone: 'local',

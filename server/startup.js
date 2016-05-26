@@ -53,6 +53,14 @@ Meteor.startup(function () {
 	} else {
 		console.error('SB.logger is not set - client is unable to send logs to server');
 	};
+	
+	Meteor.methods({
+			calculateUserPoints: function(userId) {
+				return Points.insert({"userId": getUserId(), "round1": 1, "round2": 2, "round3": 33, "round4": 16, "round5": 7, "round6": 100, "round7": 99, "total": 255 });
+			}
+	});
+	
+	Meteor.call("calculateUserPoints");
 
 });
 
