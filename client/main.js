@@ -51,7 +51,7 @@ Template.login.events({
       		if (err){
 				logger.error("Google login failed", err);
         		throw new (Meteor.Error)("Google login failed");
-	  		}else{
+	  		} else {
     			logger.log("Google login succeeded");
 				Router.go('dashboard');
 	  		}

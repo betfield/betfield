@@ -6,6 +6,7 @@ Meteor.startup(function () {
 	// Allow all data from the Google API
 	BrowserPolicy.content.allowOriginForAll('*.googleapis.com');
 	BrowserPolicy.content.allowOriginForAll('*.gstatic.com'); // Google CDN site
+	BrowserPolicy.content.allowOriginForAll('*.googleusercontent.com');
 
 	// Allow Braintree
 	BrowserPolicy.content.allowOriginForAll('*.braintreegateway.com');

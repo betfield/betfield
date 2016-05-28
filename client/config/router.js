@@ -111,7 +111,7 @@ Router.route('/table', {
     name: 'table',
     waitOn: function() {
         // Wait until all data is retreived from the DB before rendering the page
-        return Meteor.subscribe('points');
+        return Meteor.subscribe('allPoints');
     }
 });
 
@@ -121,7 +121,6 @@ Router.route('/table', {
 
 Router.route('/login', function () {
     this.render('login');
-    this.layout('blankLayout');
 });
 Router.route('/register', function () {
     this.render('register');

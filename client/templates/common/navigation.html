@@ -1,6 +1,7 @@
 <template name="navigation">
     <aside id="menu">
         <div id="navigation">
+            {{#if currentUser}}
             <div class="profile-picture">
                 <a href="{{pathFor route='dashboard'}}">
                     <img src="{{currentUser.profile.picture}}" alt="{{currentUser.services.facebook.name}}" class="img-circle m-b">
@@ -40,7 +41,8 @@
                     </div>
                 </div>
             </div>
-
+            {{/if}}
+            
 			<ul class="nav" id="side-menu">
 				<li class="{{isActiveRoute regex='dashboard'}}"><a href="{{pathFor route='dashboard'}}">Ülevaade</a></li>
                 <li class="{{isActiveRoute regex='predictions'}}"><a href="{{pathFor route='predictions'}}">Ennustused</a></li>
