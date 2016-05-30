@@ -22,6 +22,19 @@ ServiceConfiguration.configurations.insert({
 
 console.log("Google login configuration inserted");
 
+ServiceConfiguration.configurations.remove({
+	service:'twitter'
+});
+
+ServiceConfiguration.configurations.insert({
+	service:'twitter',
+	clientId:'2GvvTpv2UCTXguOuNrnMyDlRR',
+  	secret: 'LJ1VDzHgYU0vh8Tx01oGiPyOPeo1BbIpwGSVPm9oGt4HPWFSTp'
+});
+
+console.log("Twitter login configuration inserted");
+
+
 
 Router.route('/football-data.events', function() {
     this.response.setHeader( 'Access-Control-Allow-Origin', '*' );

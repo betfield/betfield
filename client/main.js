@@ -33,7 +33,7 @@ Template.login.events({
                 throw new Meteor.Error("Facebook login failed");
             } else {
 				logger.log("Facebook login succeeded");
-				//Router.go('dashboard');
+				Router.go('dashboard');
 			}
         });
 	}
@@ -41,14 +41,28 @@ Template.login.events({
 
 Template.login.events({
 	  'click #google-login': function(event){
-    	console.log('clicked google login')
     	Meteor.loginWithGoogle ({}, function (err){
       		if (err){
 				logger.error("Google login failed", err);
         		throw new (Meteor.Error)("Google login failed");
 	  		} else {
     			logger.log("Google login succeeded");
-				//Router.go('dashboard');
+				Router.go('dashboard');
+	  		}
+		});
+	}
+});
+
+Template.login.events({
+	  'click #tw-login': function(event){
+    	console.log('clicked Twitter login')
+    	Meteor.loginWithTwitter ({}, function (err){
+      		if (err){
+				logger.error("Twitter login failed", err);
+        		throw new (Meteor.Error)("Twitter login failed");
+	  		} else {
+    			logger.log("Twitter login succeeded");
+				Router.go('dashboard');
 	  		}
 		});
 	}

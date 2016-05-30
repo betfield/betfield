@@ -3,6 +3,7 @@ accounts-facebook@1.0.9
 accounts-google@1.0.9
 accounts-oauth@1.1.12
 accounts-password@1.1.8
+accounts-twitter@1.0.9
 accounts-ui@1.1.9
 accounts-ui-unstyled@1.1.12
 alanning:roles@1.2.15
@@ -102,6 +103,7 @@ npm-bcrypt@0.8.5
 npm-container@1.2.0
 npm-mongo@1.4.43
 oauth@1.1.10
+oauth1@1.1.9
 oauth2@1.1.9
 observe-sequence@1.0.11
 okgrow:router-autoscroll@0.1.8
@@ -131,6 +133,7 @@ themeteorchef:bert@2.1.0
 tracker@1.0.13
 tsega:bootstrap3-datetimepicker@4.17.37_1
 twbs:bootstrap@3.3.6
+twitter@1.1.9
 ui@1.0.11
 underscore@1.0.8
 underscorestring:underscore.string@3.3.4
