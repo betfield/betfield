@@ -28,13 +28,13 @@ ServiceConfiguration.configurations.remove({
 
 ServiceConfiguration.configurations.insert({
 	service:'twitter',
-	clientId:'2GvvTpv2UCTXguOuNrnMyDlRR',
+	consumerKey:'2GvvTpv2UCTXguOuNrnMyDlRR',
   	secret: 'LJ1VDzHgYU0vh8Tx01oGiPyOPeo1BbIpwGSVPm9oGt4HPWFSTp'
 });
 
 console.log("Twitter login configuration inserted");
 
-
+/*
 
 Router.route('/football-data.events', function() {
     this.response.setHeader( 'Access-Control-Allow-Origin', '*' );
@@ -51,3 +51,5 @@ Router.route('/football-data.events', function() {
             //API.handleRequest( this, 'pizza', this.request.method );
         }
     }, {where: 'server'});
+    
+    */

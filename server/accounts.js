@@ -38,8 +38,13 @@ Accounts.onCreateUser(function (options,user) {
 			name: service.google.name
 		};
 	} else if (service.twitter) {
+		console.log(user);
 		console.log("Twitter service", service);
-		//TODO: add Twitter profile
+		profile = {
+			picture: service.twitter.profile_image_url_https,
+			email: "", //Twitter API does not allow querying for email
+			name: service.twitter.screenName
+		};
 	}
 	
 	// set default team name to social network user name

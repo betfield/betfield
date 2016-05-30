@@ -10,4 +10,7 @@ Meteor.startup(function () {
 
 	// Allow Braintree
 	BrowserPolicy.content.allowOriginForAll('*.braintreegateway.com');
+	
+	// Allow Twitter
+	BrowserPolicy.content.allowOriginForAll('*.twimg.com');
 });
