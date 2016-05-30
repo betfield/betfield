@@ -25,11 +25,6 @@ Meteor.startup(function () {
 */
 });
 
-// accounts config
-Accounts.ui.config({
-	passwordSignupFields: "USERNAME_AND_EMAIL"
-});
-
 Template.login.events({
 	'click #fb-login':function(event){
 		Meteor.loginWithFacebook({}, function(err){
@@ -38,7 +33,7 @@ Template.login.events({
                 throw new Meteor.Error("Facebook login failed");
             } else {
 				logger.log("Facebook login succeeded");
-				Router.go('dashboard');
+				//Router.go('dashboard');
 			}
         });
 	}
@@ -53,12 +48,13 @@ Template.login.events({
         		throw new (Meteor.Error)("Google login failed");
 	  		} else {
     			logger.log("Google login succeeded");
-				Router.go('dashboard');
+				//Router.go('dashboard');
 	  		}
 		});
 	}
 });
- 
+
+
 /*
 Template.user_logged_out.events({
 	'click #logout': function(event) {

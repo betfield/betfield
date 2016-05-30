@@ -16,8 +16,15 @@ Meteor.startup(function () {
 		// Optional: logs will be stored in JSON format
 		json: true
 	});
-	
+	/*
+	UserRoles = {
+		admin: 'administrator',
+		regular: 'regular-user',
+		premium: 'premium-user'
+	};
 
+	Roles.createRole();
+	*/
 	function getUserId() {
 		var user = Meteor.userId();
 				

@@ -14,13 +14,13 @@ Meteor.publish('allPoints', function(filter) {
 	
 	var subHandle = Points.find(filter || {}).observeChanges({
 		added: function(id, fields) {
-			self.added("points", id, fields);
+			self.added("allPoints", id, fields);
 		},
 		changed: function(id, fields) {
-			self.changed("points", id, fields);
+			self.changed("allPoints", id, fields);
 		},
 		removed: function(id) {
-			self.removed("points", id);
+			self.removed("allPoints", id);
 		}
 	});
 		
@@ -30,32 +30,6 @@ Meteor.publish('allPoints', function(filter) {
 		subHandle.stop();
 	});
 });
-/*
-Meteor.publish('userPoints', function(filter) {
-	var self = this;
-	var userId = this.user._id;
-
-	if (userId) {
-		var subHandle = Points.find(filter || {"user._id": userId}).observeChanges({
-			added: function(id, fields) {
-				self.added("points", id, fields);
-			},
-			changed: function(id, fields) {
-				self.changed("points", id, fields);
-			},
-			removed: function(id) {
-				self.removed("points", id);
-			}
-		});
-			
-		self.ready();
-		
-		self.onStop(function () {
-			subHandle.stop();
-		});
-	}
-});
-*/
 
 Meteor.methods({
 	updateUserPoints: function( user ) {
