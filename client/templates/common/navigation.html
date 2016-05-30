@@ -4,22 +4,18 @@
             {{#if currentUser}}
             <div class="profile-picture">
                 <a href="{{pathFor route='dashboard'}}">
-                    <img src="{{currentUser.profile.picture}}" alt="{{currentUser.services.facebook.name}}" class="img-circle m-b">
+                    <img src="{{currentUser.profile.picture}}" alt="{{currentUser.profile.name}}" class="img-circle m-b">
                 </a>
 
                 <div class="stats-label text-color">
-                    <span class="font-extra-bold font-uppercase">{{currentUser.services.facebook.name}}</span>
+                    <span class="font-extra-bold font-uppercase">{{currentUser.profile.name}}</span>
 
                     <div class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-							{{#if isInRole 'premium-user'}}
-                            <small class="text-muted">{{_ "user_premium"}}<b class="caret"></b></small>
-							{{else}}
-							<small class="text-muted">{{_ "user_basic"}}<b class="caret"></b></small>
-							{{/if}}
+                            <small class="text-muted">{{userRoleName}}<b class="caret"></b></small>
                         </a>
                         <ul class="dropdown-menu animated flipInX m-t-xs">
-							{{#if isInRole 'premium-user'}}
+							{{#if isInRole 'registered-user'}}
                             <li><a href="{{pathFor route='downgrade'}}">Tagasi Tavakasutajaks</a></li>
 							{{else}}							
 							<li><a href="{{pathFor route='payments'}}">Registreeri Preemiumiks</a></li>

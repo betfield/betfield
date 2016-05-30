@@ -1,14 +1,14 @@
 UserRoles = {
 	admin: 'administrator',
 	regular: 'regular-user',
-	premium: 'premium-user'
+	registered: 'registered-user'
 };
 
 // Add roles after initial user creation
 Meteor.users.after.insert(function (userId, doc) {
 	try {
 		if (doc.profile.email == Meteor.settings.private.BF_EMAIL) {
-			Roles.addUsersToRoles(doc._id, UserRoles.admin);
+			Roles.addUsersToRoles(doc._id, [UserRoles.admin, UserRoles.registered]);
 		} else {
 			Roles.addUsersToRoles(doc._id, UserRoles.regular);
 		}
@@ -38,8 +38,6 @@ Accounts.onCreateUser(function (options,user) {
 			name: service.google.name
 		};
 	} else if (service.twitter) {
-		console.log(user);
-		console.log("Twitter service", service);
 		profile = {
 			picture: service.twitter.profile_image_url_https,
 			email: "", //Twitter API does not allow querying for email

@@ -13,4 +13,8 @@ Meteor.startup(function () {
 	
 	// Allow Twitter
 	BrowserPolicy.content.allowOriginForAll('*.twimg.com');
+	
+	// Allow Paypal
+	BrowserPolicy.content.allowOriginForAll('*.paypalobjects.com');
+	
 });

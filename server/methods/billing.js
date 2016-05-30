@@ -80,15 +80,15 @@ Meteor.methods({
 	  		if (err) { 
 				console.log(err);
 	  		} else {
-				// When payment's successful, add "paid" and "premium-user" roles to current user.
-				Roles.addUsersToRoles(user._id, ['paid', 'premium-user'], Roles.GLOBAL_GROUP)
+				// When payment's successful, add "registered-user" role to current user.
+				Roles.addUsersToRoles(user._id, ['registered-user'])
 	  		}
 		});
 	},
 
 	downgradeToRegular: function(userId) {
 		check(userId, String);
-		Meteor.users.update( {_id: userId} , {$unset: { roles : "" } } );
+		Roles.removeUsersFromRoles(userId, 'registered-user')
 		console.log("User with id " + userId + " downgraded to regular");
 	}
 });

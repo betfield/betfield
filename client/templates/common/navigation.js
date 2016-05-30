@@ -24,3 +24,18 @@ Template.navigation.events({
     }
 
 });
+
+Template.navigation.helpers({
+    userRoleName: function() {
+        var userId = Meteor.userId();
+        
+        if (Roles.userIsInRole(userId, ['administrator'])) {
+            return "Administraator";
+        } else if (Roles.userIsInRole(userId, ['registered-user'])) {
+            return "Registreeritud";
+        } else {
+            return "Tavakasutaja";
+        }
+
+    }
+});
