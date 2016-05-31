@@ -88,6 +88,12 @@ Meteor.methods({
 		check( awayScore, String );
 		check( userId, String );
 		
-		return Predictions.update({"userId": userId, "fixture._id": fixture}, {$set: {"fixture.result.homeGoals": homeScore, "fixture.result.awayGoals": awayScore}});
+		// Check if logged in as admin and update the actual fixture result if so
+		if (Roles.userIsInRole(userId, ['administrator'])) {
+			return Fixtures.update({"_id": fixture}, {$set: {"result.homeGoals": homeScore, "result.awayGoals": awayScore}});
+		} else { // If not admin, update user's prediction result
+			console.log("uuendan siin");
+			return Predictions.update({"userId": userId, "fixture._id": fixture}, {$set: {"fixture.result.homeGoals": homeScore, "fixture.result.awayGoals": awayScore}});
+		}
 	}
 });	

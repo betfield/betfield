@@ -5,7 +5,7 @@ Template.predictionsTable.onRendered(function(){
     // Initialize Predictions table
     $('#predictions').footable();
     
-    if (userId && (predictions.count() < 1)) {
+    if (userId && !Roles.userIsInRole(userId, ['administrator']) && (predictions.count() < 1)) {
         initUserPredictions(userId);
     }
 });
@@ -28,9 +28,10 @@ Template.predictionsTable.events({
             
             Meteor.call( "updateUserPredictions", fixture, homeScore, awayScore, userId, function( error, response ) {
                 if ( error ) {
-                    console.log( error.reason, "danger" );
+                    Bert.alert( "Ennustuste uuendamine ebaõnnestus!", "success" );
+                    console.log( error.reason);
                 } else {
-                    console.log( "Prediction created!", "success" );
+                    Bert.alert( "Ennustused uuendatud!", "success" );
                 }
             });
         });

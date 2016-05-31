@@ -27,9 +27,11 @@
 									</div>
 								</div>
 							</div>
-                            
-							{{> Template.dynamic template="predictionsTable" data=predictionsData}}
-							
+                            {{#if isInRole 'administrator'}}
+								{{> Template.dynamic template="predictionsTable" data=adminData}}
+							{{else}}
+								{{> Template.dynamic template="predictionsTable" data=predictionsData}}
+							{{/if}}
                         </div>
                     
 				{{/panel}}

@@ -45,8 +45,11 @@ Router.route('/calendar', {
 Router.route('/predictions', {
     name: 'predictions',
     waitOn: function() {
-        // Wait until all data is retreived from the DB before rendering the page
-        return Meteor.subscribe('predictions');
+        if (Roles.userIsInRole(Meteor.userId(), ['administrator'])) {
+            return Meteor.subscribe('fixtures');    
+        } else {
+            return Meteor.subscribe('predictions');
+        }
     }
 });
 
