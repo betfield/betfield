@@ -33,7 +33,7 @@ Template.login.events({
                 throw new Meteor.Error("Facebook login failed");
             } else {
 				logger.log("Facebook login succeeded");
-				Router.go('dashboard');
+				Router.go('root');
 			}
         });
 	}
@@ -47,7 +47,7 @@ Template.login.events({
         		throw new (Meteor.Error)("Google login failed");
 	  		} else {
     			logger.log("Google login succeeded");
-				Router.go('dashboard');
+				Router.go('root');
 	  		}
 		});
 	}
@@ -62,7 +62,7 @@ Template.login.events({
         		throw new (Meteor.Error)("Twitter login failed");
 	  		} else {
     			logger.log("Twitter login succeeded");
-				Router.go('dashboard');
+				Router.go('root');
 	  		}
 		});
 	}

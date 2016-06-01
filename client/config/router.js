@@ -19,7 +19,7 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-	except: ['root', 'login', 'logout', 'register', 'football-data.events', 'predictions']
+	except: ['login', 'logout']
 });
 
 //
@@ -28,7 +28,7 @@ Router.onBeforeAction(OnBeforeActions.loginRequired, {
 
 Router.route('/', {
 	name: 'root',
-	template: 'dashboard',
+	template: 'predictions',
 	action: function() {
 		this.render();
 	}
@@ -114,7 +114,7 @@ Router.route('/table', {
     name: 'table',
     waitOn: function() {
         // Wait until all data is retreived from the DB before rendering the page
-        return Meteor.subscribe('allPoints');
+        return Meteor.subscribe('points');
     }
 });
 
