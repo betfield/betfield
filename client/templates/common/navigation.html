@@ -20,21 +20,19 @@
 							{{else}}							
 							<li><a href="{{pathFor route='payments'}}">Registreeri Preemiumiks</a></li>
 							{{/if}}
-                            <li><a href="{{pathFor route='profile'}}">Sinu profiil</a></li>
-                            <li><a href="{{pathFor route='analytics'}}">Statistika</a></li>
                             <li class="divider"></li>
                             <li><a href="{{pathFor route='logout'}}">Logi välja</a></li>
                         </ul>
                     </div>
 
 
-                    <div id="sparkline1" class="small-chart m-t-sm"></div>
                     <div>
                         <h4 class="font-extra-bold m-b-xs">
-                            75 punkti
+                            {{userPoints.total}} punkti
                         </h4>
-                        <small class="text-muted">Sinu viimase 15 ennustuse punktid</small>
+                        <small class="text-muted">Sinu viimaste ennustuste graafik</small>
                     </div>
+                    <div id="sparkline1" class="small-chart m-t-sm"></div>
                 </div>
             </div>
             {{/if}}

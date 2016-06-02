@@ -31,19 +31,22 @@ Meteor.publish('points', function(filter) {
 	});
 });
 
+Meteor.publish('userPoints', function(user) {
+	check(user, String);
+	return Points.find({"user._id": user});
+});
+
 Meteor.methods({
 	updateUserPoints: function( user ) {
 		check( user, Object );
 		
-		var userPoints = Points.find({"user": user});
-		var points = userPoints.fetch();
-		
+		var userPoints = Points.find({"user._id": user._id});
 		// Create initial points object
 		if (userPoints.count() == 0) {
 			points = initialPoints;
-			points["user"] = user;
+			points["user"] = user.profile;
+			points.user["_id"] = user._id;
 			Points.insert(points);
-			console.log(points);
 		} 
 		
 			/*

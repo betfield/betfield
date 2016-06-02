@@ -1,3 +1,18 @@
+Template.navigation.onCreated(function() {
+    var instance = this;
+    instance.userPoints = new ReactiveVar();
+    
+    instance.autorun(function () {
+        if(Meteor.userId()) {
+            var subscription = instance.subscribe('userPoints', Meteor.userId());
+
+            if (subscription.ready()) {
+                instance.userPoints.set(Points.findOne({"user._id": Meteor.userId()}));
+            } 
+        }
+    });
+});
+
 Template.navigation.onRendered(function() {
 
     // Initialize metsiMenu plugin to sidebar menu
@@ -37,5 +52,9 @@ Template.navigation.helpers({
             return "Tavakasutaja";
         }
 
+    },
+    userPoints: function() {
+        return Template.instance().userPoints.get();
     }
+    
 });

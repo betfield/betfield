@@ -51,7 +51,8 @@ Accounts.onCreateUser(function (options,user) {
 	// append profile to Meteor user
 	user.profile = profile;
 	
-	Meteor.call("updateUserPoints", user, function(){});
+	Meteor.call("createUserPredictions", user._id);
+	Meteor.call("updateUserPoints", user);
 	
 	return user;
 });

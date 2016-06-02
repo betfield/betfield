@@ -46,28 +46,6 @@ Meteor.publish('predictions', function(filter) {
 	} 
 });
 
-Meteor.publish('points', function(filter) {
-	var self = this;
-	
-	var subHandle = Points.find(filter || {}).observeChanges({
-		added: function(id, fields) {
-			self.added("points", id, fields);
-		},
-		changed: function(id, fields) {
-			self.changed("points", id, fields);
-		},
-		removed: function(id) {
-			self.removed("points", id);
-		}
-	});
-		
-	self.ready();
-	
-	self.onStop(function () {
-		subHandle.stop();
-	});
-});
-
 Meteor.methods({
 	createUserPredictions: function( userId ) {
 		check( userId, String );
@@ -91,7 +69,6 @@ Meteor.methods({
 		if (Roles.userIsInRole(userId, ['administrator'])) {
 			return Fixtures.update({"_id": fixture}, {$set: {"result.homeGoals": homeScore, "result.awayGoals": awayScore}});
 		} else { // If not admin, update user's prediction result
-			console.log("uuendan siin");
 			return Predictions.update({"userId": userId, "fixture._id": fixture}, {$set: {"fixture.result.homeGoals": homeScore, "fixture.result.awayGoals": awayScore}});
 		}
 	}

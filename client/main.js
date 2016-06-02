@@ -55,7 +55,6 @@ Template.login.events({
 
 Template.login.events({
 	  'click #tw-login': function(event){
-    	console.log('clicked Twitter login')
     	Meteor.loginWithTwitter ({}, function (err){
       		if (err){
 				logger.error("Twitter login failed", err);
