@@ -1,6 +1,6 @@
 .bf-table {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 100%;
+    font-size: 23px;
 }
 
 .bf-table h1 {
@@ -52,6 +52,8 @@
 
 .bf-table-vs img {
     height: 100%; 
+    min-width: 47px;
+    min-height: 47px;
     padding-left:10px; 
     padding-right: 10px;
 }
@@ -88,6 +90,17 @@
     text-align: center;
     height: auto;
 }
+#testcolumn {
+    min-width: 200px;
+    max-height: 64px;
+    display: inline-flex;
+}
+
+#testscore {
+    min-width: 200px;
+    max-height: 64px;
+    display: inline-flex;
+}
 
 /* 
 Max width before this PARTICULAR table gets nasty
@@ -103,46 +116,114 @@ only screen and (max-width: 760px),
 	display: table-cell-block;
         
         width: 100%; 
-        	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) 
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" 
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-        position: center;
-        text-align: center;
-        
-	}
-	
-	td:before { 
-		/* Now like a table header */
-	/*	position: absolute;*/
-		/* Top/left values mimic padding 
-		top: 6px;
-		left: 6px;
-		width: 100%; 
-		padding-right: 10px; 
-		white-space: nowrap; */
-	}
-	
-	/*
-	Label the data
-	*/
-	/*td:nth-of-type(1):before { content: "First Name"; }
-	
-	
+        .bf-table {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 100%;
 }
+
+.bf-table h1 {
+    font-weight: 600;
+    color: @color-blue; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bf-table tbody > tr > td {
+    height: 64px;
+    vertical-align: middle;
+}
+
+#testcolumn {
+    min-width: 200px;
+    min-height: 64px;
+    display: inline-flex;
+}
+
+#testscore {
+    min-width: 200px;
+    min-height: 64px;
+    display: inline-flex;
+}
+
+.bf-table-selector {
+    padding-bottom: 100px;
+}
+
+.bf-center {
+    text-align:center;
+}
+
+.bf-right {
+    text-align:right;
+}
+
+.bf-left {
+    text-align:left;
+}
+
+// Table style for Predictions
+
+.bf-table-date {
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-home {
+    width: 30%; 
+    text-align: left;
+    height: auto;
+}
+
+.bf-table-vs {
+    width: auto;
+    text-align: center;
+}
+
+.bf-table-vs img {
+    height: 30px; 
+    min-width: 47px;
+    padding-left:10px; 
+    padding-right: 10px;
+}
+
+.bf-table-away {
+    width: auto; 
+    text-align: center;
+    height: auto;
+}
+
+.bf-table-group {
+    visibility: hidden
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-user {
+    width: auto; 
+    text-align: center;
+    height: auto;
+}
+
+.bf-table-score {
+    text-align:center;
+}
+
+.bf-table-score input {
+    width: auto;
+    text-align: center;
+}
+
+.bf-table-points {
+    width: auto; 
+    text-align: center;
+    height: auto;
+        }
+    }
+}
+	
+
 
 /* remove the spinner */
 .input-no-spinner::-webkit-outer-spin-button, .input-no-spinner::-webkit-inner-spin-button {
