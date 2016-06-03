@@ -4,8 +4,8 @@ ServiceConfiguration.configurations.remove({
 
 ServiceConfiguration.configurations.insert({
 	service: "facebook",
-	appId: "374620766038994",
-	secret: "cbba896eba239233ef4e8144987cd103"
+	appId: "1767392246824711",
+	secret: "acc7d1a6dafefc0e524c72042d3ac46d"
 });
 
 console.log("Facebook login configuration inserted");
@@ -16,8 +16,8 @@ ServiceConfiguration.configurations.remove({
 
 ServiceConfiguration.configurations.insert({
 	service:'google',
-	clientId:'1043124871222-a0c8k4205lfbj950orbkgofdkme3k1j1.apps.googleusercontent.com',
-  	secret: 'x71UaNAa6b1UoLNmo2lyHjia'
+	clientId:'964360777763-io7s738uh938a7nn6svvnrq7csd0o014.apps.googleusercontent.com',
+  	secret: 'VK-3CxICVvHP-YZLzLu5UFS7'
 });
 
 console.log("Google login configuration inserted");
