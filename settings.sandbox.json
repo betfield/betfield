@@ -18,6 +18,9 @@
 		
 		"RESULTS_FEED_KEY": "02f3ec3d0b684f0ca9d53cdbbb22d0bb",
 		
-		"BF_EMAIL": "betfieldou@gmail.com"
+		"BF_EMAIL": "betfieldou@gmail.com",
+		"TZ_HOURS": 3,
+		
+		"INACTIVE_TEST_TIME": "June 13, 2016 14:00:00"
 	}
 }

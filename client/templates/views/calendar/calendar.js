@@ -38,10 +38,18 @@ Template.calendar.onRendered(function(){
 			tsStart = new Date(fixture.ts);		
 			tsEnd = new Date(fixture.ts);
 			tsEnd.setHours(tsStart.getHours()+2); // set fixture end date 2h later 
-
+			
+			var title;
+			
+			if (fixture.home_team.name == null) {
+				title = fixture.home_team + " vs " + fixture.away_team;
+			} else {
+				title = fixture.home_team.name + " vs " + fixture.away_team.name;
+			}
+			
 			calendar_fixtures.push({
 				id: fixture._id,
-				title: fixture.home_team.name + " vs " + fixture.away_team.name,
+				title: title,
 				start: tsStart,
 				end: tsEnd,
 				allDay: false,

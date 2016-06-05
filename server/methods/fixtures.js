@@ -1,6 +1,10 @@
 Meteor.publish('fixturePredictions', function(fixture) {
     check( fixture, String );
-	return Predictions.find({"fixture._id": fixture});
+    if (Meteor.call("checkRoundEnabled", fixture)) {
+	    return Predictions.find({"fixture._id": fixture});
+    } else {
+        return this.ready();
+    }
 });
 
 Meteor.publish("registeredUsers", function () {

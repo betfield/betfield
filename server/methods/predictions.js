@@ -71,5 +71,33 @@ Meteor.methods({
 		} else { // If not admin, update user's prediction result
 			return Predictions.update({"userId": userId, "fixture._id": fixture}, {$set: {"fixture.result.homeGoals": homeScore, "fixture.result.awayGoals": awayScore}});
 		}
+	},
+	checkRoundEnabled: function(fixture) {
+		check( fixture, String );
+		
+		var roundFixtures = Fixtures.find({"round": Fixtures.findOne({"_id": fixture}).round}).fetch();
+		
+		function orderByDate(arr, dateProp) {
+			return arr.slice().sort(function (a, b) {
+				return a[dateProp] < b[dateProp] ? -1 : 1;
+			});
+		}
+		
+		var firstRoundFixtureDate = orderByDate(roundFixtures, "ts")[0].ts;
+		var currentDate = new Date();
+		// adjust current date to ET timezone
+		currentDate.setTime(currentDate.getTime() + (Meteor.settings.private.TZ_HOURS*60*60*1000));
+		
+		if (Meteor.settings.private.TEST_TIME) {
+			console.log("Adjusting current date for testing");
+			currentDate = new Date(Meteor.settings.private.TEST_TIME);
+		}
+		console.log(currentDate.toISOString());
+		console.log(firstRoundFixtureDate);
+		if (firstRoundFixtureDate < currentDate.toISOString()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 });	
