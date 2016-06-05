@@ -41,10 +41,12 @@ Template.predictions.helpers({
 
             fixtures[i].fixture.home_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + homeTeamCode + ".png";
             fixtures[i].fixture.away_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + awayTeamCode + ".png";
-
+            
+            fixtures[i].fixture.status = Fixtures.findOne({"_id": f.fixture._id}).status;
+            console.log(fixtures[i].fixture.status);   
             i++;
         });
-
+        
         return fixtures;
     },
     

@@ -25,7 +25,7 @@
             </tfoot>
             <tbody id="pred-body">
                 {{#each this}}
-                <tr>
+                <tr class="bf-table-row">
                     <td class="bf-table-date">{{fixture.date}} {{fixture.time}}</td>
                     <td class="bf-table-home">{{fixture.home_team.name}}</td>
                    
@@ -41,9 +41,9 @@
                     <td class="bf-table-score">
                         <div id= "testscore"> 
                             <input id="fixture-id" type="hidden" value={{fixture._id}}>
-                            <input id="home-score" maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.homeGoals}}>
+                            <input id="home-score" maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.homeGoals}} {{fixture.status}}>
                             <span> : </span>
-                            <input id="away-score" maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.awayGoals}}>
+                            <input id="away-score" maxlength="2" type="number" min="0" max="99" class="input-no-spinner" value={{fixture.result.awayGoals}} {{fixture.status}}>
                         </div>
                     </td>
                 </tr>

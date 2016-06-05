@@ -16,10 +16,10 @@
                         </a>
                         <ul class="dropdown-menu animated flipInX m-t-xs">
 							{{#if isInRole 'registered-user'}}
-                            <li><a href="{{pathFor route='downgrade'}}">Tagasi Tavakasutajaks</a></li>
-							{{else}}							
-							<li><a href="{{pathFor route='payments'}}">Registreeri Preemiumiks</a></li>
-							{{/if}}
+                            <li><a href="{{pathFor route='root'}}">Pealeht</a></li>
+                            {{else}}
+							<li><a href="{{pathFor route='payments'}}">Registreeri</a></li>
+                            {{/if}}
                             <li class="divider"></li>
                             <li><a href="{{pathFor route='logout'}}">Logi välja</a></li>
                         </ul>
@@ -30,9 +30,9 @@
                         <h4 class="font-extra-bold m-b-xs">
                             {{userPoints.total}} punkti
                         </h4>
-                        <small class="text-muted">Sinu viimaste ennustuste graafik</small>
+                        <!--small class="text-muted">Sinu viimaste ennustuste graafik</small-->
                     </div>
-                    <div id="sparkline1" class="small-chart m-t-sm"></div>
+                    <!--div id="sparkline1" class="small-chart m-t-sm"></div-->
                 </div>
             </div>
             {{/if}}
@@ -43,6 +43,7 @@
                 <li class="{{isActiveRoute regex='table'}}"><a href="{{pathFor route='table'}}">Edetabel</a></li>
 				<li class="{{isActiveRoute regex='calendar'}}"><a href="{{pathFor route='calendar'}}">Kalender</a></li>
                 <li class="{{isActiveRoute regex='rules'}}"><a href="{{pathFor route='rules'}}">Reeglid</a></li>
+                <li class="{{isActiveRoute regex='payments'}}"><a href="{{pathFor route='payments'}}">Registreeri</a></li>
                 <!--li class="{{isActiveRoute regex='profile'}}"><a href="{{pathFor route='profile'}}">Profiil</a></li-->
             </ul>
 			

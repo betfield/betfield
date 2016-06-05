@@ -65,7 +65,8 @@ var fixtures = [{"competition":"EURO 2016","day":"Friday","date":"10 juuni","tim
 				stadium:fixture.stadium,
 				city:fixture.city,
 				group:fixture.group,
-				round:fixture.round
+				round:fixture.round,
+				status: "disabled"
 			});
 		}); // end of foreach Fixtures
 		

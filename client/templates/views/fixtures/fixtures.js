@@ -14,13 +14,12 @@ Template.fixtures.helpers({
                 fixtures[i].fixture.away_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + awayTeamCode + ".png";
                 
                 fixtures[i].user = user.profile;
-                
                 i++;
             });
         } else {
             Bert.alert("Ei saa mängu ennustusi näidata! Voor ei ole veel suletud.", "danger");
         }
-
+        
         return fixtures;
     }
 });

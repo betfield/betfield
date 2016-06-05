@@ -34,6 +34,7 @@ Router.route('/', {
             if (Roles.userIsInRole(Meteor.userId(), ['administrator'])) {
                 return Meteor.subscribe('fixtures');    
             } else {
+                Meteor.subscribe('fixtureStatuses');
                 return Meteor.subscribe('predictions');
             }
         } 
@@ -58,6 +59,7 @@ Router.route('/predictions', {
             if (Roles.userIsInRole(Meteor.userId(), ['administrator'])) {
                 return Meteor.subscribe('fixtures');    
             } else {
+                Meteor.subscribe('fixtureStatuses');
                 return Meteor.subscribe('predictions');
             }
         } 
