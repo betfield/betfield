@@ -41,6 +41,8 @@ Meteor.methods({
 			email: user.profile.email
 		};
 		
+		console.log("btCreateCustomer.customerData: " + customerData);
+
 		// Calling the Braintree API to create our customer!
 		gateway.customer.create(customerData, function(error, response){
 			if (error){
@@ -53,6 +55,7 @@ Meteor.methods({
 						customerId: response.customer.id
 					}
 				});
+				console.log("btCreateCustomer.response: " + response);
 			}
 		});
 	},
@@ -64,7 +67,7 @@ Meteor.methods({
 
 		// Let's create transaction.
 		gateway.transaction.sale({
-			amount: '1.00',
+			amount: '15.00',
 	  		paymentMethodNonce: nonceFromTheClient, // Generated nonce passed from client
 	  		customer: {
 				id: user.customerId
@@ -79,16 +82,13 @@ Meteor.methods({
 	  		} else {
 				// When payment's successful, add "registered-user" role to current user.
 				Roles.addUsersToRoles(user._id, ['registered-user'])
-				Roles.removeUsersFromRoles(user._id, 'regular-user')
-				
-				console.log("Payment created for user: ", user._id);
 	  		}
 		});
 	},
 
-	/*downgradeToRegular: function(userId) {
+	downgradeToRegular: function(userId) {
 		check(userId, String);
 		Roles.removeUsersFromRoles(userId, 'registered-user')
 		console.log("User with id " + userId + " downgraded to regular");
-	}*/
+	}
 });

@@ -21,15 +21,15 @@ Template.payments.onRendered(function(){
 							// call method for creating a transaction (finally!)
 							Meteor.call('createTransaction', nonce, function(error, success) {
 								if (error) {
-									Bert.alert('Makse ebaõnnestus! Kontakteeru lehe administraatoriga.', "danger");
 									throw new Meteor.Error('transaction-creation-failed');
 								} else {
-									Bert.alert('Makse edukalt sooritatud! Naudi mängimist!', "success");
-									Router.go('root');
+									alert('Thank you for your payment!');
+									Router.go('/dashboard');
 								}
 							});
 						}
 					});
+
 
     			}
   			});
