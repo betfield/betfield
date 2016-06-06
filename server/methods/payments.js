@@ -80,7 +80,7 @@ Meteor.methods({
 				// When payment's successful, add "registered-user" role to current user.
 				Roles.addUsersToRoles(user._id, ['registered-user'])
 				Roles.removeUsersFromRoles(user._id, 'regular-user')
-				
+				Meteor.call("updateUserPoints", user);
 				console.log("Payment created for user: ", user._id);
 	  		}
 		});

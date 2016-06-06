@@ -53,7 +53,6 @@ Accounts.onCreateUser(function (options,user) {
 	
 	if (user.profile.email != Meteor.settings.private.BF_EMAIL) {
 		Meteor.call("createUserPredictions", user._id);
-		Meteor.call("updateUserPoints", user);
 		console.log("regular user data added");
 	}
 	

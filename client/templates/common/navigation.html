@@ -53,8 +53,7 @@
 				<li class="{{isActiveRoute regex='calendar'}}"><a href="{{pathFor route='calendar'}}">Kalender</a></li>
                 <li class="{{isActiveRoute regex='rules'}}"><a href="{{pathFor route='rules'}}">Reeglid</a></li>
                 {{#if isInRole 'regular-user'}}
-                    <!--li class="{{isActiveRoute regex='payments'}} text-activate"><a href="{{pathFor route='payments'}}">Aktiveeri</a></li-->
-                    <li class="{{isActiveRoute regex='payments'}} text-activate"><a href="#">Aktiveeri</a></li>
+                    <li class="{{isActiveRoute regex='payments'}} text-activate"><a href="{{pathFor route='payments'}}">Aktiveeri</a></li>
                 {{/if}}
                 <!--li class="{{isActiveRoute regex='profile'}}"><a href="{{pathFor route='profile'}}">Profiil</a></li-->
             </ul>
