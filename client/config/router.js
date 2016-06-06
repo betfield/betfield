@@ -96,12 +96,6 @@ Router.route('/payments', function () {
     this.render('payments');
 });
 
-Router.route('/downgrade', function () {
-	Meteor.call('downgradeToRegular', Meteor.user()._id);	
-	Bert.alert( 'Konto algseadistatud', 'success' );
-	Router.go('root');
-});
-
 Router.route('/logout', function () {
 	Meteor.logout(function(err){
         if (err) {
@@ -113,10 +107,11 @@ Router.route('/logout', function () {
 	Router.go('root');
 });
 
+/*
 Router.route('/dashboard', function () {
     this.render('dashboard');
 });
-
+*/
 Router.route('/rules', function () {
     this.render('rules');
 });
@@ -136,10 +131,7 @@ Router.route('/table', {
 Router.route('/login', function () {
     this.render('login');
 });
-Router.route('/register', function () {
-    this.render('register');
-    this.layout('blankLayout');
-});
+
 Router.route('/errorOne', function () {
     this.render('errorOne');
     this.layout('blankLayout');
@@ -150,10 +142,6 @@ Router.route('/errorTwo', function () {
 });
 Router.route('/lock', function () {
     this.render('lock');
-    this.layout('blankLayout');
-});
-Router.route('/passwordRecovery', function () {
-    this.render('passwordRecovery');
     this.layout('blankLayout');
 });
 
