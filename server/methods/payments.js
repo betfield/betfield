@@ -64,7 +64,7 @@ Meteor.methods({
 
 		// Let's create transaction.
 		gateway.transaction.sale({
-			amount: '1.00',
+			amount: '20.00',
 	  		paymentMethodNonce: nonceFromTheClient, // Generated nonce passed from client
 	  		customer: {
 				id: user.customerId
