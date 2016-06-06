@@ -19,7 +19,7 @@ OnBeforeActions = {
 };
 
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-	except: ['login', 'logout']
+	except: ['login', 'logout', 'rules']
 });
 
 //
