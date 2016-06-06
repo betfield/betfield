@@ -8,7 +8,7 @@ UserRoles = {
 Meteor.users.after.insert(function (userId, doc) {
 	try {
 		if (doc.profile.email == Meteor.settings.private.BF_EMAIL) {
-			Roles.addUsersToRoles(doc._id, [UserRoles.admin, UserRoles.registered]);
+			Roles.addUsersToRoles(doc._id, [UserRoles.admin]);
 		} else {
 			Roles.addUsersToRoles(doc._id, UserRoles.regular);
 		}
@@ -51,8 +51,11 @@ Accounts.onCreateUser(function (options,user) {
 	// append profile to Meteor user
 	user.profile = profile;
 	
-	Meteor.call("createUserPredictions", user._id);
-	Meteor.call("updateUserPoints", user);
+	if (user.profile.email != Meteor.settings.private.BF_EMAIL) {
+		Meteor.call("createUserPredictions", user._id);
+		Meteor.call("updateUserPoints", user);
+		console.log("regular user data added");
+	}
 	
 	return user;
 });

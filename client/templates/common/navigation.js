@@ -47,9 +47,9 @@ Template.navigation.helpers({
         if (Roles.userIsInRole(userId, ['administrator'])) {
             return "Administraator";
         } else if (Roles.userIsInRole(userId, ['registered-user'])) {
-            return "Registreeritud";
+            return "Aktiveeritud";
         } else {
-            return "Tavakasutaja";
+            return "Mitteaktiivne";
         }
 
     },

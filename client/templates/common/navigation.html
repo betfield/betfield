@@ -12,14 +12,23 @@
 
                     <div class="dropdown">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                            <small class="text-muted">{{userRoleName}}<b class="caret"></b></small>
+                            {{#if isInRole 'registered-user'}}
+                                <small class="text-muted">{{userRoleName}}<b class="caret"></b></small>
+                            {{else}}    
+                                {{#if isInRole 'administrator'}}
+                                    <small class="text-admin">{{userRoleName}}<b class="caret"></b></small>
+                                {{else}}
+                                <small class="text-activate">{{userRoleName}}<b class="caret"></b></small>
+                                {{/if}}
+                            {{/if}}
                         </a>
                         <ul class="dropdown-menu animated flipInX m-t-xs">
-							{{#if isInRole 'registered-user'}}
-                            <li><a href="{{pathFor route='root'}}">Pealeht</a></li>
+							{{#unless isInRole 'regular-user'}}
+							<!--li><a href="{{pathFor route='payments'}}">Aktiveeri ennustus</a></li-->
+                            <li><a href="#">Aktiveeri ennustus</a></li>
                             {{else}}
-							<li><a href="{{pathFor route='payments'}}">Registreeri</a></li>
-                            {{/if}}
+                            <li><a href="{{pathFor route='root'}}">Pealeht</a></li>
+                            {{/unless}}
                             <li class="divider"></li>
                             <li><a href="{{pathFor route='logout'}}">Logi välja</a></li>
                         </ul>
@@ -43,7 +52,10 @@
                 <li class="{{isActiveRoute regex='table'}}"><a href="{{pathFor route='table'}}">Edetabel</a></li>
 				<li class="{{isActiveRoute regex='calendar'}}"><a href="{{pathFor route='calendar'}}">Kalender</a></li>
                 <li class="{{isActiveRoute regex='rules'}}"><a href="{{pathFor route='rules'}}">Reeglid</a></li>
-                <li class="{{isActiveRoute regex='payments'}}"><a href="{{pathFor route='payments'}}">Registreeri</a></li>
+                {{#if isInRole 'regular-user'}}
+                    <!--li class="{{isActiveRoute regex='payments'}} text-activate"><a href="{{pathFor route='payments'}}">Aktiveeri</a></li-->
+                    <li class="{{isActiveRoute regex='payments'}} text-activate"><a href="#">Aktiveeri</a></li>
+                {{/if}}
                 <!--li class="{{isActiveRoute regex='profile'}}"><a href="{{pathFor route='profile'}}">Profiil</a></li-->
             </ul>
 			

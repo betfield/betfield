@@ -8,11 +8,13 @@
                     <th data-class="bf-table-vs" data-sort-ignore="true" class="bf-center"></th>
                     <th data-class="bf-table-away" data-sort-ignore="true" data-hide="phone" class="bf-center">Võõrsil</th>
                     <th data-class="bf-table-group" data-hide="phone, tablet" data-ignore="true" class="bf-center">Grupp</th>
+                    <th data-class="bf-table-round" data-hide="phone, tablet" class="bf-center">Voor</th>
                     <th data-class="bf-table-score" data-sort-ignore="true" class="bf-center">Tulemus</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -38,6 +40,7 @@
                     </td>
                     <td class="bf-table-away">{{fixture.away_team.name}}</td>
                     <td class="bf-table-group">{{fixture.group}}</td>
+                    <td class="bf-table-group">{{fixture.round}}</td>
                     <td class="bf-table-score">
                         <div id= "testscore"> 
                             <input id="fixture-id" type="hidden" value={{fixture._id}}>

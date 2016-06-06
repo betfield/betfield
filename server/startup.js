@@ -65,7 +65,7 @@ Meteor.startup(function () {
 		console.log("Running Fixture status update:");
 		Meteor.call("updateFixtureStatuses");
 	}, {
-		minute: 21
+		minute: 0
 	});
 	
 });

@@ -94,7 +94,6 @@ Router.route('/predictions/:_id', function () {
 */
 Router.route('/payments', function () {
     this.render('payments');
-    this.layout('landingLayout');
 });
 
 Router.route('/downgrade', function () {
