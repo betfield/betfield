@@ -23,12 +23,11 @@
                             {{/if}}
                         </a>
                         <ul class="dropdown-menu animated flipInX m-t-xs">
-							{{#unless isInRole 'regular-user'}}
-							<!--li><a href="{{pathFor route='payments'}}">Aktiveeri ennustus</a></li-->
-                            <li><a href="#">Aktiveeri ennustus</a></li>
+							{{#if isInRole 'regular-user'}}
+							<li><a href="{{pathFor route='payments'}}">Aktiveeri ennustus</a></li>
                             {{else}}
                             <li><a href="{{pathFor route='root'}}">Pealeht</a></li>
-                            {{/unless}}
+                            {{/if}}
                             <li class="divider"></li>
                             <li><a href="{{pathFor route='logout'}}">Logi välja</a></li>
                         </ul>
@@ -43,6 +42,7 @@
                     </div>
                     <!--div id="sparkline1" class="small-chart m-t-sm"></div-->
                 </div>
+                
             </div>
             {{/if}}
             

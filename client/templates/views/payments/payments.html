@@ -1,33 +1,61 @@
 <template name="payments">
+	{{#staggering}}
 
-	<div class="container">
-		<!-- PayPal Logo -->
-		<table border="0" cellpadding="10" cellspacing="0" align="center">
-			<tr><td align="center"></td></tr>
-			<tr>
-				<td align="center">
-					<a href="https://www.paypal.com/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/webapps/mpp/paypal-popup',
-						'WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
-						<img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_now_accepting_pp_2line_w.png" border="0" alt="Now Accepting PayPal">
-					</a>
-					<div style="text-align:center">
-						<a href="https://www.paypal.com/webapps/mpp/how-paypal-works">
-							<font size="2" face="Arial" color="#0079CD">How PayPal Works</font>
-						</a>
-					</div>
-				</td>
-			</tr>
-		</table><!-- PayPal Logo -->
-		
-		<form id="checkout" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-			<input type="hidden" name="cmd" value="_s-xclick">
-			<input type="hidden" name="hosted_button_id" value="8SGBN3P3V8G3Q">
+    <div class="content">
 
-			<div id="payment-form"></div>
-			<button type="submit" class="btn btn-success">Pay €15</button>
-			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="Tasu osavõtumaks ja naudi mängu!">
-			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-		</form>
-	</div>
+        <div class="row">
+            <div class="col-lg-12">
+                {{#panel}}
+                
+                    <div class="bf-table">
+                        <div id="selector" class="fc fc-ltr fc-unthemed bf-table-selector">
+                            <div class="fc-toolbar">
+                                <div class="fc-left">
+                                    <h1>Aktiveeri ennustus</h1>
+                                </div>   
+                            </div>
+                        </div>
+						
+						<div class="row">
+							
+							{{#if isInRole 'regular-user'}}
+                            <div class="col-md-4 text-center">
+                                <div class="hpanel">
+                                    <!--div class="panel-body login-panel"-->
+                                        
+										<form id="checkout" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+											<input type="hidden" name="cmd" value="_s-xclick">
+											<input type="hidden" name="hosted_button_id" value="8SGBN3P3V8G3Q">
+
+											<div id="payment-form"></div>
+											
+											<div class="login-panel">
+												<p>Vali ülevalt sobiv makseviis ja tasu osavõtumaks, et oma ennustus aktiveerida. Ainult nii on sul võimalus ennustusmängust osa võtta ning auhindade peale võistelda!<br><br>
+													Toetatud on kõik suuremad krediitkaardid ja Paypali maksed. 
+												</p>
+											</div>									
+											<button type="submit" class="btn-lg btn-success">Maksa €20</button>
+										</form>				
+                                </div>
+                            </div>
+							{{else}}
+							<div>
+								<p>Oled juba aktiveeritud!</p>
+							</div>
+							{{/if}}
+							<div class="col-md-6 text-left">
+								<img src="images/mascot.jpg"/>    
+                            </div>
+                        </div>
+						
+                    </div>
+            
+                    
+                {{/panel}}
+            </div>
+        </div>
+
+    </div>
+	{{/staggering}}
 	
 </template>
