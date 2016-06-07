@@ -15,12 +15,18 @@
                 </button>
                 <div class="collapse mobile-navbar" id="mobile-collapse">
                     <ul class="nav navbar-nav">
+                        {{#if currentUser }}
                         <li>
-                            <a class="" href="{{pathFor route='login'}}">Logi sisse</a>
+                            <a class="" href="{{pathFor route='root'}}">Pealeht</a>
                         </li>
                         <li>
                             <a class="" href="{{pathFor route='logout'}}">Logi välja</a>
                         </li>
+                        {{else }}
+                        <li>
+                            <a class="" href="{{pathFor route='login'}}">Logi sisse</a>
+                        </li>
+                        {{/if}}
                     </ul>
                 </div>
             </div>
