@@ -33,7 +33,7 @@
                         </ul>
                     </div>
 
-
+                    {{#if isInRole 'registered-user'}}
                     <div>
                         <h4 class="font-extra-bold m-b-xs">
                             {{userPoints.total}} punkti
@@ -41,6 +41,7 @@
                         <!--small class="text-muted">Sinu viimaste ennustuste graafik</small-->
                     </div>
                     <!--div id="sparkline1" class="small-chart m-t-sm"></div-->
+                    {{/if}}
                 </div>
                 
             </div>
