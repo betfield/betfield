@@ -96,20 +96,21 @@ Meteor.methods({
 		if (Meteor.settings.private.TEST_TIME) {
 			currentDate = new Date(Meteor.settings.private.TEST_TIME);
 		}
-			
+
+		console.log("Current: ", currentDate.toISOString());
+
 		for (i = 0; i < rounds; i++) { 
 			roundFixtures[i] = Fixtures.find({"round": i+1}).fetch();
 			
 			var firstRoundFixtureDate = orderByDate(roundFixtures[i], "ts")[0].ts;
 			
 			console.log("Round start: ", firstRoundFixtureDate);
-			console.log("Current: ", currentDate.toISOString());
 			
 			if (firstRoundFixtureDate > currentDate.toISOString()) {
-				console.log("enabled");
+				console.log("Predictions enabled");
 				Fixtures.update({"round": i+1}, {$set: {"status": "enabled"}}, {multi: true});
 			} else {
-				console.log("disabled");
+				console.log("Predictions disabled");
 				Fixtures.update({"round": i+1}, {$set: {"status": "disabled"}}, {multi: true});
 			}
 		}

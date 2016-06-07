@@ -61,7 +61,9 @@ Meteor.startup(function () {
 		console.error('SB.logger is not set - client is unable to send logs to server');
 	};
 	
-	var everySecond = new Cron(function() {
+	Meteor.call("updateFixtureStatuses");
+	
+	var everyHour = new Cron(function() {
 		console.log("Running Fixture status update:");
 		Meteor.call("updateFixtureStatuses");
 	}, {
