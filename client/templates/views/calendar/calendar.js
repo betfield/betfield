@@ -96,6 +96,7 @@ Template.calendar.onRendered(function(){
 		aspectRatio: 'auto', // ratio of width-to-height - larger numbers make smaller heights
 		timeFormat: 'HH:mm', // uppercase H for 24-hour clock
 		timezone: 'local',
+		firstDay: 1,
 		defaultDate: firstFixtureDate,
 		monthNames: [
 				TAPi18n.__('month_jan'),
@@ -126,22 +127,22 @@ Template.calendar.onRendered(function(){
 				TAPi18n.__('month_dec_s')
 			], 
 		dayNames: [
+				TAPi18n.__('day_sun'),
 				TAPi18n.__('day_mon'),
 				TAPi18n.__('day_tue'),
 				TAPi18n.__('day_wed'),
 				TAPi18n.__('day_thu'),
 				TAPi18n.__('day_fri'),
-				TAPi18n.__('day_sat'),
-				TAPi18n.__('day_sun')
+				TAPi18n.__('day_sat')
 			], 
 		dayNamesShort: [
+				TAPi18n.__('day_sun_s'),
 				TAPi18n.__('day_mon_s'),
 				TAPi18n.__('day_tue_s'),
 				TAPi18n.__('day_wed_s'),
 				TAPi18n.__('day_thu_s'),
 				TAPi18n.__('day_fri_s'),
-				TAPi18n.__('day_sat_s'),
-				TAPi18n.__('day_sun_s')
+				TAPi18n.__('day_sat_s')
 			],
 		buttonText: {
 			today: TAPi18n.__('today'),
