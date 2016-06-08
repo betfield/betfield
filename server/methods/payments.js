@@ -11,6 +11,8 @@ Meteor.startup(function () {
 		env = Braintree.Environment.Sandbox;
 	}
 
+	console.log("Braintree env: ", env);
+
 	// Initialize Braintree connection:
 	gateway = BrainTreeConnect({
 		environment: env,
@@ -30,6 +32,7 @@ Meteor.methods({
 		}
 
 		var response = generateToken(options);
+		
 		return response.clientToken;
 	},
 
@@ -41,49 +44,72 @@ Meteor.methods({
 			email: user.profile.email
 		};
 		
-		// Calling the Braintree API to create our customer!
-		gateway.customer.create(customerData, function(error, response){
-			if (error){
-				console.log(error);
-			} else {
-				// If customer is successfuly created on Braintree servers,
-				// we will now add customer ID to our User
-				Meteor.users.update(user._id, {
-					$set: {
-						customerId: response.customer.id
-					}
-				});
-			}
-		});
+		if (user.customerId) {
+			Meteor.users.update(user._id, {
+				$set: {
+					existingCustomerId: true
+				}
+			});
+		} else {
+			// Calling the Braintree API to create our customer!
+			gateway.customer.create(customerData, function(error, response){
+				if (error){
+					console.log(error);
+				} else {
+					// If customer is successfuly created on Braintree servers,
+					// we will now add customer ID to our User
+					Meteor.users.update(user._id, {
+						$set: {
+							customerId: response.customer.id
+						}
+					});
+				}
+			});
+		}
 	},
 
 	createTransaction: function(nonceFromTheClient) {
 		check(nonceFromTheClient, String);
 		
 		var user = Meteor.user();
+		var customerId, customer;
 
-		// Let's create transaction.
-		gateway.transaction.sale({
+		if (user.existingCustomerId) {
+			customerId = user.customerId;
+			customer = {}
+		} else {
+			customer = {
+				id: user.customerId
+	  		}
+		}
+
+		var options = {
 			amount: '20.00',
 	  		paymentMethodNonce: nonceFromTheClient, // Generated nonce passed from client
-	  		customer: {
-				id: user.customerId
-	  		},
+	  		customer: customer,
+			customerId: customerId,
 	  		options: {
 				submitForSettlement: true, // Payment is submitted for settlement immediatelly
 				storeInVaultOnSuccess: true // Store customer in Braintree's Vault
 	  		}
-		}, function (err, success) {
-	  		if (err) { 
-				console.log(err);
-	  		} else {
-				// When payment's successful, add "registered-user" role to current user.
-				Roles.addUsersToRoles(user._id, ['registered-user'])
-				Roles.removeUsersFromRoles(user._id, 'regular-user')
-				Meteor.call("updateUserPoints", user);
-				console.log("Payment created for user: ", user._id);
-	  		}
-		});
+		};
+
+		// Let's create transaction in a synchronised way
+		var syncFunction = Meteor.wrapAsync(gateway.transaction.sale);
+		var result = syncFunction(options);
+
+		console.log("Result:", result);
+
+		if (result.success) {
+			// When payment's successful, add "registered-user" role to current user.
+			Roles.addUsersToRoles(user._id, ['registered-user'])
+			Roles.removeUsersFromRoles(user._id, 'regular-user')
+			Meteor.call("updateUserPoints", user);
+			console.log("Payment created for user: ", user._id);
+			return result;
+		} else {
+			return false;
+		}
 	},
 
 	/*downgradeToRegular: function(userId) {
