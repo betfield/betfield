@@ -36,6 +36,10 @@ Meteor.publish('userPoints', function(user) {
 	return Points.find({"user._id": user});
 });
 
+Meteor.publish('userData', function() {
+	return Meteor.users.find({"roles": "regular-user"});
+});
+
 Meteor.methods({
 	updateUserPoints: function( user ) {
 		check( user, Object );
@@ -57,5 +61,17 @@ Meteor.methods({
 				Predictions.insert( prediction );
 			});*/
 		
+	},
+	updateUserToRegistered: function(userId) {
+		check(userId, String);
+
+		Roles.addUsersToRoles(userId, ['registered-user']);
+		Roles.removeUsersFromRoles(userId, 'regular-user');
+
+		var user = Meteor.users.findOne({"_id": userId});
+		console.log(user);
+		Meteor.call("updateUserPoints", user);
+
+		console.log("Updated to registered: ", user.profile.name);
 	}
 });	

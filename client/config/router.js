@@ -119,8 +119,14 @@ Router.route('/rules', function () {
 Router.route('/table', {
     name: 'table',
     waitOn: function() {
-        // Wait until all data is retreived from the DB before rendering the page
-        return Meteor.subscribe('points');
+        if (Meteor.userId()) {
+            if (Roles.userIsInRole(Meteor.userId(), ['administrator'])) {
+                Meteor.subscribe('userData');
+                return Meteor.subscribe('points');    
+            } else {
+                return Meteor.subscribe('points');
+            }
+        }
     }
 });
 

@@ -1,0 +1,10 @@
+<template name="userTable">    
+    <form id="user-form">    
+        <select id="user-select">
+            {{#each this}}
+                <option value="{{_id}}">{{profile.name}}</option>
+            {{/each}}
+        </select>
+        <button id="user-activate-submit" type="submit" class="btn btn-success">Aktiveeri</button>
+    </form>
+</template>
