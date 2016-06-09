@@ -79,8 +79,6 @@ Template.navigation.helpers({
                 i = 7;
             }
         };
-        console.log(currentDate.toISOString());
-        console.log(roundDate);
         
         switch(roundDate.round) {
             case 1:

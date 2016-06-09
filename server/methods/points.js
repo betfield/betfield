@@ -41,7 +41,7 @@ Meteor.publish('userData', function() {
 });
 
 Meteor.methods({
-	updateUserPoints: function( user ) {
+	createUserPoints: function( user ) {
 		check( user, Object );
 		
 		var userPoints = Points.find({"user._id": user._id});
@@ -52,15 +52,48 @@ Meteor.methods({
 			points.user["_id"] = user._id;
 			Points.insert(points);
 		} 
+	},
+	updateUserPoints: function(user) {
+		check( user, String );
 		
-			/*
-			fixtures.forEach(function(fixture) {
-				fixture["result"] = {"homeGoals": "", "awayGoals": ""};
-				fixture["userPoints"] = 0;
-				var prediction = {"userId": userId, "fixture": fixture};
-				Predictions.insert( prediction );
-			});*/
+		var predictions = Predictions.find({"userId": user}).fetch(); 
+		var points = [0,0,0,0,0,0,0];
+
+		predictions.forEach(function(prediction){
+			var i = parseInt(prediction.fixture.round,10);
+			points[i-1] += parseInt(prediction.fixture.userPoints,10);
+		})
 		
+		var total = 0;
+
+		points.forEach(function(p) {
+			total += p;
+		});
+
+		console.log(points);
+		console.log(total);
+		
+		Points.update({"user._id": user}, {$set: {"round1": points[0], "round2": points[1], "round3": points[2], "round4": points[3], "round5": points[4], "round6": points[5], "round7": points[6], "total": total}});
+	},
+	updateAllUsersPredictionPoints: function(fixtureId) {
+		check(fixtureId, String );
+		
+		var predictions = Predictions.find({"fixture._id": fixtureId}).fetch();
+		var fixture = Fixtures.findOne({"_id": fixtureId});
+		console.log("Fixture: ", fixture);
+
+		predictions.forEach(function(prediction) {
+			console.log("Updating prediction points for user: " + prediction.userId + " on fixture: " + prediction.fixture._id + " with result: " + prediction.fixture.result.homeGoals + ":" + prediction.fixture.result.awayGoals + ". Actual: ", fixture.result);
+			
+			var points = userFixturePoints(prediction.fixture.result, fixture.result);
+			console.log(points);
+
+			Predictions.update({"_id": prediction._id}, {$set: {"fixture.userPoints": points}});
+			Meteor.call("updateUserPoints", prediction.userId);
+		});
+
+		console.log("User points updated for fixture: " + fixtureId);
+
 	},
 	updateUserToRegistered: function(userId) {
 		check(userId, String);
@@ -70,8 +103,36 @@ Meteor.methods({
 
 		var user = Meteor.users.findOne({"_id": userId});
 		console.log(user);
-		Meteor.call("updateUserPoints", user);
+		Meteor.call("createUserPoints", user);
 
 		console.log("Updated to registered: ", user.profile.name);
 	}
 });	
+
+function userFixturePoints(userResult, fixtureResult) {
+	
+	var home = parseInt(userResult.homeGoals, 10);
+	var away = parseInt(userResult.awayGoals, 10);
+
+	var fh = parseInt(fixtureResult.homeGoals, 10);
+	var fa = parseInt(fixtureResult.awayGoals, 10);
+	
+	console.log("User: " + home + ":" + away + ", Actual: " + fh + ":" + fa );
+	var points = 0;
+	// check if user result valid
+
+			// User has predicted the correct score (5p)
+			if (home == fh && away == fa) {
+				points = 5;
+			} 
+			// Check if the goal difference was correct (3p)
+			else if ((home - away) == (fh - fa)) {
+				points = 3;
+			// User has predicted the correct outcome of the match (2p)
+			} else if (((home - away) > 0 && (fh - fa) > 0) || 
+							((home - away) < 0 && (fh - fa) < 0)) {
+				points = 2;
+			}
+
+	return points;
+}
