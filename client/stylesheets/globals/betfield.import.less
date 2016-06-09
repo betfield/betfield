@@ -130,6 +130,7 @@ and also iPads specifically.
 @media 
 only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
 
+
 	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr { 
 	display: table-cell-block;
@@ -137,7 +138,11 @@ only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
         width: 100%; 
         .bf-table {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 100%;
+    font-size: 15px;
+}
+
+.bf-table-row {
+    max-width: 287px;
 }
 
 .bf-table h1 {
@@ -148,12 +153,12 @@ only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
 }
 
 .bf-table tbody > tr > td {
-    height: 64px;
+    height: auto;
     vertical-align: middle;
 }
 
 #testcolumn {
-    min-width: 143px;
+    min-width: 127px;
     min-height: 64px;
     display: inline-flex-center;
 }
@@ -189,9 +194,10 @@ only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
 }
 
 .bf-table-home {
-    width: 30%; 
+    width: auto; 
     text-align: right;
     height: auto;
+    font-size: 15px;
 }
 
 .bf-table-vs {
@@ -200,17 +206,19 @@ only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
 }
 
 .bf-table-vs img {
-    height: 30px; 
-    min-width: 30px;
-    max-width: 32px;
+    height: 57px; 
+    max-width: 36%;
+   // min-width: 30px;
+   // max-width: 40px;
     padding-left:5px; 
     padding-right: 5px;
 }
 
 .bf-table-away {
-    width: auto; 
+    width: 30%; 
     text-align: left;
     height: auto;
+    font-size: 15px;
 }
 
 .bf-table-group {
@@ -231,7 +239,8 @@ only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
 }
 
 .bf-table-score input {
-    width: auto;
+    width: 40%;
+    height: 57px;
     text-align: center;
 }
 
@@ -258,12 +267,9 @@ only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
 
 
 
-// NEXUS 5X
-
-
 @media 
-only screen and (max-width: 731px),
-(min-device-width: 411px) and (max-device-width: 731px)  {
+only screen and (min-device-width: 320px) and (max-device-width: 568px)  {
+
 
 	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr { 
@@ -272,7 +278,12 @@ only screen and (max-width: 731px),
         width: 100%; 
         .bf-table {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 100%;
+    font-size: 15px;
+}
+
+
+.bf-table-row {
+    max-width: 248px;
 }
 
 .bf-table h1 {
@@ -283,18 +294,18 @@ only screen and (max-width: 731px),
 }
 
 .bf-table tbody > tr > td {
-    height: 64px;
+    height: auto;
     vertical-align: middle;
 }
 
 #testcolumn {
-    min-width: 143px;
+    min-width: 108px;
     min-height: 64px;
     display: inline-flex-center;
 }
 
 #testscore {
-    min-width: 143px;
+    min-width: 108px;
     min-height: 64px;
     display: inline-flex-center;
 }
@@ -324,9 +335,10 @@ only screen and (max-width: 731px),
 }
 
 .bf-table-home {
-    width: 30%; 
+    width: auto; 
     text-align: right;
     height: auto;
+    font-size: 15px;
 }
 
 .bf-table-vs {
@@ -335,17 +347,19 @@ only screen and (max-width: 731px),
 }
 
 .bf-table-vs img {
-    height: 30px; 
-    min-width: 30px;
-    max-width: 55px;
+    height: 57px; 
+    max-width: 34%;
+   // min-width: 30px;
+   // max-width: 40px;
     padding-left:5px; 
     padding-right: 5px;
 }
 
 .bf-table-away {
-    width: auto; 
+    width: 30%; 
     text-align: left;
     height: auto;
+    font-size: 15px;
 }
 
 .bf-table-group {
@@ -366,7 +380,393 @@ only screen and (max-width: 731px),
 }
 
 .bf-table-score input {
-    width: auto;
+    width: 40%;
+    height: 57px;
+    text-align: center;
+}
+
+.bf-table-points {
+    width: auto; 
+    text-align: center;
+    height: auto;
+        }
+    }
+}
+
+
+@media 
+only screen and (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+	display: table-cell-block;
+        
+        width: 100%; 
+        .bf-table {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 23px;
+}
+
+
+.bf-table-row {
+    max-width: 695px;
+}
+
+.bf-table h1 {
+    font-weight: 600;
+    color: @color-blue; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bf-table tbody > tr > td {
+    height: auto;
+    vertical-align: middle;
+}
+
+#testcolumn {
+    min-width: 160px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+#testscore {
+    min-width: 160px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+.bf-table-selector {
+    padding-bottom: 100px;
+}
+
+.bf-center {
+    text-align:center;
+}
+
+.bf-right {
+    text-align:right;
+}
+
+.bf-left {
+    text-align:left;
+}
+
+// Table style for Predictions
+
+.bf-table-date {
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-home {
+    max-width: 30%; 
+    //max-width: 188px;
+    text-align: center;
+    height: auto;
+    font-size: 23px;
+}
+
+.bf-table-vs {
+    width: 100%;
+    text-align: center;
+}
+
+.bf-table-vs img {
+    height: 57px; 
+    max-width: 34%;
+   // min-width: 30px;
+   // max-width: 40px;
+    padding-left:5px; 
+    padding-right: 5px;
+}
+
+.bf-table-away {
+    max-width: 30%;
+    //max-width: 188px; 
+    text-align: center;
+    height: auto;
+    font-size: 23px;
+}
+
+.bf-table-group {
+    visibility: hidden
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-user {
+    width: auto; 
+    text-align: center;
+    height: auto;
+}
+
+.bf-table-score {
+    text-align:center;
+}
+
+.bf-table-score input {
+    width: 40%;
+    height: 57px;
+    text-align: center;
+}
+
+.bf-table-points {
+    width: auto; 
+    text-align: center;
+    height: auto;
+        }
+    }
+}
+
+@media 
+only screen and (min-device-width: 450px) and (max-device-width: 600px)  {
+
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+	display: table-cell-block;
+        
+        width: 100%; 
+        .bf-table {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 23px;
+}
+
+
+.bf-table-row {
+    max-width: 377px;
+}
+
+.bf-table h1 {
+    font-weight: 600;
+    color: @color-blue; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bf-table tbody > tr > td {
+    height: auto;
+    vertical-align: middle;
+}
+
+#testcolumn {
+    min-width: 160px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+#testscore {
+    min-width: 160px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+.bf-table-selector {
+    padding-bottom: 100px;
+}
+
+.bf-center {
+    text-align:center;
+}
+
+.bf-right {
+    text-align:right;
+}
+
+.bf-left {
+    text-align:left;
+}
+
+// Table style for Predictions
+
+.bf-table-date {
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-home {
+    max-width: 30%; 
+    //max-width: 188px;
+    text-align: center;
+    height: auto;
+    font-size: 23px;
+}
+
+.bf-table-vs {
+    width: 100%;
+    text-align: center;
+}
+
+.bf-table-vs img {
+    height: 57px; 
+    max-width: 35%;
+   // min-width: 30px;
+   // max-width: 40px;
+    padding-left:5px; 
+    padding-right: 5px;
+}
+
+.bf-table-away {
+    max-width: 30%;
+    //max-width: 188px; 
+    text-align: center;
+    height: auto;
+    font-size: 23px;
+}
+
+.bf-table-group {
+    visibility: hidden
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-user {
+    width: auto; 
+    text-align: center;
+    height: auto;
+}
+
+.bf-table-score {
+    text-align:center;
+}
+
+.bf-table-score input {
+    width: 40%;
+    height: 57px;
+    text-align: center;
+}
+
+.bf-table-points {
+    width: auto; 
+    text-align: center;
+    height: auto;
+        }
+    }
+}
+
+@media 
+only screen and (min-device-width: 600px) and (max-device-width: 960px)  {
+
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+	display: table-cell-block;
+        
+        width: 100%; 
+        .bf-table {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 23px;
+}
+
+
+.bf-table-row {
+    max-width: 527px;
+}
+
+.bf-table h1 {
+    font-weight: 600;
+    color: @color-blue; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bf-table tbody > tr > td {
+    height: auto;
+    vertical-align: middle;
+}
+
+#testcolumn {
+    min-width: 130px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+#testscore {
+    min-width: 130px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+.bf-table-selector {
+    padding-bottom: 100px;
+}
+
+.bf-center {
+    text-align:center;
+}
+
+.bf-right {
+    text-align:right;
+}
+
+.bf-left {
+    text-align:left;
+}
+
+// Table style for Predictions
+
+.bf-table-date {
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-home {
+    max-width: 160px; 
+    //max-width: 188px;
+    text-align: center;
+    height: auto;
+    font-size: 16px;
+}
+
+.bf-table-vs {
+    width: 100%;
+    text-align: center;
+}
+
+.bf-table-vs img {
+    height: 57px; 
+    max-width: 32%;
+   // min-width: 30px;
+   // max-width: 40px;
+    padding-left:5px; 
+    padding-right: 5px;
+}
+
+.bf-table-away {
+    max-width: 160px;
+    //max-width: 188px; 
+    text-align: center;
+    height: auto;
+    font-size: 16px;
+}
+
+.bf-table-group {
+    visibility: hidden
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-user {
+    width: auto; 
+    text-align: center;
+    height: auto;
+}
+
+.bf-table-score {
+    text-align:center;
+}
+
+.bf-table-score input {
+    width: 40%;
+    height: 57px;
     text-align: center;
 }
 
