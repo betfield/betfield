@@ -45,6 +45,10 @@ Template.predictions.helpers({
             // Convert round to Roman number
             // fixtures[i].fixture.round = decimalToRoman(f.fixture.round);
             
+            // TODO: This is an ugly hack to display correct time for the fixture. Needs fixing in the DB schema
+            var tempDate = new Date(f.fixture.ts);
+            fixtures[i].fixture.time = tempDate.getHours() + ":00";
+
             fixtures[i].fixture.status = Fixtures.findOne({"_id": f.fixture._id}).status;
             i++;
         });
