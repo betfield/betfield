@@ -78,6 +78,10 @@ Template.predictions.helpers({
             fixtures[i].fixture.home_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + homeTeamCode + ".png";
             fixtures[i].fixture.away_team.imgSrc = Meteor.settings.public.FOLDER_FLAGS + awayTeamCode + ".png";
 
+            // TODO: This is an ugly hack to display correct time for the fixture. Needs fixing in the DB schema
+            var tempDate = new Date(f.fixture.ts);
+            fixtures[i].fixture.time = tempDate.getHours() + ":00";
+
             i++;
         });
 

@@ -99,8 +99,9 @@ Meteor.methods({
 
 		console.log("Current: ", currentDate.toISOString());
 
-		for (i = 0; i < rounds; i++) { 
-			roundFixtures[i] = Fixtures.find({"round": i+1}).fetch();
+		for (i = 0; i < rounds; i++) {
+			var round = i+1; 
+			roundFixtures[i] = Fixtures.find({"round": round}).fetch();
 			
 			var firstRoundFixtureDate = orderByDate(roundFixtures[i], "ts")[0].ts;
 			
@@ -108,11 +109,25 @@ Meteor.methods({
 			
 			if (firstRoundFixtureDate > currentDate.toISOString()) {
 				console.log("Predictions enabled");
-				Fixtures.update({"round": i+1}, {$set: {"status": "enabled"}}, {multi: true});
+				Fixtures.update({"round": round}, {$set: {"status": "enabled"}}, {multi: true});
 			} else {
 				console.log("Predictions disabled");
-				Fixtures.update({"round": i+1}, {$set: {"status": "disabled"}}, {multi: true});
+				Fixtures.update({"round": round}, {$set: {"status": "disabled"}}, {multi: true});
+				Meteor.call("removeRegularUserRoundPredictions", round, function(){});
 			}
 		}
+	},
+	removeRegularUserRoundPredictions: function(round) {
+		var regularUsers = Meteor.users.find({"roles": "regular-user"}).fetch();
+		var i = 0;
+
+		regularUsers.forEach(function(user){
+			console.log("Update for user: " + user._id + ", round: " + round);
+			var regularUserPredictions = Predictions.update({"userId": user._id, "fixture.round": round}, {$set: {"fixture.result.homeGoals": "", "fixture.result.awayGoals": ""}}, {multi: true});
+			
+			i++;
+		});
+		  
+		console.log("Regular user predictions removed. Count: ", i);
 	}			
 });	

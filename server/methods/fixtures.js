@@ -31,5 +31,5 @@ Meteor.publish('fixturePredictions', function(fixture) {
 });
 
 Meteor.publish("registeredUsers", function () {
-    return Meteor.users.find({"roles": "regular-user"}, {fields: {"profile": 1, "roles": 1}});
+    return Meteor.users.find({$or: [{"roles": "regular-user"}, {"roles": "registered-user"}]}, {fields: {"profile": 1, "roles": 1}});
 });
