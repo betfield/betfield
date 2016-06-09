@@ -3,6 +3,10 @@
     font-size: 23px;
 }
 
+span {
+    text-align: center;
+}
+
 .bf-table h1 {
     font-weight: 600;
     color: @color-blue; 
@@ -52,8 +56,6 @@
 
 .bf-table-vs img {
     height: 100%; 
-    min-width: 47px;
-    min-height: 47px;
     padding-left:10px; 
     padding-right: 10px;
 }
@@ -94,13 +96,13 @@
 #testcolumn {
     min-width: 200px;
     max-height: 64px;
-    display: inline-flex;
+    display: inline-flex-center;
 }
 
 #testscore {
     min-width: 200px;
     max-height: 64px;
-    display: inline-flex;
+    display: inline-flex-center;
 }
 
 #checkout button {
@@ -120,9 +122,13 @@ Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
 and also iPads specifically.
 */
+
+
+// GALAXY S5
+
+
 @media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+only screen and (min-device-width: 360px) and (max-device-width: 640px)  {
 
 	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr { 
@@ -147,15 +153,15 @@ only screen and (max-width: 760px),
 }
 
 #testcolumn {
-    min-width: 200px;
+    min-width: 143px;
     min-height: 64px;
-    display: inline-flex;
+    display: inline-flex-center;
 }
 
 #testscore {
-    min-width: 200px;
+    min-width: 143px;
     min-height: 64px;
-    display: inline-flex;
+    display: inline-flex-center;
 }
 
 .bf-table-selector {
@@ -184,25 +190,26 @@ only screen and (max-width: 760px),
 
 .bf-table-home {
     width: 30%; 
-    text-align: left;
+    text-align: right;
     height: auto;
 }
 
 .bf-table-vs {
-    width: auto;
+    width: 100%;
     text-align: center;
 }
 
 .bf-table-vs img {
     height: 30px; 
-    min-width: 47px;
-    padding-left:10px; 
-    padding-right: 10px;
+    min-width: 30px;
+    max-width: 32px;
+    padding-left:5px; 
+    padding-right: 5px;
 }
 
 .bf-table-away {
     width: auto; 
-    text-align: center;
+    text-align: left;
     height: auto;
 }
 
@@ -248,3 +255,125 @@ only screen and (max-width: 760px),
     font-size: 18px;
 }
 // ----------------------------
+
+
+
+// NEXUS 5X
+
+
+@media 
+only screen and (max-width: 731px),
+(min-device-width: 411px) and (max-device-width: 731px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+	display: table-cell-block;
+        
+        width: 100%; 
+        .bf-table {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 100%;
+}
+
+.bf-table h1 {
+    font-weight: 600;
+    color: @color-blue; 
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bf-table tbody > tr > td {
+    height: 64px;
+    vertical-align: middle;
+}
+
+#testcolumn {
+    min-width: 143px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+#testscore {
+    min-width: 143px;
+    min-height: 64px;
+    display: inline-flex-center;
+}
+
+.bf-table-selector {
+    padding-bottom: 100px;
+}
+
+.bf-center {
+    text-align:center;
+}
+
+.bf-right {
+    text-align:right;
+}
+
+.bf-left {
+    text-align:left;
+}
+
+// Table style for Predictions
+
+.bf-table-date {
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-home {
+    width: 30%; 
+    text-align: right;
+    height: auto;
+}
+
+.bf-table-vs {
+    width: 100%;
+    text-align: center;
+}
+
+.bf-table-vs img {
+    height: 30px; 
+    min-width: 30px;
+    max-width: 55px;
+    padding-left:5px; 
+    padding-right: 5px;
+}
+
+.bf-table-away {
+    width: auto; 
+    text-align: left;
+    height: auto;
+}
+
+.bf-table-group {
+    visibility: hidden
+    width: auto; 
+    text-align:center;
+    height: auto;
+}
+
+.bf-table-user {
+    width: auto; 
+    text-align: center;
+    height: auto;
+}
+
+.bf-table-score {
+    text-align:center;
+}
+
+.bf-table-score input {
+    width: auto;
+    text-align: center;
+}
+
+.bf-table-points {
+    width: auto; 
+    text-align: center;
+    height: auto;
+        }
+    }
+}
