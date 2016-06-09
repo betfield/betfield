@@ -17,4 +17,7 @@ Meteor.startup(function () {
 	// Allow Paypal
 	BrowserPolicy.content.allowOriginForAll('*.paypalobjects.com');
 	
+	// Countdown ticker
+	BrowserPolicy.content.allowOriginForAll('*.timeanddate.com');
+
 });

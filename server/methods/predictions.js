@@ -73,10 +73,6 @@ Meteor.methods({
 			currentDate = new Date(Meteor.settings.private.TEST_TIME);
 		}
 		
-		console.log(fixture);
-		console.log(firstRoundFixtureDate);
-		console.log(currentDate.toISOString());
-		
 		return (firstRoundFixtureDate < currentDate.toISOString());
 	},
 	updateFixtureStatuses: function() {
