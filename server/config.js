@@ -34,8 +34,6 @@ ServiceConfiguration.configurations.insert({
 
 console.log("Twitter login configuration inserted");
 
-/*
-
 Router.route('/football-data.events', function() {
     this.response.setHeader( 'Access-Control-Allow-Origin', '*' );
 
@@ -52,4 +50,3 @@ Router.route('/football-data.events', function() {
         }
     }, {where: 'server'});
     
-    */

@@ -74,10 +74,10 @@ var fixtures = [{"competition":"EURO 2016","day":"Friday","date":"10 juuni","tim
 	
 	} // end of if
 	
-/*	Meteor.setInterval(function() {
+Meteor.setInterval(function() {
     
 		HTTP.call( 'GET', // Meteor.settings.public.RESULTS_FEED_API + //Meteor.settings.public.RESULTS_FEED_ACTIVE_LEAGUE + 
-					"http://api.football-data.org/v1/fixtures/149434", {
+					"http://api.football-data.org/v1/fixtures/149855", {
 			headers: {
 				"X-Auth-Token": Meteor.settings.private.RESULTS_FEED_KEY
 			},
@@ -89,12 +89,11 @@ var fixtures = [{"competition":"EURO 2016","day":"Friday","date":"10 juuni","tim
 				console.log( error );
 			} else {
 				var fixtureSet = JSON.parse( response.content );
-				//console.log(fixtureSet);
+				console.log(fixtureSet);
 				
 			}
 		});
 
-	}, 10000);
-*/	
+	}, (5*60*1000));	
 });
 
