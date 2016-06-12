@@ -82,6 +82,8 @@ Template.predictions.helpers({
             var tempDate = new Date(f.fixture.ts);
             fixtures[i].fixture.time = tempDate.getHours() + ":00";
 
+            fixtures[i].fixture.status = "";
+
             i++;
         });
 
