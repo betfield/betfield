@@ -33,3 +33,29 @@ Meteor.publish('fixturePredictions', function(fixture) {
 Meteor.publish("registeredUsers", function () {
     return Meteor.users.find({$or: [{"roles": "regular-user"}, {"roles": "registered-user"}]}, {fields: {"profile": 1, "roles": 1}});
 });
+
+
+function getActiveMatchdayFixtures() {
+	HTTP.call( 'GET', Meteor.settings.public.RESULTS_FEED_API + 
+				Meteor.settings.public.RESULTS_FEED_ACTIVE_LEAGUE, 
+		{
+			headers: {
+				"X-Auth-Token": Meteor.settings.private.RESULTS_FEED_KEY
+			},
+			params: {
+				"matchday": 1
+			}
+		}, function( error, response ) {
+			if ( error ) {
+				console.log( error );
+			} else {
+				var fixtureSet = JSON.parse( response.content );
+				console.log(fixtureSet);
+				
+			}
+		});
+}
+
+Meteor.setInterval(function() {
+
+}, (5*60*1000));	

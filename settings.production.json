@@ -4,8 +4,8 @@
 		"BT_MERCHANT_ID": "zq49b9jfbc2s6m38",
 		"BT_PUBLIC_KEY": "yqs64fpwpx5ht3t8",
 		"LOGGLEY_SERVER": "betfield.loggly.com",
-		"RESULTS_FEED_API": "http://api.football-data.org/v1",
-		"RESULTS_FEED_ACTIVE_LEAGUE": "/soccerseasons/424",
+		"RESULTS_FEED_API": "http://api.football-data.org/v1/",
+		"RESULTS_FEED_ACTIVE_LEAGUE": "soccerseasons/424", 
 		
 		"FOLDER_FLAGS": "/teams/flags/"
 	},

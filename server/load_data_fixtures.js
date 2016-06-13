@@ -74,26 +74,5 @@ var fixtures = [{"competition":"EURO 2016","day":"Friday","date":"10 juuni","tim
 	
 	} // end of if
 	
-Meteor.setInterval(function() {
-    
-		HTTP.call( 'GET', // Meteor.settings.public.RESULTS_FEED_API + //Meteor.settings.public.RESULTS_FEED_ACTIVE_LEAGUE + 
-					"http://api.football-data.org/v1/fixtures/149855", {
-			headers: {
-				"X-Auth-Token": Meteor.settings.private.RESULTS_FEED_KEY
-			},
-			params: {
-				
-			}
-		}, function( error, response ) {
-			if ( error ) {
-				console.log( error );
-			} else {
-				var fixtureSet = JSON.parse( response.content );
-				console.log(fixtureSet);
-				
-			}
-		});
-
-	}, (5*60*1000));	
 });
 
