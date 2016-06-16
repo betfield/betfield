@@ -2,8 +2,8 @@
         <table id="userPoints" class="footable table table-stripped" data-page-size="100" data-filter=#filter>
             <thead>
                 <tr>
-                    <th data-class="bf-table-pos" class="bf-center">Pos</th>
-                    <th data-class="bf-table-user" data-sort-ignore="true" class="bf-center">Kasutaja</th>
+                    <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">Pos</th>
+                    <th data-class="bf-table-team" data-sort-ignore="true">Kasutaja</th>
                     <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">I</th>
                     <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">II</th>
                     <th data-class="bf-table-points" data-sort-ignore="true" class="bf-center">III</th>
@@ -17,8 +17,8 @@
             <tbody id="pred-body">
                 {{#each this}}
                 <tr>
-                    <td class="bf-table-pos">{{pos}}</td>
-                    <td class="bf-table-user">{{user.team}}</td>
+                    <td class="bf-table-points bf-center">{{position}}</td>
+                    <td class="bf-table-team">{{user.team}}</td>
                     <td class="bf-table-points">{{round1}}</td>
                     <td class="bf-table-points">{{round2}}</td>
                     <td class="bf-table-points">{{round3}}</td>

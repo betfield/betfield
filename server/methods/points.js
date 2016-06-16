@@ -92,6 +92,13 @@ Meteor.methods({
 			Meteor.call("updateUserPoints", prediction.userId);
 		});
 
+		// Calculate table position changes
+		try {
+			updateTablePositions();
+		} catch (err) {
+			console.log(err.stack);
+		}
+
 		console.log("User points updated for fixture: " + fixtureId);
 
 	},
@@ -108,6 +115,56 @@ Meteor.methods({
 		console.log("Updated to registered: ", user.profile.name);
 	}
 });	
+
+function updateTablePositions() {
+	var users = Meteor.users.find({"roles": "registered-user"}, {$fields: {"_id": 1}});
+	var points = [];
+
+	users.forEach(function(user){
+		points.push(Points.findOne({"user._id": user._id}));	
+	});
+	
+	console.log("Points initial: ", points);
+
+	points.sort(function (points1, points2) {
+		if (points1.total == points2.total) {
+
+			var correctScoresUser1 = Predictions.find({"userId": points1.user._id, "fixture.userPoints": 5}).count();
+			var correctScoresUser2 = Predictions.find({"userId": points2.user._id, "fixture.userPoints": 5}).count();
+
+			console.log("User1: " + correctScoresUser1 + " User2: " + correctScoresUser2);
+
+			if (correctScoresUser1 == correctScoresUser2) {
+				var correctGoalDifferenceUser1 = Predictions.find({"userId": points1.user._id, "fixture.userPoints": 3}).count();
+				var correctGoalDifferenceUser2 = Predictions.find({"userId": points2.user._id, "fixture.userPoints": 3}).count();
+
+				console.log("User1: ", correctGoalDifferenceUser1, "User2: ", correctGoalDifferenceUser2);
+
+				if (correctGoalDifferenceUser1 == correctGoalDifferenceUser2) {
+					var groupScoreUser1 = points1.round1 + points1.round2 + points1.round3;
+					var groupScoreUser2 = points2.round1 + points2.round2 + points2.round3;
+
+					console.log("User1: ", groupScoreUser1, "User2: ", groupScoreUser2);
+
+					return groupScoreUser2 - groupScoreUser1;			
+				} return correctGoalDifferenceUser2 - correctGoalDifferenceUser1;
+			}
+			else return correctScoresUser2 - correctScoresUser1;
+		} else { 
+			console.log("Points1: " + points1.total + " Points2: " + points2.total);
+			return points2.total - points1.total;
+		}
+	});
+
+	console.log("Points after: ", points);
+
+	var pos = 1;
+
+	points.forEach(function(item) {
+		Points.update({"user._id": item.user._id}, {$set: {"position": pos}});
+		pos++;
+	});
+}
 
 function userFixturePoints(userResult, fixtureResult) {
 	

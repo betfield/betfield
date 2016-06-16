@@ -1,15 +1,15 @@
 Template.table.helpers({
     userPointsData: function() {
         var points = Points.find({}).fetch();
-        return orderByTotal(points, "total");
+        return orderByTotal(points, "position");
     },
     userData: function() {
         return Meteor.users.find({}).fetch();
     }
 });
 
-function orderByTotal(arr, total) {
+function orderByTotal(arr, position) {
     return arr.slice().sort(function (a, b) {
-        return a[total] > b[total] ? -1 : 1;
+        return a[position] < b[position] ? -1 : 1;
     });
 }
