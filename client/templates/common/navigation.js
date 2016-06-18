@@ -5,9 +5,53 @@ Template.navigation.onCreated(function() {
     instance.autorun(function () {
         if(Meteor.userId()) {
             var subscription = instance.subscribe('userPoints', Meteor.userId());
+            var userFixturePointsSubs = instance.subscribe('userFixturePoints', Meteor.userId());
 
             if (subscription.ready()) {
                 instance.userPoints.set(Points.findOne({"user._id": Meteor.userId()}));
+            }
+
+            if (userFixturePointsSubs.ready()) {
+                var userFixturePoints = Predictions.find({"userId": Meteor.userId()}, {fields: {"fixture.ts": 1, "fixture.userPoints": 1}}).fetch();
+
+                // Sort array based on fixture TS
+                userFixturePoints.sort(function(first,second) {
+                    var a = first.fixture.ts;
+                    var b = second.fixture.ts;
+
+                    if (a > b) {
+                        return 1;
+                    } else if (a < b) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }   
+                });
+                
+                var currentDate = new Date();
+                // adjust current date to -2h from now so it would only show after normal time end for current fixture
+                // TODO: This should be changed based on fixture status
+                currentDate.setTime(currentDate.getTime() - (2*60*60*1000)); 
+                var userFixturePointsArray = [];
+                var count = 0;
+
+                // Remove fixtures not occurred yet and construct simple object array with only relevant data included
+                userFixturePoints.forEach(function(element) {
+                    // Only add elements to array that have fixture TS earlier to now
+                    if (element.fixture.ts < currentDate.toISOString() && count < 15) {
+                        userFixturePointsArray.push(element.fixture.userPoints);
+                        count++;
+                    }
+                });
+
+                // Sparkline bar chart data and options used under Profile image on navigation
+                $("#sparkline1").sparkline(userFixturePointsArray, {
+                    type: 'bar',
+                    barWidth: 7,
+                    height: '30px',
+                    barColor: '#0190fe',
+                    negBarColor: '#0173cb'
+                });
             } 
         }
     });
@@ -17,15 +61,6 @@ Template.navigation.onRendered(function() {
 
     // Initialize metsiMenu plugin to sidebar menu
     $('#side-menu').metisMenu();
-
-    // Sparkline bar chart data and options used under Profile image on navigation
-    $("#sparkline1").sparkline([5, 6, 7, 2, 0, 4, 2, 4, 5, 7, 2, 4, 12, 11, 4], {
-        type: 'bar',
-        barWidth: 7,
-        height: '30px',
-        barColor: '#0190fe',
-        negBarColor: '#0173cb'
-    });
 
 });
 

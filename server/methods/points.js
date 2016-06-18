@@ -36,6 +36,11 @@ Meteor.publish('userPoints', function(user) {
 	return Points.find({"user._id": user});
 });
 
+Meteor.publish('userFixturePoints', function(user) {
+	check(user, String);
+	return Predictions.find({"userId": user}, {fields: {"fixture.ts": 1, "fixture.userPoints": 1}});
+});
+
 Meteor.publish('userData', function() {
 	return Meteor.users.find({"roles": "regular-user"});
 });
@@ -117,7 +122,7 @@ Meteor.methods({
 });	
 
 function updateTablePositions() {
-	var users = Meteor.users.find({"roles": "registered-user"}, {$fields: {"_id": 1}});
+	var users = Meteor.users.find({"roles": "registered-user"}, {fields: {"_id": 1}});
 	var points = [];
 
 	users.forEach(function(user){
