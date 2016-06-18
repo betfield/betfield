@@ -10,7 +10,7 @@ Template.navigation.onCreated(function() {
             if (subscription.ready()) {
                 instance.userPoints.set(Points.findOne({"user._id": Meteor.userId()}));
             }
-
+/*
             if (userFixturePointsSubs.ready()) {
                 var userFixturePoints = Predictions.find({"userId": Meteor.userId()}, {fields: {"fixture.ts": 1, "fixture.userPoints": 1}}).fetch();
 
@@ -52,8 +52,8 @@ Template.navigation.onCreated(function() {
                     barColor: '#0190fe',
                     negBarColor: '#0173cb'
                 });
-            } 
-        }
+            }*/ 
+        } 
     });
 });
 
