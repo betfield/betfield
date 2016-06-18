@@ -5,7 +5,8 @@ Template.navigation.onCreated(function() {
     instance.autorun(function () {
         if(Meteor.userId()) {
             var subscription = instance.subscribe('userPoints', Meteor.userId());
-            var userFixturePointsSubs = instance.subscribe('userFixturePoints', Meteor.userId());
+            // This fucks up the initial load of Predictions page
+            //var userFixturePointsSubs = instance.subscribe('userFixturePoints', Meteor.userId());
 
             if (subscription.ready()) {
                 instance.userPoints.set(Points.findOne({"user._id": Meteor.userId()}));

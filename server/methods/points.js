@@ -122,7 +122,7 @@ Meteor.methods({
 });	
 
 function updateTablePositions() {
-	var users = Meteor.users.find({"roles": "registered-user"}, {fields: {"_id": 1}});
+	var users = Meteor.users.find({"roles": "registered-user"});
 	var points = [];
 
 	users.forEach(function(user){
