@@ -8,18 +8,14 @@ Template.navigation.onCreated(function() {
             var subscription = instance.subscribe('userPoints', Meteor.userId());
         } 
 
-        if (subscription.ready()) {
+        if (subscription && subscription.ready()) {
             instance.userPoints.set(Points.findOne({"user._id": Meteor.userId()}));
 
             var userFixturePointsCursor = Predictions.find({"userId": Meteor.userId()}, {fields: {"fixture.ts": 1, "fixture.userPoints": 1}});
             
             if (userFixturePointsCursor.count() > 0) {
                 var userFixturePoints = userFixturePointsCursor.fetch();
-                console.log(userFixturePoints);
                 instance.pointsArray.set(getLast15Points(userFixturePoints));
-
-                console.log(instance.pointsArray.get());
-                console.log(instance.pointsArray.get());
 
                 // Sparkline bar chart data and options used under Profile image on navigation
                 $("#sparkline1").sparkline(instance.pointsArray.get(), {
@@ -127,7 +123,7 @@ function getLast15Points(userFixturePoints) {
         var a = first.fixture.ts;
         var b = second.fixture.ts;
 
-        if (a > b) {
+        if (a < b) {
             return 1;
         } else if (a < b) {
             return -1;
@@ -152,5 +148,5 @@ function getLast15Points(userFixturePoints) {
         }
     });
 
-    return userFixturePointsArray;
+    return userFixturePointsArray.reverse();
 }
