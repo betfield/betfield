@@ -17,6 +17,8 @@ Template.navigation.onCreated(function() {
                 var userFixturePoints = userFixturePointsCursor.fetch();
                 instance.pointsArray.set(getLast15Points(userFixturePoints));
 
+                console.log(instance.pointsArray.get());
+
                 // Sparkline bar chart data and options used under Profile image on navigation
                 $("#sparkline1").sparkline(instance.pointsArray.get(), {
                     type: 'bar',
