@@ -33,12 +33,16 @@ Meteor.publish('points', function(filter) {
 
 Meteor.publish('userPoints', function(user) {
 	check(user, String);
-	return Points.find({"user._id": user});
-});
 
-Meteor.publish('userFixturePoints', function(user) {
-	check(user, String);
-	return Predictions.find({"userId": user}, {fields: {"fixture.ts": 1, "fixture.userPoints": 1}});
+	var data = [Points.find({"user._id": user}), 
+				Predictions.find({"userId": user})
+				];
+
+	if ( data ) {
+   		return data;
+  	}
+
+  	return this.ready();
 });
 
 Meteor.publish('userData', function() {

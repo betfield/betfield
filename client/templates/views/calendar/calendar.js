@@ -40,11 +40,18 @@ Template.calendar.onRendered(function(){
 			tsEnd.setHours(tsStart.getHours()+2); // set fixture end date 2h later 
 			
 			var title;
+			var score;
 			
-			if (fixture.home_team.name == null) {
-				title = fixture.home_team + " vs " + fixture.away_team;
+			if (fixture.result && fixture.result.homeGoals && fixture.result.awayGoals) {
+				score = " " + fixture.result.homeGoals + ":" + fixture.result.awayGoals;
 			} else {
-				title = fixture.home_team.name + " vs " + fixture.away_team.name;
+				score = "";
+			}
+
+			if (fixture.home_team.name == null) {
+				title = fixture.home_team + " vs " + fixture.away_team + score;
+			} else {
+				title = fixture.home_team.name + " vs " + fixture.away_team.name + score;
 			}
 			
 			calendar_fixtures.push({

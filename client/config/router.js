@@ -34,8 +34,7 @@ Router.route('/', {
             if (Roles.userIsInRole(Meteor.userId(), ['administrator'])) {
                 return Meteor.subscribe('fixtures');    
             } else {
-                Meteor.subscribe('fixtureStatuses');
-                return Meteor.subscribe('predictions');
+                return [Meteor.subscribe('predictions'), Meteor.subscribe('fixtureStatuses'), Meteor.subscribe('userFixturePoints')];
             }
         } 
     },
@@ -59,8 +58,7 @@ Router.route('/predictions', {
             if (Roles.userIsInRole(Meteor.userId(), ['administrator'])) {
                 return Meteor.subscribe('fixtures');    
             } else {
-                Meteor.subscribe('fixtureStatuses');
-                return Meteor.subscribe('predictions');
+                return [Meteor.subscribe('predictions'), Meteor.subscribe('fixtureStatuses')];
             }
         } 
     }
@@ -69,8 +67,7 @@ Router.route('/predictions', {
 Router.route('/fixtures/:_id', {
     template: 'fixtures',
     waitOn: function() {
-        Meteor.subscribe('registeredUsers');
-        return Meteor.subscribe('fixturePredictions', this.params._id);
+        return [Meteor.subscribe('fixturePredictions', this.params._id), Meteor.subscribe('registeredUsers')];
     }
     /*,
     data: function () {
@@ -121,8 +118,7 @@ Router.route('/table', {
     waitOn: function() {
         if (Meteor.userId()) {
             if (Roles.userIsInRole(Meteor.userId(), ['administrator'])) {
-                Meteor.subscribe('userData');
-                return Meteor.subscribe('points');    
+                return [Meteor.subscribe('points'), Meteor.subscribe('userData')];    
             } else {
                 return Meteor.subscribe('points');
             }
