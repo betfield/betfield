@@ -1,6 +1,6 @@
 Template.fixtures.helpers({
     predictionsData: function() {
-        var fixtures = Predictions.find().fetch();
+        var fixtures = Predictions.find({"fixture._id": Router.current().params._id}).fetch();
         var registeredFixtures = [];
 
         if (fixtures.length > 0) {
