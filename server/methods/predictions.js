@@ -81,7 +81,7 @@ Meteor.methods({
 		return (firstRoundFixtureDate < currentDate.toISOString());
 	},
 	updateFixtureStatuses: function() {
-		var rounds = 6;
+		var rounds = 7;
 		var roundFixtures = [];
 		
 		function orderByDate(arr, dateProp) {

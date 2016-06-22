@@ -1,19 +1,22 @@
 Template.predictions.onCreated(function(){
     this.pred = new ReactiveDict();
-    this.pred.set('groupSelected',"A");
+    this.pred.set('groupSelected',"Last 16");
 });
 
 Template.predictions.events({
     'click .group-select > button' : function(event, template) {
         var id = event.target.id;
         var currentTab = $( event.target ).closest( "" );
-        
+        /*
         if (id === "ALL") {
             template.pred.set('groupSelected', {$in: ["A","B","C","D","E","F"]});
         } else {
             template.pred.set('groupSelected', id); 
         }
+        */
         
+        template.pred.set('groupSelected', id);
+
         $("#" + id).addClass("fc-state-active").siblings().removeClass("fc-state-active");
         Tracker.afterFlush(function() {
             return $('#predictions').trigger('footable_redraw');    

@@ -45,11 +45,11 @@ var fixtures = [{"competition":"EURO 2016","day":"Friday","date":"10 juuni","tim
 {"competition":"EURO 2016","day":"Monday","date":"27 juuni","time":"16:00","ts":"2016-06-27T16:00:00","home_team":"E1","away_team":"D2","stadium":"TBD","city":"St-Denis","group":"Last 16","round":4},
 {"competition":"EURO 2016","day":"Monday","date":"27 juuni","time":"19:00","ts":"2016-06-27T19:00:00","home_team":"B2","away_team":"F2","stadium":"TBD","city":"Nice","group":"Last 16","round":4},
 {"competition":"EURO 2016","day":"Thursday","date":"30 juuni","time":"19:00","ts":"2016-06-30T19:00:00","home_team":"Q1","away_team":"Q2","stadium":"TBD","city":"Marseille","group":"QF","round":5},
-{"competition":"EURO 2016","day":"Friday","date":"01 juuli","time":"19:00","ts":"2016-07-1T19:00:00","home_team":"Q3","away_team":"Q4","stadium":"TBD","city":"Lille","group":"QF","round":5},
-{"competition":"EURO 2016","day":"Saturday","date":"02 juuli","time":"19:00","ts":"2016-07-2T19:00:00","home_team":"Q5","away_team":"Q6","stadium":"TBD","city":"Bordeaux","group":"QF","round":5},
-{"competition":"EURO 2016","day":"Sunday","date":"03 juuli","time":"19:00","ts":"2016-07-3T19:00:00","home_team":"Q7","away_team":"Q8","stadium":"TBD","city":"St-Denis","group":"QF","round":5},
-{"competition":"EURO 2016","day":"Wednesday","date":"06 juuli","time":"19:00","ts":"2016-07-6T19:00:00","home_team":"S1","away_team":"S2","stadium":"TBD","city":"Lyon  ","group":"SF","round":6},
-{"competition":"EURO 2016","day":"Thursday","date":"07 juuli","time":"19:00","ts":"2016-07-7T19:00:00","home_team":"S3","away_team":"S4","stadium":"TBD","city":"Marseille","group":"SF","round":6},
+{"competition":"EURO 2016","day":"Friday","date":"01 juuli","time":"19:00","ts":"2016-07-01T19:00:00","home_team":"Q3","away_team":"Q4","stadium":"TBD","city":"Lille","group":"QF","round":5},
+{"competition":"EURO 2016","day":"Saturday","date":"02 juuli","time":"19:00","ts":"2016-07-02T19:00:00","home_team":"Q5","away_team":"Q6","stadium":"TBD","city":"Bordeaux","group":"QF","round":5},
+{"competition":"EURO 2016","day":"Sunday","date":"03 juuli","time":"19:00","ts":"2016-07-03T19:00:00","home_team":"Q7","away_team":"Q8","stadium":"TBD","city":"St-Denis","group":"QF","round":5},
+{"competition":"EURO 2016","day":"Wednesday","date":"06 juuli","time":"19:00","ts":"2016-07-06T19:00:00","home_team":"S1","away_team":"S2","stadium":"TBD","city":"Lyon  ","group":"SF","round":6},
+{"competition":"EURO 2016","day":"Thursday","date":"07 juuli","time":"19:00","ts":"2016-07-07T19:00:00","home_team":"S3","away_team":"S4","stadium":"TBD","city":"Marseille","group":"SF","round":6},
 {"competition":"EURO 2016","day":"Sunday","date":"10 juuli","time":"19:00","ts":"2016-07-10T19:00:00","home_team":"W1","away_team":"W2","stadium":"TBD","city":"St-Denis","group":"FI","round":7}]
 
 	if (Fixtures.find({competition:'EURO 2016'}).count() != 51){

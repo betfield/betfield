@@ -67,7 +67,7 @@ Router.route('/predictions', {
 Router.route('/fixtures/:_id', {
     template: 'fixtures',
     waitOn: function() {
-        return [Meteor.subscribe('fixturePredictions', this.params._id), Meteor.subscribe('registeredUsers')];
+        return [Meteor.subscribe('registeredUsers'), Meteor.subscribe('fixturePredictions', this.params._id)];
     }
     /*,
     data: function () {

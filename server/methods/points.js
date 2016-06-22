@@ -34,8 +34,9 @@ Meteor.publish('points', function(filter) {
 Meteor.publish('userPoints', function(user) {
 	check(user, String);
 
-	var data = [Points.find({"user._id": user}), 
-				Predictions.find({"userId": user})
+	var data = [Points.find({"user._id": user})
+				//TODO: Cannot publish full predictions table --- design needs to be revisited 
+				//Predictions.find({"userId": user})
 				];
 
 	if ( data ) {

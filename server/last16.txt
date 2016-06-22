@@ -1,0 +1,51 @@
+"A1":{"name":"Prantsusmaa","code":"FRA"}
+"A2":{"name":"Šveits","code":"SUI"}
+"B1":{"name":"Wales","code":"WAL"}
+"B2":{"name":"Inglismaa","code":"ENG"}
+"C1":{"name":"Saksamaa","code":"GER"}
+"C2":{"name":"Poola","code":"POL"}
+"D1":{"name":"Horvaatia","code":"CRO"}
+"D2":{"name":"Hispaania","code":"ESP"}
+"E1":{"name":"Itaalia","code":"ITA"}
+"E2":{"name":"Belgia","code":"BEL"}
+"F1":{"name":"Ungari","code":"HUN"}
+"F2":{"name":"Island","code":"ISL"}
+"BEF3":{"name":"Portugal","code":"POR"}
+"ABF3":{"name":"Slovakkia","code":"SVK"}
+"ACD3":{"name":"Põhja Iirimaa","code":"NIR"}
+"CDE3":{"name":"Iirimaa","code":"IRL"}
+
+
+db.predictions.update({"fixture.home_team":"A1"}, {$set: {"fixture.home_team": {"name":"Prantsusmaa","code":"FRA"}}},{multi: true})
+db.predictions.update({"fixture.home_team":"A2"}, {$set: {"fixture.home_team": {"name":"Šveits","code":"SUI"}}},{multi: true})
+db.predictions.update({"fixture.home_team":"B1"}, {$set: {"fixture.home_team": {"name":"Wales","code":"WAL"}}},{multi: true})
+db.predictions.update({"fixture.home_team":"B2"}, {$set: {"fixture.home_team": {"name":"Inglismaa","code":"ENG"}}},{multi: true})
+db.predictions.update({"fixture.home_team":"C1"}, {$set: {"fixture.home_team": {"name":"Saksamaa","code":"GER"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"C2"}, {$set: {"fixture.away_team": {"name":"Poola","code":"POL"}}},{multi: true})
+db.predictions.update({"fixture.home_team":"D1"}, {$set: {"fixture.home_team": {"name":"Horvaatia","code":"CRO"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"D2"}, {$set: {"fixture.away_team": {"name":"Hispaania","code":"ESP"}}},{multi: true})
+db.predictions.update({"fixture.home_team":"E1"}, {$set: {"fixture.home_team": {"name":"Itaalia","code":"ITA"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"E2"}, {$set: {"fixture.away_team": {"name":"Belgia","code":"BEL"}}},{multi: true})
+db.predictions.update({"fixture.home_team":"F1"}, {$set: {"fixture.home_team": {"name":"Ungari","code":"HUN"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"F2"}, {$set: {"fixture.away_team": {"name":"Island","code":"ISL"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"BEF3"}, {$set: {"fixture.away_team": {"name":"Portugal","code":"POR"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"ABF3"}, {$set: {"fixture.away_team": {"name":"Slovakkia","code":"SVK"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"ACD3"}, {$set: {"fixture.away_team": {"name":"Põhja Iirimaa","code":"NIR"}}},{multi: true})
+db.predictions.update({"fixture.away_team":"CDE3"}, {$set: {"fixture.away_team": {"name":"Iirimaa","code":"IRL"}}},{multi: true})
+
+db.fixtures.update({"home_team":"A1"}, {$set: {"home_team": {"name":"Prantsusmaa","code":"FRA"}}},{multi: true})
+db.fixtures.update({"home_team":"A2"}, {$set: {"home_team": {"name":"Šveits","code":"SUI"}}},{multi: true})
+db.fixtures.update({"home_team":"B1"}, {$set: {"home_team": {"name":"Wales","code":"WAL"}}},{multi: true})
+db.fixtures.update({"home_team":"B2"}, {$set: {"home_team": {"name":"Inglismaa","code":"ENG"}}},{multi: true})
+db.fixtures.update({"home_team":"C1"}, {$set: {"home_team": {"name":"Saksamaa","code":"GER"}}},{multi: true})
+db.fixtures.update({"away_team":"C2"}, {$set: {"away_team": {"name":"Poola","code":"POL"}}},{multi: true})
+db.fixtures.update({"home_team":"D1"}, {$set: {"home_team": {"name":"Horvaatia","code":"CRO"}}},{multi: true})
+db.fixtures.update({"away_team":"D2"}, {$set: {"away_team": {"name":"Hispaania","code":"ESP"}}},{multi: true})
+db.fixtures.update({"home_team":"E1"}, {$set: {"home_team": {"name":"Itaalia","code":"ITA"}}},{multi: true})
+db.fixtures.update({"away_team":"E2"}, {$set: {"away_team": {"name":"Belgia","code":"BEL"}}},{multi: true})
+db.fixtures.update({"home_team":"F1"}, {$set: {"home_team": {"name":"Ungari","code":"HUN"}}},{multi: true})
+db.fixtures.update({"away_team":"F2"}, {$set: {"away_team": {"name":"Island","code":"ISL"}}},{multi: true})
+db.fixtures.update({"away_team":"BEF3"}, {$set: {"away_team": {"name":"Portugal","code":"POR"}}},{multi: true})
+db.fixtures.update({"away_team":"ABF3"}, {$set: {"away_team": {"name":"Slovakkia","code":"SVK"}}},{multi: true})
+db.fixtures.update({"away_team":"ACD3"}, {$set: {"away_team": {"name":"Põhja Iirimaa","code":"NIR"}}},{multi: true})
+db.fixtures.update({"away_team":"CDE3"}, {$set: {"away_team": {"name":"Iirimaa","code":"IRL"}}},{multi: true})
