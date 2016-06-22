@@ -17,7 +17,7 @@ Template.predictions.events({
         
         template.pred.set('groupSelected', id);
 
-        $("#" + id).addClass("fc-state-active").siblings().removeClass("fc-state-active");
+        $("[id='" + id + "']").addClass("fc-state-active").siblings().removeClass("fc-state-active");
         Tracker.afterFlush(function() {
             return $('#predictions').trigger('footable_redraw');    
         })
