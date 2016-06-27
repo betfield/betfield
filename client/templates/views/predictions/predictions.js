@@ -50,7 +50,12 @@ Template.predictions.helpers({
             
             // TODO: This is an ugly hack to display correct time for the fixture. Needs fixing in the DB schema
             var tempDate = new Date(f.fixture.ts);
-            fixtures[i].fixture.time = tempDate.getHours() + ":00";
+            if (tempDate.getHours()) {
+                fixtures[i].fixture.time = tempDate.getHours() + ":00";
+            } else {
+                var hours = parseInt(f.fixture.time.substring(0, 2)) + 3;
+                fixtures[i].fixture.time = hours + ":00";
+            }
 
             fixtures[i].fixture.status = Fixtures.findOne({"_id": f.fixture._id}).status;
             i++;
