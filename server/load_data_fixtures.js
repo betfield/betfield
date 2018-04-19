@@ -65,7 +65,7 @@ var fixtures = [{"competition":"WC2018","group":"A","round":1,"day":"N","date":"
 {"competition":"WC2018","group":"3RD","round":7,"day":"L","date":"14.juuli","time":"15:00","ts":"2018-07-14T15:00:00","city":"Saint Petersburg","stadium":"","home_team":"L1","away_team":"L2"},
 {"competition":"WC2018","group":"FI","round":7,"day":"P","date":"15.juuli","time":"16:00","ts":"2018-07-15T16:00:00","city":"Moscow","stadium":"","home_team":"W1","away_team":"W2"}]
 
-	if (Fixtures.find({competition:'WC2018'}).count() != 51){
+	if (Fixtures.find({competition:'WC2018'}).count() != 64){
 		fixtures.forEach(function(fixture){
 			Fixtures.insert({
 				competition:fixture.competition,
